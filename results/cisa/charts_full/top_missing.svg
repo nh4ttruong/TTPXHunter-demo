@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="612" viewBox="0 0 1000 612" role="img" aria-label="Most Missed Expected Techniques">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Most Missed Expected Techniques</text>
+<text x="24" y="97" class="label">T1133 - External Remote Services</text>
+<rect x="250" y="79" width="640.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="900.00" y="97" class="value">30</text>
+<title>T1133 count 30</title>
+<text x="24" y="139" class="label">T1078 - Valid Accounts</text>
+<rect x="250" y="121" width="469.33" height="24" rx="4" fill="#2f6f9f" />
+<text x="729.33" y="139" class="value">22</text>
+<title>T1078 count 22</title>
+<text x="24" y="181" class="label">T1566 - Phishing</text>
+<rect x="250" y="163" width="469.33" height="24" rx="4" fill="#2f6f9f" />
+<text x="729.33" y="181" class="value">22</text>
+<title>T1566 count 22</title>
+<text x="24" y="223" class="label">T1190 - Exploit Public-Facing Appli...</text>
+<rect x="250" y="205" width="426.67" height="24" rx="4" fill="#2f6f9f" />
+<text x="686.67" y="223" class="value">20</text>
+<title>T1190 count 20</title>
+<text x="24" y="265" class="label">T1110 - Brute Force</text>
+<rect x="250" y="247" width="384.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="644.00" y="265" class="value">18</text>
+<title>T1110 count 18</title>
+<text x="24" y="307" class="label">T1003 - OS Credential Dumping</text>
+<rect x="250" y="289" width="384.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="644.00" y="307" class="value">18</text>
+<title>T1003 count 18</title>
+<text x="24" y="349" class="label">T1055 - Process Injection</text>
+<rect x="250" y="331" width="320.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="580.00" y="349" class="value">15</text>
+<title>T1055 count 15</title>
+<text x="24" y="391" class="label">T1105 - Ingress Tool Transfer</text>
+<rect x="250" y="373" width="320.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="580.00" y="391" class="value">15</text>
+<title>T1105 count 15</title>
+<text x="24" y="433" class="label">T1555 - Credentials from Password S...</text>
+<rect x="250" y="415" width="320.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="580.00" y="433" class="value">15</text>
+<title>T1555 count 15</title>
+<text x="24" y="475" class="label">T1552 - Unsecured Credentials</text>
+<rect x="250" y="457" width="298.67" height="24" rx="4" fill="#2f6f9f" />
+<text x="558.67" y="475" class="value">14</text>
+<title>T1552 count 14</title>
+<text x="24" y="517" class="label">T1560 - Archive Collected Data</text>
+<rect x="250" y="499" width="298.67" height="24" rx="4" fill="#2f6f9f" />
+<text x="558.67" y="517" class="value">14</text>
+<title>T1560 count 14</title>
+<text x="24" y="559" class="label">T1046 - Network Service Discovery</text>
+<rect x="250" y="541" width="277.33" height="24" rx="4" fill="#2f6f9f" />
+<text x="537.33" y="559" class="value">13</text>
+<title>T1046 count 13</title>
+</svg>

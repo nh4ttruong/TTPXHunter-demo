@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-label="Precision / Recall / F1">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Precision / Recall / F1</text>
+<line x1="70" y1="70.00" x2="860" y2="70.00" class="grid" />
+<line x1="70" y1="133.75" x2="860" y2="133.75" class="grid" />
+<line x1="70" y1="197.50" x2="860" y2="197.50" class="grid" />
+<line x1="70" y1="261.25" x2="860" y2="261.25" class="grid" />
+<line x1="70" y1="325.00" x2="860" y2="325.00" class="grid" />
+<line x1="70" y1="70" x2="70" y2="325" class="axis" />
+<line x1="70" y1="325" x2="860" y2="325" class="axis" />
+<rect x="70.00" y="262.70" width="116.67" height="62.30" rx="4" fill="#2f6f9f" />
+<text x="128.33" y="254.70" text-anchor="middle" class="value">0.244</text>
+<text x="128.33" y="372" text-anchor="middle" class="label">Micro P</text>
+<rect x="204.67" y="225.69" width="116.67" height="99.31" rx="4" fill="#4c956c" />
+<text x="263.00" y="217.69" text-anchor="middle" class="value">0.389</text>
+<text x="263.00" y="372" text-anchor="middle" class="label">Micro R</text>
+<rect x="339.33" y="248.43" width="116.67" height="76.57" rx="4" fill="#d17a22" />
+<text x="397.67" y="240.43" text-anchor="middle" class="value">0.300</text>
+<text x="397.67" y="372" text-anchor="middle" class="label">Micro F1</text>
+<rect x="474.00" y="271.30" width="116.67" height="53.70" rx="4" fill="#6f5aa7" />
+<text x="532.33" y="263.30" text-anchor="middle" class="value">0.211</text>
+<text x="532.33" y="372" text-anchor="middle" class="label">Macro P</text>
+<rect x="608.67" y="237.77" width="116.67" height="87.23" rx="4" fill="#2a9d8f" />
+<text x="667.00" y="229.77" text-anchor="middle" class="value">0.342</text>
+<text x="667.00" y="372" text-anchor="middle" class="label">Macro R</text>
+<rect x="743.33" y="263.29" width="116.67" height="61.71" rx="4" fill="#c44536" />
+<text x="801.67" y="255.29" text-anchor="middle" class="value">0.242</text>
+<text x="801.67" y="372" text-anchor="middle" class="label">Macro F1</text>
+</svg>
