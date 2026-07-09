@@ -84,25 +84,19 @@ python -m ttpxhunter infer \
 
 Useful inference options include `--threshold`, `--model-id`, `--revision`, `--device`, `--batch-size`, `--label-dict`, and `--ttpid2name`.
 
-<<<<<<< HEAD
-=======
 Long-running CISA and training commands print progress logs to stderr by
 default. Use `--quiet` to suppress progress logs while keeping final summaries
 and requested output files.
 
->>>>>>> feat/demo
 ## CISA Benchmark Workflow
 
 The CISA workflow targets Zenodo record `14659512` / DOI
 `10.5281/zenodo.14659512`.
 
-<<<<<<< HEAD
-=======
 Sơ đồ workflow tổng quát của TTPXHunter, dựa trên paper và source reproduce
 trong repo này, nằm ở
 [`docs/TTPXHUNTER_WORKFLOW.md`](docs/TTPXHUNTER_WORKFLOW.md).
 
->>>>>>> feat/demo
 For the full explanation of how CISA advisories become benchmark inputs and
 ground-truth labels, see
 [`docs/CISA_BENCHMARK_WORKFLOW.md`](docs/CISA_BENCHMARK_WORKFLOW.md).
@@ -171,8 +165,6 @@ micro_f1=0.300262
 
 The benchmark report can include SVG charts for metrics, TP/FP/FN counts, top missing techniques, top extra predictions, and article-level F1 distribution. Those charts are generated without extra plotting dependencies.
 
-<<<<<<< HEAD
-=======
 ## CISA Improvement Experiments
 
 The default CISA benchmark is intentionally kept backward-compatible. Improvement
@@ -269,7 +261,6 @@ The advanced retrain run is optional. It is meant to answer whether continued
 fine-tuning improves CISA performance compared with preprocessing-only changes;
 it should not be presented as training on CISA.
 
->>>>>>> feat/demo
 ## Testing
 
 Fast tests avoid loading the Hugging Face model:
@@ -281,11 +272,7 @@ python -m pytest
 Latest local run:
 
 ```text
-<<<<<<< HEAD
-18 passed, 1 skipped in 0.49s
-=======
 27 passed, 1 skipped in 0.25s
->>>>>>> feat/demo
 ```
 
 The full SharpPanda reproduction test downloads and runs the Hugging Face model:
