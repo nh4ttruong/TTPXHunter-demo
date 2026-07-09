@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-label="Precision / Recall / F1">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Precision / Recall / F1</text>
+<line x1="70" y1="70.00" x2="860" y2="70.00" class="grid" />
+<line x1="70" y1="133.75" x2="860" y2="133.75" class="grid" />
+<line x1="70" y1="197.50" x2="860" y2="197.50" class="grid" />
+<line x1="70" y1="261.25" x2="860" y2="261.25" class="grid" />
+<line x1="70" y1="325.00" x2="860" y2="325.00" class="grid" />
+<line x1="70" y1="70" x2="70" y2="325" class="axis" />
+<line x1="70" y1="325" x2="860" y2="325" class="axis" />
+<rect x="70.00" y="262.70" width="143.60" height="62.30" rx="4" fill="#2f6f9f" />
+<text x="141.80" y="254.70" text-anchor="middle" class="value">0.244</text>
+<text x="141.80" y="372" text-anchor="middle" class="label">Micro P</text>
+<rect x="231.60" y="225.69" width="143.60" height="99.31" rx="4" fill="#4c956c" />
+<text x="303.40" y="217.69" text-anchor="middle" class="value">0.389</text>
+<text x="303.40" y="372" text-anchor="middle" class="label">Micro R</text>
+<rect x="393.20" y="248.43" width="143.60" height="76.57" rx="4" fill="#d17a22" />
+<text x="465.00" y="240.43" text-anchor="middle" class="value">0.300</text>
+<text x="465.00" y="372" text-anchor="middle" class="label">Micro F1</text>
+<rect x="554.80" y="263.29" width="143.60" height="61.71" rx="4" fill="#6f5aa7" />
+<text x="626.60" y="255.29" text-anchor="middle" class="value">0.242</text>
+<text x="626.60" y="372" text-anchor="middle" class="label">Article F1</text>
+<rect x="716.40" y="268.55" width="143.60" height="56.45" rx="4" fill="#c44536" />
+<text x="788.20" y="260.55" text-anchor="middle" class="value">0.221</text>
+<text x="788.20" y="372" text-anchor="middle" class="label">Label F1</text>
+</svg>

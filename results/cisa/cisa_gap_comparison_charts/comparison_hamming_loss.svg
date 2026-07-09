@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-label="Hamming Loss by Variant">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Hamming Loss by Variant</text>
+<line x1="70" y1="70.00" x2="860" y2="70.00" class="grid" />
+<line x1="70" y1="133.75" x2="860" y2="133.75" class="grid" />
+<line x1="70" y1="197.50" x2="860" y2="197.50" class="grid" />
+<line x1="70" y1="261.25" x2="860" y2="261.25" class="grid" />
+<line x1="70" y1="325.00" x2="860" y2="325.00" class="grid" />
+<line x1="70" y1="70" x2="70" y2="325" class="axis" />
+<line x1="70" y1="325" x2="860" y2="325" class="axis" />
+<rect x="70.00" y="73.86" width="251.33" height="251.14" rx="4" fill="#6f5aa7" />
+<text x="195.67" y="65.86" text-anchor="middle" class="value">0.162</text>
+<text x="195.67" y="372" text-anchor="middle" class="label">baseline</text>
+<rect x="339.33" y="70.00" width="251.33" height="255.00" rx="4" fill="#6f5aa7" />
+<text x="465.00" y="62.00" text-anchor="middle" class="value">0.164</text>
+<text x="465.00" y="372" text-anchor="middle" class="label">paper-ioc</text>
+<rect x="608.67" y="137.04" width="251.33" height="187.96" rx="4" fill="#6f5aa7" />
+<text x="734.33" y="129.04" text-anchor="middle" class="value">0.121</text>
+<text x="734.33" y="372" text-anchor="middle" class="label">ioc+filter</text>
+</svg>

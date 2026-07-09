@@ -1,0 +1,2 @@
+[console_scripts]
+ttpxhunter = ttpxhunter.cli:main

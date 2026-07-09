@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="470" viewBox="0 0 1050 470" role="img" aria-label="Micro Metrics by Variant">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Micro Metrics by Variant</text>
+<line x1="80" y1="82.00" x2="1014" y2="82.00" class="grid" />
+<line x1="80" y1="144.00" x2="1014" y2="144.00" class="grid" />
+<line x1="80" y1="206.00" x2="1014" y2="206.00" class="grid" />
+<line x1="80" y1="268.00" x2="1014" y2="268.00" class="grid" />
+<line x1="80" y1="330.00" x2="1014" y2="330.00" class="grid" />
+<line x1="80" y1="82" x2="80" y2="330" class="axis" />
+<line x1="80" y1="330" x2="1010" y2="330" class="axis" />
+<rect x="80.00" y="269.41" width="92.89" height="60.59" rx="4" fill="#2f6f9f" />
+<text x="126.44" y="262.41" text-anchor="middle" class="value">0.244</text>
+<rect x="177.89" y="233.42" width="92.89" height="96.58" rx="4" fill="#4c956c" />
+<text x="224.33" y="226.42" text-anchor="middle" class="value">0.389</text>
+<rect x="275.78" y="255.54" width="92.89" height="74.46" rx="4" fill="#d17a22" />
+<text x="322.22" y="248.54" text-anchor="middle" class="value">0.300</text>
+<text x="224.33" y="394" text-anchor="middle" class="label">baseline</text>
+<rect x="402.67" y="270.69" width="92.89" height="59.31" rx="4" fill="#2f6f9f" />
+<text x="449.11" y="263.69" text-anchor="middle" class="value">0.239</text>
+<rect x="500.56" y="234.17" width="92.89" height="95.83" rx="4" fill="#4c956c" />
+<text x="547.00" y="227.17" text-anchor="middle" class="value">0.386</text>
+<rect x="598.44" y="256.73" width="92.89" height="73.27" rx="4" fill="#d17a22" />
+<text x="644.89" y="249.73" text-anchor="middle" class="value">0.295</text>
+<text x="547.00" y="394" text-anchor="middle" class="label">paper-ioc</text>
+<rect x="725.33" y="249.34" width="92.89" height="80.66" rx="4" fill="#2f6f9f" />
+<text x="771.78" y="242.34" text-anchor="middle" class="value">0.325</text>
+<rect x="823.22" y="247.27" width="92.89" height="82.73" rx="4" fill="#4c956c" />
+<text x="869.67" y="240.27" text-anchor="middle" class="value">0.334</text>
+<rect x="921.11" y="248.32" width="92.89" height="81.68" rx="4" fill="#d17a22" />
+<text x="967.56" y="241.32" text-anchor="middle" class="value">0.329</text>
+<text x="869.67" y="394" text-anchor="middle" class="label">ioc+filter</text>
+<rect x="80" y="50" width="14" height="14" rx="3" fill="#2f6f9f" />
+<text x="100" y="62" class="label">Precision</text>
+<rect x="225" y="50" width="14" height="14" rx="3" fill="#4c956c" />
+<text x="245" y="62" class="label">Recall</text>
+<rect x="370" y="50" width="14" height="14" rx="3" fill="#d17a22" />
+<text x="390" y="62" class="label">F1</text>
+</svg>

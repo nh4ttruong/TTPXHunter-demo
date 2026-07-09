@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="612" viewBox="0 0 1000 612" role="img" aria-label="Most Frequent Extra Predictions">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Most Frequent Extra Predictions</text>
+<text x="24" y="97" class="label">T1587 - Develop Capabilities</text>
+<rect x="250" y="79" width="640.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="900.00" y="97" class="value">70</text>
+<title>T1587 count 70</title>
+<text x="24" y="139" class="label">T1531 - Account Access Removal</text>
+<rect x="250" y="121" width="630.86" height="24" rx="4" fill="#2f6f9f" />
+<text x="890.86" y="139" class="value">69</text>
+<title>T1531 count 69</title>
+<text x="24" y="181" class="label">T1213 - Data from Information Repos...</text>
+<rect x="250" y="163" width="548.57" height="24" rx="4" fill="#2f6f9f" />
+<text x="808.57" y="181" class="value">60</text>
+<title>T1213 count 60</title>
+<text x="24" y="223" class="label">T1119 - Automated Collection</text>
+<rect x="250" y="205" width="512.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="772.00" y="223" class="value">56</text>
+<title>T1119 count 56</title>
+<text x="24" y="265" class="label">T1553 - Subvert Trust Controls</text>
+<rect x="250" y="247" width="420.57" height="24" rx="4" fill="#2f6f9f" />
+<text x="680.57" y="265" class="value">46</text>
+<title>T1553 count 46</title>
+<text x="24" y="307" class="label">T1482 - Domain Trust Discovery</text>
+<rect x="250" y="289" width="411.43" height="24" rx="4" fill="#2f6f9f" />
+<text x="671.43" y="307" class="value">45</text>
+<title>T1482 count 45</title>
+<text x="24" y="349" class="label">T1498 - Network Denial of Service</text>
+<rect x="250" y="331" width="411.43" height="24" rx="4" fill="#2f6f9f" />
+<text x="671.43" y="349" class="value">45</text>
+<title>T1498 count 45</title>
+<text x="24" y="391" class="label">T1029 - Scheduled Transfer</text>
+<rect x="250" y="373" width="320.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="580.00" y="391" class="value">35</text>
+<title>T1029 count 35</title>
+<text x="24" y="433" class="label">T1565 - Data Manipulation</text>
+<rect x="250" y="415" width="310.86" height="24" rx="4" fill="#2f6f9f" />
+<text x="570.86" y="433" class="value">34</text>
+<title>T1565 count 34</title>
+<text x="24" y="475" class="label">T1480 - Execution Guardrails</text>
+<rect x="250" y="457" width="292.57" height="24" rx="4" fill="#2f6f9f" />
+<text x="552.57" y="475" class="value">32</text>
+<title>T1480 count 32</title>
+<text x="24" y="517" class="label">T1027 - Obfuscated Files or Informa...</text>
+<rect x="250" y="499" width="283.43" height="24" rx="4" fill="#2f6f9f" />
+<text x="543.43" y="517" class="value">31</text>
+<title>T1027 count 31</title>
+<text x="24" y="559" class="label">T1528 - Steal Application Access To...</text>
+<rect x="250" y="541" width="274.29" height="24" rx="4" fill="#2f6f9f" />
+<text x="534.29" y="559" class="value">30</text>
+<title>T1528 count 30</title>
+</svg>

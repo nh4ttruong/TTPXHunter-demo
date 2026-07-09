@@ -1,0 +1,980 @@
+{
+  "dataset": {
+    "record_id": "14659512",
+    "doi": "10.5281/zenodo.14659512",
+    "path": "datasets/cisa/CISA-crawl-rt-ttp-ct.json",
+    "total_articles": 77,
+    "evaluated_articles": 3,
+    "offset": 0,
+    "limit": 3,
+    "text_field": "clean",
+    "expected_mode": "model-label-space"
+  },
+  "model": {
+    "model_id": "nanda-rani/TTPXHunter",
+    "revision": null,
+    "threshold": 0.644,
+    "device": "cpu",
+    "batch_size": 16
+  },
+  "aggregate": {
+    "article_count": 3,
+    "tp": 23,
+    "fp": 51,
+    "fn": 29,
+    "micro": {
+      "tp": 23,
+      "fp": 51,
+      "fn": 29,
+      "precision": 0.310811,
+      "recall": 0.442308,
+      "f1": 0.365079
+    },
+    "macro": {
+      "precision": 0.268783,
+      "recall": 0.415007,
+      "f1": 0.312103
+    },
+    "expected_count": 52,
+    "predicted_count": 74
+  },
+  "technique_names": {
+    "T1001": "Data Obfuscation",
+    "T1003": "OS Credential Dumping",
+    "T1014": "Rootkit",
+    "T1018": "Remote System Discovery",
+    "T1020": "Automated Exfiltration",
+    "T1021": "Remote Services",
+    "T1027": "Obfuscated Files or Information",
+    "T1029": "Scheduled Transfer",
+    "T1046": "Network Service Discovery",
+    "T1047": "Windows Management Instrumentation",
+    "T1048": "Exfiltration Over Alternative Protocol",
+    "T1055": "Process Injection",
+    "T1057": "Process Discovery",
+    "T1059": "Command and Scripting Interpreter",
+    "T1069": "Permission Groups Discovery",
+    "T1071": "Application Layer Protocol",
+    "T1078": "Valid Accounts",
+    "T1082": "System Information Discovery",
+    "T1083": "File and Directory Discovery",
+    "T1087": "Account Discovery",
+    "T1090": "Proxy",
+    "T1098": "Account Manipulation",
+    "T1104": "Multi-Stage Channels",
+    "T1105": "Ingress Tool Transfer",
+    "T1106": "Native API",
+    "T1110": "Brute Force",
+    "T1119": "Automated Collection",
+    "T1120": "Peripheral Device Discovery",
+    "T1133": "External Remote Services",
+    "T1134": "Access Token Manipulation",
+    "T1136": "Create Account",
+    "T1140": "Deobfuscate/Decode Files or Information",
+    "T1190": "Exploit Public-Facing Application",
+    "T1201": "Password Policy Discovery",
+    "T1204": "User Execution",
+    "T1205": "Traffic Signaling",
+    "T1213": "Data from Information Repositories",
+    "T1218": "System Binary Proxy Execution",
+    "T1219": "Remote Access Software",
+    "T1482": "Domain Trust Discovery",
+    "T1486": "Data Encrypted for Impact",
+    "T1490": "Inhibit System Recovery",
+    "T1498": "Network Denial of Service",
+    "T1526": "Cloud Service Discovery",
+    "T1528": "Steal Application Access Token",
+    "T1531": "Account Access Removal",
+    "T1535": "Unused/Unsupported Cloud Regions",
+    "T1542": "Pre-OS Boot",
+    "T1547": "Boot or Logon Autostart Execution",
+    "T1548": "Abuse Elevation Control Mechanism",
+    "T1550": "Use Alternate Authentication Material",
+    "T1552": "Unsecured Credentials",
+    "T1553": "Subvert Trust Controls",
+    "T1555": "Credentials from Password Stores",
+    "T1557": "Adversary-in-the-Middle",
+    "T1560": "Archive Collected Data",
+    "T1562": "Impair Defenses",
+    "T1565": "Data Manipulation",
+    "T1566": "Phishing",
+    "T1567": "Exfiltration Over Web Service",
+    "T1578": "Modify Cloud Compute Infrastructure",
+    "T1585": "Establish Accounts",
+    "T1587": "Develop Capabilities",
+    "T1588": "Obtain Capabilities",
+    "T1589": "Gather Victim Identity Information",
+    "T1591": "Gather Victim Org Information",
+    "T1593": "Search Open Websites/Domains",
+    "T1595": "Active Scanning",
+    "T1597": "Search Closed Sources",
+    "T1598": "Phishing for Information",
+    "T1602": "Data from Configuration Repository",
+    "T1610": "Deploy Container",
+    "T1613": "Container and Resource Discovery",
+    "T1621": "Multi-Factor Authentication Request Generation",
+    "T1622": "Debugger Evasion",
+    "T1648": "Serverless Execution"
+  },
+  "rows": [
+    {
+      "index": 0,
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
+      "sentence_count": 190,
+      "raw_attack_id_count": 45,
+      "expected_count": 35,
+      "predicted_count": 35,
+      "metrics": {
+        "tp": 16,
+        "fp": 19,
+        "fn": 19,
+        "precision": 0.457143,
+        "recall": 0.457143,
+        "f1": 0.457143
+      },
+      "matches": [
+        "T1003",
+        "T1027",
+        "T1048",
+        "T1059",
+        "T1071",
+        "T1083",
+        "T1106",
+        "T1140",
+        "T1218",
+        "T1219",
+        "T1486",
+        "T1490",
+        "T1547",
+        "T1560",
+        "T1562",
+        "T1567"
+      ],
+      "missing": [
+        "T1001",
+        "T1047",
+        "T1055",
+        "T1057",
+        "T1078",
+        "T1082",
+        "T1087",
+        "T1105",
+        "T1110",
+        "T1133",
+        "T1134",
+        "T1204",
+        "T1555",
+        "T1566",
+        "T1585",
+        "T1588",
+        "T1593",
+        "T1595",
+        "T1598"
+      ],
+      "extra": [
+        "T1018",
+        "T1020",
+        "T1021",
+        "T1029",
+        "T1104",
+        "T1119",
+        "T1136",
+        "T1201",
+        "T1205",
+        "T1213",
+        "T1482",
+        "T1528",
+        "T1531",
+        "T1542",
+        "T1548",
+        "T1553",
+        "T1587",
+        "T1591",
+        "T1622"
+      ],
+      "expected": [
+        "T1001",
+        "T1003",
+        "T1027",
+        "T1047",
+        "T1048",
+        "T1055",
+        "T1057",
+        "T1059",
+        "T1071",
+        "T1078",
+        "T1082",
+        "T1083",
+        "T1087",
+        "T1105",
+        "T1106",
+        "T1110",
+        "T1133",
+        "T1134",
+        "T1140",
+        "T1204",
+        "T1218",
+        "T1219",
+        "T1486",
+        "T1490",
+        "T1547",
+        "T1555",
+        "T1560",
+        "T1562",
+        "T1566",
+        "T1567",
+        "T1585",
+        "T1588",
+        "T1593",
+        "T1595",
+        "T1598"
+      ],
+      "predicted": [
+        {
+          "ttp_id": "T1213",
+          "name": "Data from Information Repositories"
+        },
+        {
+          "ttp_id": "T1587",
+          "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1104",
+          "name": "Multi-Stage Channels"
+        },
+        {
+          "ttp_id": "T1119",
+          "name": "Automated Collection"
+        },
+        {
+          "ttp_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information"
+        },
+        {
+          "ttp_id": "T1021",
+          "name": "Remote Services"
+        },
+        {
+          "ttp_id": "T1059",
+          "name": "Command and Scripting Interpreter"
+        },
+        {
+          "ttp_id": "T1218",
+          "name": "System Binary Proxy Execution"
+        },
+        {
+          "ttp_id": "T1622",
+          "name": "Debugger Evasion"
+        },
+        {
+          "ttp_id": "T1562",
+          "name": "Impair Defenses"
+        },
+        {
+          "ttp_id": "T1547",
+          "name": "Boot or Logon Autostart Execution"
+        },
+        {
+          "ttp_id": "T1106",
+          "name": "Native API"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
+          "ttp_id": "T1003",
+          "name": "OS Credential Dumping"
+        },
+        {
+          "ttp_id": "T1020",
+          "name": "Automated Exfiltration"
+        },
+        {
+          "ttp_id": "T1048",
+          "name": "Exfiltration Over Alternative Protocol"
+        },
+        {
+          "ttp_id": "T1567",
+          "name": "Exfiltration Over Web Service"
+        },
+        {
+          "ttp_id": "T1560",
+          "name": "Archive Collected Data"
+        },
+        {
+          "ttp_id": "T1201",
+          "name": "Password Policy Discovery"
+        },
+        {
+          "ttp_id": "T1486",
+          "name": "Data Encrypted for Impact"
+        },
+        {
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
+        },
+        {
+          "ttp_id": "T1071",
+          "name": "Application Layer Protocol"
+        },
+        {
+          "ttp_id": "T1542",
+          "name": "Pre-OS Boot"
+        },
+        {
+          "ttp_id": "T1490",
+          "name": "Inhibit System Recovery"
+        },
+        {
+          "ttp_id": "T1531",
+          "name": "Account Access Removal"
+        },
+        {
+          "ttp_id": "T1528",
+          "name": "Steal Application Access Token"
+        },
+        {
+          "ttp_id": "T1018",
+          "name": "Remote System Discovery"
+        },
+        {
+          "ttp_id": "T1482",
+          "name": "Domain Trust Discovery"
+        },
+        {
+          "ttp_id": "T1136",
+          "name": "Create Account"
+        },
+        {
+          "ttp_id": "T1548",
+          "name": "Abuse Elevation Control Mechanism"
+        },
+        {
+          "ttp_id": "T1205",
+          "name": "Traffic Signaling"
+        },
+        {
+          "ttp_id": "T1219",
+          "name": "Remote Access Software"
+        },
+        {
+          "ttp_id": "T1591",
+          "name": "Gather Victim Org Information"
+        },
+        {
+          "ttp_id": "T1029",
+          "name": "Scheduled Transfer"
+        },
+        {
+          "ttp_id": "T1553",
+          "name": "Subvert Trust Controls"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-057a",
+      "sentence_count": 85,
+      "raw_attack_id_count": 6,
+      "expected_count": 6,
+      "predicted_count": 18,
+      "metrics": {
+        "tp": 2,
+        "fp": 16,
+        "fn": 4,
+        "precision": 0.111111,
+        "recall": 0.333333,
+        "f1": 0.166667
+      },
+      "matches": [
+        "T1090",
+        "T1528"
+      ],
+      "missing": [
+        "T1078",
+        "T1098",
+        "T1110",
+        "T1621"
+      ],
+      "extra": [
+        "T1014",
+        "T1087",
+        "T1119",
+        "T1120",
+        "T1136",
+        "T1526",
+        "T1531",
+        "T1535",
+        "T1550",
+        "T1553",
+        "T1565",
+        "T1578",
+        "T1587",
+        "T1588",
+        "T1602",
+        "T1613"
+      ],
+      "expected": [
+        "T1078",
+        "T1090",
+        "T1098",
+        "T1110",
+        "T1528",
+        "T1621"
+      ],
+      "predicted": [
+        {
+          "ttp_id": "T1578",
+          "name": "Modify Cloud Compute Infrastructure"
+        },
+        {
+          "ttp_id": "T1587",
+          "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1553",
+          "name": "Subvert Trust Controls"
+        },
+        {
+          "ttp_id": "T1535",
+          "name": "Unused/Unsupported Cloud Regions"
+        },
+        {
+          "ttp_id": "T1119",
+          "name": "Automated Collection"
+        },
+        {
+          "ttp_id": "T1526",
+          "name": "Cloud Service Discovery"
+        },
+        {
+          "ttp_id": "T1602",
+          "name": "Data from Configuration Repository"
+        },
+        {
+          "ttp_id": "T1087",
+          "name": "Account Discovery"
+        },
+        {
+          "ttp_id": "T1136",
+          "name": "Create Account"
+        },
+        {
+          "ttp_id": "T1550",
+          "name": "Use Alternate Authentication Material"
+        },
+        {
+          "ttp_id": "T1528",
+          "name": "Steal Application Access Token"
+        },
+        {
+          "ttp_id": "T1588",
+          "name": "Obtain Capabilities"
+        },
+        {
+          "ttp_id": "T1090",
+          "name": "Proxy"
+        },
+        {
+          "ttp_id": "T1014",
+          "name": "Rootkit"
+        },
+        {
+          "ttp_id": "T1531",
+          "name": "Account Access Removal"
+        },
+        {
+          "ttp_id": "T1120",
+          "name": "Peripheral Device Discovery"
+        },
+        {
+          "ttp_id": "T1613",
+          "name": "Container and Resource Discovery"
+        },
+        {
+          "ttp_id": "T1565",
+          "name": "Data Manipulation"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-046a",
+      "sentence_count": 154,
+      "raw_attack_id_count": 14,
+      "expected_count": 11,
+      "predicted_count": 21,
+      "metrics": {
+        "tp": 5,
+        "fp": 16,
+        "fn": 6,
+        "precision": 0.238095,
+        "recall": 0.454545,
+        "f1": 0.3125
+      },
+      "matches": [
+        "T1078",
+        "T1083",
+        "T1087",
+        "T1213",
+        "T1482"
+      ],
+      "missing": [
+        "T1018",
+        "T1021",
+        "T1046",
+        "T1133",
+        "T1552",
+        "T1589"
+      ],
+      "extra": [
+        "T1069",
+        "T1098",
+        "T1119",
+        "T1134",
+        "T1190",
+        "T1498",
+        "T1531",
+        "T1548",
+        "T1550",
+        "T1557",
+        "T1565",
+        "T1587",
+        "T1597",
+        "T1610",
+        "T1613",
+        "T1648"
+      ],
+      "expected": [
+        "T1018",
+        "T1021",
+        "T1046",
+        "T1078",
+        "T1083",
+        "T1087",
+        "T1133",
+        "T1213",
+        "T1482",
+        "T1552",
+        "T1589"
+      ],
+      "predicted": [
+        {
+          "ttp_id": "T1531",
+          "name": "Account Access Removal"
+        },
+        {
+          "ttp_id": "T1078",
+          "name": "Valid Accounts"
+        },
+        {
+          "ttp_id": "T1087",
+          "name": "Account Discovery"
+        },
+        {
+          "ttp_id": "T1119",
+          "name": "Automated Collection"
+        },
+        {
+          "ttp_id": "T1587",
+          "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1597",
+          "name": "Search Closed Sources"
+        },
+        {
+          "ttp_id": "T1565",
+          "name": "Data Manipulation"
+        },
+        {
+          "ttp_id": "T1098",
+          "name": "Account Manipulation"
+        },
+        {
+          "ttp_id": "T1610",
+          "name": "Deploy Container"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
+          "ttp_id": "T1498",
+          "name": "Network Denial of Service"
+        },
+        {
+          "ttp_id": "T1213",
+          "name": "Data from Information Repositories"
+        },
+        {
+          "ttp_id": "T1550",
+          "name": "Use Alternate Authentication Material"
+        },
+        {
+          "ttp_id": "T1613",
+          "name": "Container and Resource Discovery"
+        },
+        {
+          "ttp_id": "T1069",
+          "name": "Permission Groups Discovery"
+        },
+        {
+          "ttp_id": "T1190",
+          "name": "Exploit Public-Facing Application"
+        },
+        {
+          "ttp_id": "T1557",
+          "name": "Adversary-in-the-Middle"
+        },
+        {
+          "ttp_id": "T1548",
+          "name": "Abuse Elevation Control Mechanism"
+        },
+        {
+          "ttp_id": "T1648",
+          "name": "Serverless Execution"
+        },
+        {
+          "ttp_id": "T1482",
+          "name": "Domain Trust Discovery"
+        },
+        {
+          "ttp_id": "T1134",
+          "name": "Access Token Manipulation"
+        }
+      ]
+    }
+  ],
+  "insights": {
+    "article_quality": {
+      "exact_match_articles": 0,
+      "articles_with_no_expected": 0,
+      "articles_with_no_predictions": 0,
+      "mean_expected_per_article": 17.333333,
+      "median_expected_per_article": 11.0,
+      "mean_predicted_per_article": 24.666667,
+      "median_predicted_per_article": 21.0,
+      "mean_sentences_per_article": 143.0,
+      "median_sentences_per_article": 154.0
+    },
+    "top_missing": [
+      {
+        "ttp_id": "T1078",
+        "name": "Valid Accounts",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1110",
+        "name": "Brute Force",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1133",
+        "name": "External Remote Services",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1001",
+        "name": "Data Obfuscation",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1047",
+        "name": "Windows Management Instrumentation",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1055",
+        "name": "Process Injection",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1057",
+        "name": "Process Discovery",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1082",
+        "name": "System Information Discovery",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1087",
+        "name": "Account Discovery",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1105",
+        "name": "Ingress Tool Transfer",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1134",
+        "name": "Access Token Manipulation",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1204",
+        "name": "User Execution",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1555",
+        "name": "Credentials from Password Stores",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1566",
+        "name": "Phishing",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1585",
+        "name": "Establish Accounts",
+        "count": 1
+      }
+    ],
+    "top_extra": [
+      {
+        "ttp_id": "T1119",
+        "name": "Automated Collection",
+        "count": 3
+      },
+      {
+        "ttp_id": "T1531",
+        "name": "Account Access Removal",
+        "count": 3
+      },
+      {
+        "ttp_id": "T1587",
+        "name": "Develop Capabilities",
+        "count": 3
+      },
+      {
+        "ttp_id": "T1136",
+        "name": "Create Account",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1548",
+        "name": "Abuse Elevation Control Mechanism",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1553",
+        "name": "Subvert Trust Controls",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1550",
+        "name": "Use Alternate Authentication Material",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1565",
+        "name": "Data Manipulation",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1613",
+        "name": "Container and Resource Discovery",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1018",
+        "name": "Remote System Discovery",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1020",
+        "name": "Automated Exfiltration",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1021",
+        "name": "Remote Services",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1029",
+        "name": "Scheduled Transfer",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1104",
+        "name": "Multi-Stage Channels",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1201",
+        "name": "Password Policy Discovery",
+        "count": 1
+      }
+    ],
+    "top_matches": [
+      {
+        "ttp_id": "T1083",
+        "name": "File and Directory Discovery",
+        "count": 2
+      },
+      {
+        "ttp_id": "T1003",
+        "name": "OS Credential Dumping",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1027",
+        "name": "Obfuscated Files or Information",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1048",
+        "name": "Exfiltration Over Alternative Protocol",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1059",
+        "name": "Command and Scripting Interpreter",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1071",
+        "name": "Application Layer Protocol",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1106",
+        "name": "Native API",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1140",
+        "name": "Deobfuscate/Decode Files or Information",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1218",
+        "name": "System Binary Proxy Execution",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1219",
+        "name": "Remote Access Software",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1486",
+        "name": "Data Encrypted for Impact",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1490",
+        "name": "Inhibit System Recovery",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1547",
+        "name": "Boot or Logon Autostart Execution",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1560",
+        "name": "Archive Collected Data",
+        "count": 1
+      },
+      {
+        "ttp_id": "T1562",
+        "name": "Impair Defenses",
+        "count": 1
+      }
+    ],
+    "best_articles": [
+      {
+        "index": 0,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
+        "expected_count": 35,
+        "predicted_count": 35,
+        "tp": 16,
+        "fp": 19,
+        "fn": 19,
+        "precision": 0.457143,
+        "recall": 0.457143,
+        "f1": 0.457143
+      },
+      {
+        "index": 2,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-046a",
+        "expected_count": 11,
+        "predicted_count": 21,
+        "tp": 5,
+        "fp": 16,
+        "fn": 6,
+        "precision": 0.238095,
+        "recall": 0.454545,
+        "f1": 0.3125
+      },
+      {
+        "index": 1,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-057a",
+        "expected_count": 6,
+        "predicted_count": 18,
+        "tp": 2,
+        "fp": 16,
+        "fn": 4,
+        "precision": 0.111111,
+        "recall": 0.333333,
+        "f1": 0.166667
+      }
+    ],
+    "worst_articles": [
+      {
+        "index": 1,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-057a",
+        "expected_count": 6,
+        "predicted_count": 18,
+        "tp": 2,
+        "fp": 16,
+        "fn": 4,
+        "precision": 0.111111,
+        "recall": 0.333333,
+        "f1": 0.166667
+      },
+      {
+        "index": 2,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-046a",
+        "expected_count": 11,
+        "predicted_count": 21,
+        "tp": 5,
+        "fp": 16,
+        "fn": 6,
+        "precision": 0.238095,
+        "recall": 0.454545,
+        "f1": 0.3125
+      },
+      {
+        "index": 0,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
+        "expected_count": 35,
+        "predicted_count": 35,
+        "tp": 16,
+        "fp": 19,
+        "fn": 19,
+        "precision": 0.457143,
+        "recall": 0.457143,
+        "f1": 0.457143
+      }
+    ]
+  },
+  "artifacts": {
+    "json": "results/cisa/cisa_benchmark_limit3.json",
+    "markdown_report": "results/cisa/cisa_benchmark_limit3_report.md",
+    "rows_csv": "results/cisa/cisa_benchmark_limit3_rows.csv",
+    "chart_metrics": "results/cisa/charts_limit3/metrics_overview.svg",
+    "chart_confusion": "results/cisa/charts_limit3/confusion_counts.svg",
+    "chart_top_missing": "results/cisa/charts_limit3/top_missing.svg",
+    "chart_top_extra": "results/cisa/charts_limit3/top_extra.svg",
+    "chart_f1_distribution": "results/cisa/charts_limit3/article_f1_distribution.svg"
+  }
+}

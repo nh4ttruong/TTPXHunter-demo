@@ -1,0 +1,97 @@
+{
+  "threshold": 0.644,
+  "model_id": "nanda-rani/TTPXHunter",
+  "revision": null,
+  "order": "first-seen",
+  "count": 19,
+  "results": [
+    {
+      "ttp_id": "T1568",
+      "name": "Dynamic Resolution"
+    },
+    {
+      "ttp_id": "T1005",
+      "name": "Data from Local System"
+    },
+    {
+      "ttp_id": "T1588",
+      "name": "Obtain Capabilities"
+    },
+    {
+      "ttp_id": "T1566",
+      "name": "Phishing"
+    },
+    {
+      "ttp_id": "T1105",
+      "name": "Ingress Tool Transfer"
+    },
+    {
+      "ttp_id": "T1027",
+      "name": "Obfuscated Files or Information"
+    },
+    {
+      "ttp_id": "T1203",
+      "name": "Exploitation for Client Execution"
+    },
+    {
+      "ttp_id": "T1218",
+      "name": "System Binary Proxy Execution"
+    },
+    {
+      "ttp_id": "T1140",
+      "name": "Deobfuscate/Decode Files or Information"
+    },
+    {
+      "ttp_id": "T1036",
+      "name": "Masquerading"
+    },
+    {
+      "ttp_id": "T1082",
+      "name": "System Information Discovery"
+    },
+    {
+      "ttp_id": "T1560",
+      "name": "Archive Collected Data"
+    },
+    {
+      "ttp_id": "T1041",
+      "name": "Exfiltration Over C2 Channel"
+    },
+    {
+      "ttp_id": "T1210",
+      "name": "Exploitation of Remote Services"
+    },
+    {
+      "ttp_id": "T1119",
+      "name": "Automated Collection"
+    },
+    {
+      "ttp_id": "T1531",
+      "name": "Account Access Removal"
+    },
+    {
+      "ttp_id": "T1480",
+      "name": "Execution Guardrails"
+    },
+    {
+      "ttp_id": "T1205",
+      "name": "Traffic Signaling"
+    },
+    {
+      "ttp_id": "T1587",
+      "name": "Develop Capabilities"
+    }
+  ],
+  "report": "examples/reports/SharpPanda_APT_Campaign_Expands_its_Arsenal_Targeting_G20_Nations.txt",
+  "preprocess": "none",
+  "section_filter": "none",
+  "top_k": null,
+  "comparison": {
+    "actual_count": 19,
+    "expected_count": 19,
+    "set_match": true,
+    "order_match": false,
+    "missing": [],
+    "extra": []
+  }
+}
