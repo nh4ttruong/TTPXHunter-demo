@@ -120,6 +120,37 @@ def write_benchmark_rows_csv(payload: dict[str, Any], path: str | Path) -> Path:
     return output_path
 
 
+<<<<<<< HEAD
+=======
+def write_sweep_rows_csv(payload: dict[str, Any], path: str | Path) -> Path:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fieldnames = [
+        "threshold",
+        "top_k",
+        "article_count",
+        "expected_count",
+        "predicted_count",
+        "tp",
+        "fp",
+        "fn",
+        "micro_precision",
+        "micro_recall",
+        "micro_f1",
+        "label_macro_f1",
+        "hamming_loss",
+        "fp_rate",
+        "fn_rate",
+    ]
+    with output_path.open("w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in payload.get("sweep_rows", []):
+            writer.writerow(row)
+    return output_path
+
+
+>>>>>>> feat/demo
 def write_benchmark_markdown(payload: dict[str, Any], path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -128,6 +159,62 @@ def write_benchmark_markdown(payload: dict[str, Any], path: str | Path) -> Path:
     return output_path
 
 
+<<<<<<< HEAD
+=======
+def write_sweep_markdown(payload: dict[str, Any], path: str | Path) -> Path:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(build_sweep_markdown(payload), encoding="utf-8")
+    return output_path
+
+
+def write_comparison_markdown(
+    title: str,
+    items: Sequence[dict[str, Any]],
+    path: str | Path,
+    artifacts: dict[str, str] | None = None,
+) -> Path:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        build_comparison_markdown(title, items, artifacts=artifacts),
+        encoding="utf-8",
+    )
+    return output_path
+
+
+def write_comparison_charts(
+    items: Sequence[dict[str, Any]],
+    charts_dir: str | Path,
+) -> dict[str, Path]:
+    output_dir = Path(charts_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    charts = {
+        "chart_micro_metrics": output_dir / "comparison_micro_metrics.svg",
+        "chart_error_counts": output_dir / "comparison_error_counts.svg",
+        "chart_hamming_loss": output_dir / "comparison_hamming_loss.svg",
+        "chart_label_volume": output_dir / "comparison_label_volume.svg",
+    }
+    charts["chart_micro_metrics"].write_text(
+        _comparison_micro_metrics_svg(items),
+        encoding="utf-8",
+    )
+    charts["chart_error_counts"].write_text(
+        _comparison_error_counts_svg(items),
+        encoding="utf-8",
+    )
+    charts["chart_hamming_loss"].write_text(
+        _comparison_hamming_loss_svg(items),
+        encoding="utf-8",
+    )
+    charts["chart_label_volume"].write_text(
+        _comparison_label_volume_svg(items),
+        encoding="utf-8",
+    )
+    return charts
+
+
+>>>>>>> feat/demo
 def write_benchmark_charts(payload: dict[str, Any], charts_dir: str | Path) -> dict[str, Path]:
     output_dir = Path(charts_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -160,7 +247,12 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
     model = payload["model"]
     aggregate = payload["aggregate"]
     micro = aggregate["micro"]
+<<<<<<< HEAD
     macro = aggregate["macro"]
+=======
+    article_macro = aggregate.get("article_macro", aggregate["macro"])
+    label_macro = aggregate.get("label_macro", {})
+>>>>>>> feat/demo
     insights = payload["insights"]
     quality = insights["article_quality"]
 
@@ -177,9 +269,18 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
         f"| Articles evaluated | {dataset['evaluated_articles']} / {dataset['total_articles']} |",
         f"| Text field | `{dataset['text_field']}` |",
         f"| Expected mode | `{dataset['expected_mode']}` |",
+<<<<<<< HEAD
         f"| Model | `{model['model_id']}` |",
         f"| Revision | `{_display(model['revision'])}` |",
         f"| Threshold | {model['threshold']} |",
+=======
+        f"| Preprocess | `{dataset.get('preprocess', 'none')}` |",
+        f"| Section filter | `{dataset.get('section_filter', 'none')}` |",
+        f"| Model | `{model['model_id']}` |",
+        f"| Revision | `{_display(model['revision'])}` |",
+        f"| Threshold | {model['threshold']} |",
+        f"| Top-k | {_display_none(model.get('top_k'))} |",
+>>>>>>> feat/demo
         f"| Device | `{model['device']}` |",
         f"| Batch size | {model['batch_size']} |",
         "",
@@ -195,9 +296,19 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
         f"| Micro precision | {micro['precision']:.6f} |",
         f"| Micro recall | {micro['recall']:.6f} |",
         f"| Micro F1 | {micro['f1']:.6f} |",
+<<<<<<< HEAD
         f"| Macro precision | {macro['precision']:.6f} |",
         f"| Macro recall | {macro['recall']:.6f} |",
         f"| Macro F1 | {macro['f1']:.6f} |",
+=======
+        f"| Article macro precision | {article_macro['precision']:.6f} |",
+        f"| Article macro recall | {article_macro['recall']:.6f} |",
+        f"| Article macro F1 | {article_macro['f1']:.6f} |",
+        f"| Label macro precision | {label_macro.get('precision', 0.0):.6f} |",
+        f"| Label macro recall | {label_macro.get('recall', 0.0):.6f} |",
+        f"| Label macro F1 | {label_macro.get('f1', 0.0):.6f} |",
+        f"| Hamming loss | {aggregate.get('hamming_loss', 0.0):.6f} |",
+>>>>>>> feat/demo
         "",
         "## Charts",
         "",
@@ -256,6 +367,96 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+<<<<<<< HEAD
+=======
+def build_sweep_markdown(payload: dict[str, Any]) -> str:
+    dataset = payload["dataset"]
+    model = payload["model"]
+    rows = sorted(
+        payload.get("sweep_rows", []),
+        key=lambda row: (
+            float(row["micro_f1"]),
+            float(row["micro_precision"]),
+            -float(row["hamming_loss"]),
+        ),
+        reverse=True,
+    )
+    lines = [
+        "# CISA Threshold / Top-k Sweep",
+        "",
+        "## Run Configuration",
+        "",
+        "| Field | Value |",
+        "| --- | --- |",
+        f"| Dataset | `{dataset['path']}` |",
+        f"| Articles evaluated | {dataset['evaluated_articles']} / {dataset['total_articles']} |",
+        f"| Text field | `{dataset['text_field']}` |",
+        f"| Expected mode | `{dataset['expected_mode']}` |",
+        f"| Preprocess | `{dataset.get('preprocess', 'none')}` |",
+        f"| Section filter | `{dataset.get('section_filter', 'none')}` |",
+        f"| Model | `{model['model_id']}` |",
+        f"| Revision | `{_display(model.get('revision'))}` |",
+        f"| Device | `{model['device']}` |",
+        f"| Batch size | {model['batch_size']} |",
+        "",
+        "## Best Configurations",
+        "",
+        _sweep_table(rows[:20]),
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def build_comparison_markdown(
+    title: str,
+    items: Sequence[dict[str, Any]],
+    artifacts: dict[str, str] | None = None,
+) -> str:
+    lines = [
+        f"# {title}",
+        "",
+        "| Variant | Preprocess | Section filter | Model | Threshold | Top-k | Micro P | Micro R | Micro F1 | Label Macro F1 | Hamming Loss | Predicted | FP | FN |",
+        "| --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    for item in items:
+        payload = item["payload"]
+        dataset = payload["dataset"]
+        model = payload["model"]
+        aggregate = payload["aggregate"]
+        micro = aggregate["micro"]
+        lines.append(
+            f"| {item['label']} | `{dataset.get('preprocess', 'none')}` | "
+            f"`{dataset.get('section_filter', 'none')}` | `{model['model_id']}` | "
+            f"{model['threshold']} | {_display_none(model.get('top_k'))} | "
+            f"{micro['precision']:.6f} | {micro['recall']:.6f} | {micro['f1']:.6f} | "
+            f"{aggregate.get('label_macro', {}).get('f1', 0.0):.6f} | "
+            f"{aggregate.get('hamming_loss', 0.0):.6f} | "
+            f"{aggregate['predicted_count']} | {aggregate['fp']} | {aggregate['fn']} |"
+        )
+    if artifacts:
+        lines.extend(
+            [
+                "",
+                "## Charts",
+                "",
+                _comparison_charts_markdown(artifacts),
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Interpretation",
+            "",
+            "- CISA is used as an external robustness benchmark, not as the original paper benchmark.",
+            "- Improvements should be read as preprocessing, filtering, calibration, or retraining effects under domain shift.",
+            "- High false positives are expected when long advisory text contains non-attacker behavior because the classifier is closed-world.",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+>>>>>>> feat/demo
 def _top_terms(
     rows: Sequence[dict[str, Any]],
     key: str,
@@ -330,6 +531,28 @@ def _artifacts_table(artifacts: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
+<<<<<<< HEAD
+=======
+def _sweep_table(items: Sequence[dict[str, Any]]) -> str:
+    lines = [
+        "| Rank | Threshold | Top-k | Micro P | Micro R | Micro F1 | Label Macro F1 | Hamming Loss | Predicted | FP | FN |",
+        "| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+    ]
+    if not items:
+        lines.append("| - | 0 | - | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |")
+        return "\n".join(lines)
+    for rank, item in enumerate(items, start=1):
+        lines.append(
+            f"| {rank} | {item['threshold']} | {_display_none(item['top_k'])} | "
+            f"{item['micro_precision']:.6f} | {item['micro_recall']:.6f} | "
+            f"{item['micro_f1']:.6f} | {item['label_macro_f1']:.6f} | "
+            f"{item['hamming_loss']:.6f} | {item['predicted_count']} | "
+            f"{item['fp']} | {item['fn']} |"
+        )
+    return "\n".join(lines)
+
+
+>>>>>>> feat/demo
 def _charts_markdown(artifacts: dict[str, str]) -> str:
     chart_keys = [
         ("chart_metrics", "Metrics overview"),
@@ -348,6 +571,26 @@ def _charts_markdown(artifacts: dict[str, str]) -> str:
     return "\n".join(lines).rstrip()
 
 
+<<<<<<< HEAD
+=======
+def _comparison_charts_markdown(artifacts: dict[str, str]) -> str:
+    chart_keys = [
+        ("chart_micro_metrics", "Micro precision / recall / F1"),
+        ("chart_error_counts", "False positives / false negatives"),
+        ("chart_hamming_loss", "Hamming loss"),
+        ("chart_label_volume", "Expected / predicted labels"),
+    ]
+    lines: list[str] = []
+    for key, title in chart_keys:
+        path = artifacts.get(key)
+        if path:
+            lines.extend([f"### {title}", "", f"![{title}]({path})", ""])
+    if not lines:
+        return "Charts were not generated for this run."
+    return "\n".join(lines).rstrip()
+
+
+>>>>>>> feat/demo
 def _payload_with_markdown_relative_paths(
     payload: dict[str, Any],
     report_dir: Path,
@@ -362,14 +605,24 @@ def _payload_with_markdown_relative_paths(
 
 def _metrics_svg(payload: dict[str, Any]) -> str:
     micro = payload["aggregate"]["micro"]
+<<<<<<< HEAD
     macro = payload["aggregate"]["macro"]
+=======
+    article_macro = payload["aggregate"].get("article_macro", payload["aggregate"]["macro"])
+    label_macro = payload["aggregate"].get("label_macro", {})
+>>>>>>> feat/demo
     items = [
         ("Micro P", float(micro["precision"]), "#2f6f9f"),
         ("Micro R", float(micro["recall"]), "#4c956c"),
         ("Micro F1", float(micro["f1"]), "#d17a22"),
+<<<<<<< HEAD
         ("Macro P", float(macro["precision"]), "#6f5aa7"),
         ("Macro R", float(macro["recall"]), "#2a9d8f"),
         ("Macro F1", float(macro["f1"]), "#c44536"),
+=======
+        ("Article F1", float(article_macro["f1"]), "#6f5aa7"),
+        ("Label F1", float(label_macro.get("f1", 0.0)), "#c44536"),
+>>>>>>> feat/demo
     ]
     return _vertical_bar_svg("Precision / Recall / F1", items, max_value=1.0, value_suffix="")
 
@@ -412,6 +665,79 @@ def _f1_distribution_svg(payload: dict[str, Any]) -> str:
     return _vertical_bar_svg("Article F1 Distribution", items, max_value=max(bins) or 1, value_suffix="")
 
 
+<<<<<<< HEAD
+=======
+def _comparison_micro_metrics_svg(items: Sequence[dict[str, Any]]) -> str:
+    rows: list[tuple[str, float, float, float]] = []
+    for item in items:
+        micro = item["payload"]["aggregate"]["micro"]
+        rows.append(
+            (
+                str(item["label"]),
+                float(micro["precision"]),
+                float(micro["recall"]),
+                float(micro["f1"]),
+            )
+        )
+    return _grouped_bar_svg(
+        "Micro Metrics by Variant",
+        rows,
+        series=("Precision", "Recall", "F1"),
+        colors=("#2f6f9f", "#4c956c", "#d17a22"),
+        max_value=1.0,
+    )
+
+
+def _comparison_error_counts_svg(items: Sequence[dict[str, Any]]) -> str:
+    rows: list[tuple[str, float, float]] = []
+    for item in items:
+        aggregate = item["payload"]["aggregate"]
+        rows.append((str(item["label"]), float(aggregate["fp"]), float(aggregate["fn"])))
+    max_value = max((value for row in rows for value in row[1:]), default=1)
+    return _grouped_bar_svg(
+        "False Positive / False Negative Counts",
+        rows,
+        series=("FP", "FN"),
+        colors=("#c44536", "#d17a22"),
+        max_value=max_value,
+    )
+
+
+def _comparison_hamming_loss_svg(items: Sequence[dict[str, Any]]) -> str:
+    chart_items = [
+        (
+            _short_variant_label(str(item["label"])),
+            float(item["payload"]["aggregate"].get("hamming_loss", 0.0)),
+            "#6f5aa7",
+        )
+        for item in items
+    ]
+    max_value = max((value for _, value, _ in chart_items), default=1.0)
+    return _vertical_bar_svg("Hamming Loss by Variant", chart_items, max_value=max(max_value, 1e-9), value_suffix="")
+
+
+def _comparison_label_volume_svg(items: Sequence[dict[str, Any]]) -> str:
+    rows: list[tuple[str, float, float]] = []
+    for item in items:
+        aggregate = item["payload"]["aggregate"]
+        rows.append(
+            (
+                str(item["label"]),
+                float(aggregate["expected_count"]),
+                float(aggregate["predicted_count"]),
+            )
+        )
+    max_value = max((value for row in rows for value in row[1:]), default=1)
+    return _grouped_bar_svg(
+        "Expected / Predicted Label Volume",
+        rows,
+        series=("Expected", "Predicted"),
+        colors=("#4c956c", "#2f6f9f"),
+        max_value=max_value,
+    )
+
+
+>>>>>>> feat/demo
 def _vertical_bar_svg(
     title: str,
     items: Sequence[tuple[str, float, str]],
@@ -453,6 +779,63 @@ def _vertical_bar_svg(
     return "\n".join(parts)
 
 
+<<<<<<< HEAD
+=======
+def _grouped_bar_svg(
+    title: str,
+    rows: Sequence[tuple[Any, ...]],
+    series: Sequence[str],
+    colors: Sequence[str],
+    max_value: float,
+) -> str:
+    width = 1050
+    height = 470
+    margin_left = 80
+    margin_right = 36
+    margin_top = 82
+    margin_bottom = 140
+    chart_width = width - margin_left - margin_right
+    chart_height = height - margin_top - margin_bottom
+    group_gap = 34
+    group_width = (chart_width - group_gap * max(len(rows) - 1, 0)) / max(len(rows), 1)
+    bar_gap = 5
+    bar_width = (group_width - bar_gap * max(len(series) - 1, 0)) / max(len(series), 1)
+    safe_max = max(max_value, 1e-9)
+
+    parts = [_svg_header(width, height, title)]
+    parts.extend(_chart_grid(width, height, margin_left, margin_top, chart_width, chart_height))
+    for row_index, row in enumerate(rows):
+        label = str(row[0])
+        values = [float(value) for value in row[1:]]
+        group_x = margin_left + row_index * (group_width + group_gap)
+        for series_index, value in enumerate(values):
+            bar_height = chart_height * (value / safe_max)
+            x = group_x + series_index * (bar_width + bar_gap)
+            y = margin_top + chart_height - bar_height
+            color = colors[series_index % len(colors)]
+            parts.append(
+                f'<rect x="{x:.2f}" y="{y:.2f}" width="{bar_width:.2f}" '
+                f'height="{bar_height:.2f}" rx="4" fill="{color}" />'
+            )
+            value_text = f"{value:.3f}" if safe_max <= 1.0 else f"{int(value)}"
+            parts.append(
+                f'<text x="{x + bar_width / 2:.2f}" y="{y - 7:.2f}" '
+                f'text-anchor="middle" class="value">{_escape(value_text)}</text>'
+            )
+        parts.append(
+            f'<text x="{group_x + group_width / 2:.2f}" y="{height - 76}" '
+            f'text-anchor="middle" class="label">{_escape(_short_variant_label(label))}</text>'
+        )
+    legend_x = margin_left
+    for index, name in enumerate(series):
+        x = legend_x + index * 145
+        parts.append(f'<rect x="{x}" y="50" width="14" height="14" rx="3" fill="{colors[index % len(colors)]}" />')
+        parts.append(f'<text x="{x + 20}" y="62" class="label">{_escape(name)}</text>')
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+>>>>>>> feat/demo
 def _horizontal_bar_svg(title: str, rows: Sequence[tuple[str, str, int]]) -> str:
     width = 1000
     row_height = 42
@@ -535,6 +918,15 @@ def _display(value: Any) -> str:
     return str(value)
 
 
+<<<<<<< HEAD
+=======
+def _display_none(value: Any) -> str:
+    if value is None:
+        return "none"
+    return str(value)
+
+
+>>>>>>> feat/demo
 def _mean(values: Sequence[int]) -> float:
     if not values:
         return 0.0
@@ -559,3 +951,17 @@ def _truncate(value: str, limit: int) -> str:
     if len(value) <= limit:
         return value
     return value[: limit - 1] + "..."
+<<<<<<< HEAD
+=======
+
+
+def _short_variant_label(value: str) -> str:
+    replacements = {
+        "paper-ioc + CISA section filter": "ioc+filter",
+        "original paper-ioc + CISA section filter": "orig ioc+filter",
+        "retrained paper-ioc + CISA section filter": "retrain ioc+filter",
+        "original baseline": "orig base",
+        "retrained baseline": "retrain base",
+    }
+    return replacements.get(value, _truncate(value, 18))
+>>>>>>> feat/demo

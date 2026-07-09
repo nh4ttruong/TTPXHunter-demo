@@ -14,6 +14,7 @@ Requires-Dist: pytest>=8; extra == "test"
 
 # TTPXHunter Reproduction
 
+<<<<<<< HEAD
 Production-style Python reproduction of the original `TTPXHunter.ipynb`
 workflow. The package extracts MITRE ATT&CK technique IDs from cyber threat
 reports with the Hugging Face model `nanda-rani/TTPXHunter`, preserves the
@@ -23,6 +24,11 @@ workflow.
 The original notebook used `list(set(...))`, so output ordering was not stable.
 This version defaults to deterministic first-seen ordering while keeping a
 `legacy-set` mode for closer notebook behavior.
+=======
+Production-style Python reproduction of the original `TTPXHunter.ipynb` workflow. The package extracts MITRE ATT&CK technique IDs from cyber threat reports with the Hugging Face model `nanda-rani/TTPXHunter`, preserves the SharpPanda notebook baseline, and includes a CISA TTP Articles benchmark workflow.
+
+The original notebook used `list(set(...))`, so output ordering was not stable. This version defaults to deterministic first-seen ordering while keeping a `legacy-set` mode for closer notebook behavior.
+>>>>>>> feat/demo
 
 ## Repository Layout
 
@@ -84,8 +90,12 @@ or the module entrypoint:
 python -m ttpxhunter --help
 ```
 
+<<<<<<< HEAD
 Run the SharpPanda sample report and compare it with the saved notebook
 baseline:
+=======
+Run the SharpPanda sample report and compare it with the saved notebook baseline:
+>>>>>>> feat/demo
 
 ```bash
 python -m ttpxhunter infer \
@@ -103,14 +113,25 @@ python -m ttpxhunter infer \
   --order legacy-set
 ```
 
+<<<<<<< HEAD
 Useful inference options include `--threshold`, `--model-id`, `--revision`,
 `--device`, `--batch-size`, `--label-dict`, and `--ttpid2name`.
+=======
+Useful inference options include `--threshold`, `--model-id`, `--revision`, `--device`, `--batch-size`, `--label-dict`, and `--ttpid2name`.
+>>>>>>> feat/demo
 
 ## CISA Benchmark Workflow
 
 The CISA workflow targets Zenodo record `14659512` / DOI
 `10.5281/zenodo.14659512`.
 
+<<<<<<< HEAD
+=======
+Sơ đồ workflow tổng quát của TTPXHunter, dựa trên paper và source reproduce
+trong repo này, nằm ở
+[`docs/TTPXHUNTER_WORKFLOW.md`](docs/TTPXHUNTER_WORKFLOW.md).
+
+>>>>>>> feat/demo
 For the full explanation of how CISA advisories become benchmark inputs and
 ground-truth labels, see
 [`docs/CISA_BENCHMARK_WORKFLOW.md`](docs/CISA_BENCHMARK_WORKFLOW.md).
@@ -161,8 +182,12 @@ The benchmark normalizes CISA labels before scoring:
 - malformed ATT&CK-like IDs are ignored;
 - by default, expected labels are filtered to the TTPXHunter model label space.
 
+<<<<<<< HEAD
 Use `--expected-mode all-base` to score against all normalized base techniques,
 including IDs the model cannot emit.
+=======
+Use `--expected-mode all-base` to score against all normalized base techniques, including IDs the model cannot emit.
+>>>>>>> feat/demo
 
 Current saved full-run baseline:
 
@@ -178,9 +203,13 @@ micro_recall=0.389434
 micro_f1=0.300262
 ```
 
+<<<<<<< HEAD
 The benchmark report can include SVG charts for metrics, TP/FP/FN counts, top
 missing techniques, top extra predictions, and article-level F1 distribution.
 Those charts are generated without extra plotting dependencies.
+=======
+The benchmark report can include SVG charts for metrics, TP/FP/FN counts, top missing techniques, top extra predictions, and article-level F1 distribution. Those charts are generated without extra plotting dependencies.
+>>>>>>> feat/demo
 
 ## Testing
 
@@ -206,6 +235,7 @@ RUN_HF_INTEGRATION=1 python -m pytest tests/test_integration_sharppanda.py
 
 - `model_artifacts/label_dict.pkl` maps model labels to ATT&CK technique IDs.
 - `model_artifacts/ttp_id_name.pkl` maps ATT&CK technique IDs to names.
+<<<<<<< HEAD
 - The default model revision is not pinned; pass `--revision <hf-commit>` when
   an exact Hugging Face revision is required.
 - The notebook threshold is preserved as `0.644`.
@@ -222,3 +252,15 @@ RUN_HF_INTEGRATION=1 python -m pytest tests/test_integration_sharppanda.py
   mixes tactics, base techniques, sub-techniques, and noisy regex matches.
 - Saved benchmark results are reproduction artifacts, not a general claim about
   model performance on all threat intelligence reports.
+=======
+- The default model revision is not pinned; pass `--revision <hf-commit>` when   an exact Hugging Face revision is required.
+- The notebook threshold is preserved as `0.644`.
+- NLTK `punkt` and `punkt_tab` data are downloaded automatically if missing.
+- `datasets/mitre_attack/MITRE_ATT&CK_Dataset.csv` is kept for completeness; single-report inference only needs the report text, model artifacts, and Hugging Face model.
+
+## Limitations
+
+- Full inference requires downloading `nanda-rani/TTPXHunter` unless it is already cached locally.
+- CISA benchmark quality depends on label normalization because the CISA source mixes tactics, base techniques, sub-techniques, and noisy regex matches.
+- Saved benchmark results are reproduction artifacts, not a general claim about model performance on all threat intelligence reports.
+>>>>>>> feat/demo

@@ -1,9 +1,17 @@
 from ttpxhunter.cisa_reporting import (
     build_benchmark_markdown,
+<<<<<<< HEAD
+=======
+    build_comparison_markdown,
+>>>>>>> feat/demo
     enhance_benchmark_payload,
     write_benchmark_charts,
     write_benchmark_markdown,
     write_benchmark_rows_csv,
+<<<<<<< HEAD
+=======
+    write_comparison_charts,
+>>>>>>> feat/demo
 )
 
 
@@ -126,3 +134,32 @@ def test_write_benchmark_markdown_uses_report_relative_chart_paths(tmp_path) -> 
     write_benchmark_markdown(payload, report)
     markdown = report.read_text(encoding="utf-8")
     assert "![Metrics overview](charts/metrics_overview.svg)" in markdown
+<<<<<<< HEAD
+=======
+
+
+def test_comparison_markdown_can_embed_gap_charts(tmp_path) -> None:
+    items = [
+        {"label": "baseline", "payload": enhance_benchmark_payload(sample_payload())},
+        {"label": "paper-ioc", "payload": enhance_benchmark_payload(sample_payload())},
+    ]
+    charts = write_comparison_charts(items, tmp_path / "charts")
+    assert set(charts) == {
+        "chart_micro_metrics",
+        "chart_error_counts",
+        "chart_hamming_loss",
+        "chart_label_volume",
+    }
+    for path in charts.values():
+        text = path.read_text(encoding="utf-8")
+        assert text.startswith("<svg")
+        assert "</svg>" in text
+
+    markdown = build_comparison_markdown(
+        "CISA Gap Comparison",
+        items,
+        artifacts={"chart_micro_metrics": "charts/comparison_micro_metrics.svg"},
+    )
+    assert "## Charts" in markdown
+    assert "![Micro precision / recall / F1](charts/comparison_micro_metrics.svg)" in markdown
+>>>>>>> feat/demo

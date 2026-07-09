@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import argparse
 import json
+<<<<<<< HEAD
+=======
+import sys
+>>>>>>> feat/demo
 from pathlib import Path
 from typing import Sequence
 
@@ -11,12 +15,25 @@ from .cisa_dataset import (
     load_cisa_articles,
     summarize_dataset,
 )
+<<<<<<< HEAD
 from .cisa_pipeline import run_cisa_benchmark
 from .cisa_reporting import (
     enhance_benchmark_payload,
     write_benchmark_charts,
     write_benchmark_markdown,
     write_benchmark_rows_csv,
+=======
+from .cisa_pipeline import run_cisa_benchmark, run_cisa_sweep
+from .cisa_reporting import (
+    enhance_benchmark_payload,
+    write_comparison_charts,
+    write_comparison_markdown,
+    write_benchmark_charts,
+    write_benchmark_markdown,
+    write_benchmark_rows_csv,
+    write_sweep_markdown,
+    write_sweep_rows_csv,
+>>>>>>> feat/demo
 )
 
 from .pipeline import (
@@ -30,6 +47,15 @@ from .pipeline import (
     process_text_file_for_attack_patterns,
     results_to_payload,
 )
+<<<<<<< HEAD
+=======
+from .reporting import write_inference_markdown
+from .training import (
+    DEFAULT_MITRE_SENTENCE_DATASET,
+    DEFAULT_RETRAINED_MODEL_DIR,
+    train_sentence_classifier,
+)
+>>>>>>> feat/demo
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -44,8 +70,16 @@ def build_parser() -> argparse.ArgumentParser:
     )
     infer.add_argument("report", help="Path to a finished cyber threat report text file.")
     _add_inference_options(infer)
+<<<<<<< HEAD
     infer.add_argument("--compare", default=None, help="Expected JSON payload to compare against.")
     infer.add_argument("--output", default=None, help="Optional path to save the JSON payload.")
+=======
+    _add_text_processing_options(infer)
+    infer.add_argument("--top-k", type=int, default=None)
+    infer.add_argument("--compare", default=None, help="Expected JSON payload to compare against.")
+    infer.add_argument("--output", default=None, help="Optional path to save the JSON payload.")
+    infer.add_argument("--report-md", default=None, help="Optional path to save a Markdown report.")
+>>>>>>> feat/demo
     infer.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     infer.set_defaults(handler=_run_infer)
 
@@ -74,6 +108,10 @@ def build_parser() -> argparse.ArgumentParser:
     )
     benchmark.add_argument("dataset", nargs="?", default=str(CISA_DEFAULT_JSON))
     _add_inference_options(benchmark)
+<<<<<<< HEAD
+=======
+    _add_text_processing_options(benchmark)
+>>>>>>> feat/demo
     benchmark.add_argument("--limit", type=int, default=None)
     benchmark.add_argument("--offset", type=int, default=0)
     benchmark.add_argument(
@@ -82,14 +120,132 @@ def build_parser() -> argparse.ArgumentParser:
         default="model-label-space",
     )
     benchmark.add_argument("--text-field", choices=["clean", "raw"], default="clean")
+<<<<<<< HEAD
+=======
+    benchmark.add_argument("--top-k", type=int, default=None)
+    benchmark.add_argument("--include-evidence", action="store_true")
+>>>>>>> feat/demo
     benchmark.add_argument("--output", default=None)
     benchmark.add_argument("--report-md", default=None)
     benchmark.add_argument("--rows-csv", default=None)
     benchmark.add_argument("--charts-dir", default=None)
     benchmark.add_argument("--top-n", type=int, default=15)
+<<<<<<< HEAD
     benchmark.add_argument("--json", action="store_true")
     benchmark.set_defaults(handler=_run_cisa_benchmark)
 
+=======
+    _add_progress_options(benchmark)
+    benchmark.add_argument("--json", action="store_true")
+    benchmark.set_defaults(handler=_run_cisa_benchmark)
+
+    sweep = cisa_subparsers.add_parser(
+        "sweep",
+        help="Run one CISA model pass and evaluate threshold/top-k calibration variants.",
+    )
+    sweep.add_argument("dataset", nargs="?", default=str(CISA_DEFAULT_JSON))
+    _add_inference_options(sweep, include_threshold=False)
+    _add_text_processing_options(sweep)
+    sweep.add_argument("--limit", type=int, default=None)
+    sweep.add_argument("--offset", type=int, default=0)
+    sweep.add_argument(
+        "--expected-mode",
+        choices=["model-label-space", "all-base"],
+        default="model-label-space",
+    )
+    sweep.add_argument("--text-field", choices=["clean", "raw"], default="clean")
+    sweep.add_argument("--thresholds", default="0.644,0.70,0.75,0.80,0.85,0.90")
+    sweep.add_argument("--top-k-values", default="none,10,15,20,25,30")
+    sweep.add_argument("--output", default=None, help="Optional CSV path for sweep rows.")
+    sweep.add_argument("--report-md", default=None)
+    _add_progress_options(sweep)
+    sweep.add_argument("--json", action="store_true")
+    sweep.set_defaults(handler=_run_cisa_sweep)
+
+    gap_report = cisa_subparsers.add_parser(
+        "gap-report",
+        help="Run baseline, IOC, and IOC+section-filter CISA variants and compare them.",
+    )
+    gap_report.add_argument("dataset", nargs="?", default=str(CISA_DEFAULT_JSON))
+    _add_inference_options(gap_report)
+    gap_report.add_argument("--limit", type=int, default=None)
+    gap_report.add_argument("--offset", type=int, default=0)
+    gap_report.add_argument(
+        "--expected-mode",
+        choices=["model-label-space", "all-base"],
+        default="model-label-space",
+    )
+    gap_report.add_argument("--text-field", choices=["clean", "raw"], default="clean")
+    gap_report.add_argument("--top-k", type=int, default=None)
+    gap_report.add_argument("--output-md", default="results/cisa/cisa_gap_comparison.md")
+    gap_report.add_argument(
+        "--charts-dir",
+        default=None,
+        help="Directory for comparison SVG charts. Defaults beside --output-md.",
+    )
+    _add_progress_options(gap_report)
+    gap_report.add_argument("--json", action="store_true")
+    gap_report.set_defaults(handler=_run_cisa_gap_report)
+
+    compare_models = cisa_subparsers.add_parser(
+        "compare-models",
+        help="Compare original and retrained models on baseline and filtered CISA variants.",
+    )
+    compare_models.add_argument("dataset", nargs="?", default=str(CISA_DEFAULT_JSON))
+    _add_inference_options(compare_models)
+    compare_models.add_argument("--limit", type=int, default=None)
+    compare_models.add_argument("--offset", type=int, default=0)
+    compare_models.add_argument(
+        "--expected-mode",
+        choices=["model-label-space", "all-base"],
+        default="model-label-space",
+    )
+    compare_models.add_argument("--text-field", choices=["clean", "raw"], default="clean")
+    compare_models.add_argument("--top-k", type=int, default=None)
+    compare_models.add_argument("--retrained-model", default=str(DEFAULT_RETRAINED_MODEL_DIR))
+    compare_models.add_argument(
+        "--retrained-label-dict",
+        default=str(DEFAULT_RETRAINED_MODEL_DIR / "label_dict.pkl"),
+    )
+    compare_models.add_argument(
+        "--retrained-ttpid2name",
+        default=str(DEFAULT_RETRAINED_MODEL_DIR / "ttp_id_name.pkl"),
+    )
+    compare_models.add_argument("--output-md", default="results/cisa/cisa_model_comparison.md")
+    compare_models.add_argument(
+        "--charts-dir",
+        default=None,
+        help="Directory for comparison SVG charts. Defaults beside --output-md.",
+    )
+    _add_progress_options(compare_models)
+    compare_models.add_argument("--json", action="store_true")
+    compare_models.set_defaults(handler=_run_cisa_compare_models)
+
+    train = subparsers.add_parser("train", help="Experimental model training commands.")
+    train_subparsers = train.add_subparsers(dest="train_command", required=True)
+    sentence_classifier = train_subparsers.add_parser(
+        "sentence-classifier",
+        help="Continued fine-tune the TTPXHunter sentence classifier.",
+    )
+    sentence_classifier.add_argument("--dataset", default=str(DEFAULT_MITRE_SENTENCE_DATASET))
+    sentence_classifier.add_argument("--base-model-id", default=DEFAULT_MODEL_ID)
+    sentence_classifier.add_argument("--revision", default=None)
+    sentence_classifier.add_argument("--device", default=None)
+    sentence_classifier.add_argument("--output-dir", default=str(DEFAULT_RETRAINED_MODEL_DIR))
+    sentence_classifier.add_argument("--label-dict", default=str(DEFAULT_LABEL_DICT))
+    sentence_classifier.add_argument("--ttpid2name", default=str(DEFAULT_TTPID2NAME))
+    sentence_classifier.add_argument("--epochs", type=int, default=3)
+    sentence_classifier.add_argument("--batch-size", type=int, default=16)
+    sentence_classifier.add_argument("--learning-rate", type=float, default=1e-5)
+    sentence_classifier.add_argument("--max-length", type=int, default=256)
+    sentence_classifier.add_argument("--validation-ratio", type=float, default=0.2)
+    sentence_classifier.add_argument("--seed", type=int, default=13)
+    sentence_classifier.add_argument("--limit-per-class", type=int, default=None)
+    _add_progress_options(sentence_classifier)
+    sentence_classifier.add_argument("--json", action="store_true")
+    sentence_classifier.set_defaults(handler=_run_train_sentence_classifier)
+
+>>>>>>> feat/demo
     return parser
 
 
@@ -97,8 +253,17 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     return build_parser().parse_args(argv)
 
 
+<<<<<<< HEAD
 def _add_inference_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
+=======
+def _add_inference_options(
+    parser: argparse.ArgumentParser,
+    include_threshold: bool = True,
+) -> None:
+    if include_threshold:
+        parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
+>>>>>>> feat/demo
     parser.add_argument("--model-id", default=DEFAULT_MODEL_ID)
     parser.add_argument("--revision", default=None)
     parser.add_argument("--device", default=None, help="Torch device, e.g. cpu, cuda, or mps.")
@@ -113,6 +278,26 @@ def _add_inference_options(parser: argparse.ArgumentParser) -> None:
     )
 
 
+<<<<<<< HEAD
+=======
+def _add_text_processing_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--preprocess", choices=["none", "paper-ioc"], default="none")
+    parser.add_argument(
+        "--section-filter",
+        choices=["none", "cisa-attack-narrative"],
+        default="none",
+    )
+
+
+def _add_progress_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress progress logs. Final summaries and requested outputs are still written.",
+    )
+
+
+>>>>>>> feat/demo
 def _run_infer(args: argparse.Namespace) -> None:
     results = process_text_file_for_attack_patterns(
         report_path=args.report,
@@ -124,6 +309,12 @@ def _run_infer(args: argparse.Namespace) -> None:
         device=args.device,
         order=args.order,
         batch_size=args.batch_size,
+<<<<<<< HEAD
+=======
+        preprocess=args.preprocess,
+        section_filter=args.section_filter,
+        top_k=args.top_k,
+>>>>>>> feat/demo
     )
     payload = results_to_payload(
         results,
@@ -133,6 +324,12 @@ def _run_infer(args: argparse.Namespace) -> None:
         revision=args.revision,
         order=args.order,
     )
+<<<<<<< HEAD
+=======
+    payload["preprocess"] = args.preprocess
+    payload["section_filter"] = args.section_filter
+    payload["top_k"] = args.top_k
+>>>>>>> feat/demo
 
     if args.compare:
         expected = load_expected_results(args.compare)
@@ -140,6 +337,11 @@ def _run_infer(args: argparse.Namespace) -> None:
 
     if args.output:
         _write_json(payload, args.output)
+<<<<<<< HEAD
+=======
+    if args.report_md:
+        write_inference_markdown(payload, args.report_md)
+>>>>>>> feat/demo
 
     if args.json:
         print(json.dumps(payload, indent=2))
@@ -175,6 +377,10 @@ def _run_cisa_describe(args: argparse.Namespace) -> None:
 
 
 def _run_cisa_benchmark(args: argparse.Namespace) -> None:
+<<<<<<< HEAD
+=======
+    progress_callback = _progress_callback(args.quiet)
+>>>>>>> feat/demo
     payload = run_cisa_benchmark(
         dataset_path=args.dataset,
         threshold=args.threshold,
@@ -189,6 +395,14 @@ def _run_cisa_benchmark(args: argparse.Namespace) -> None:
         offset=args.offset,
         expected_mode=args.expected_mode,
         text_field=args.text_field,
+<<<<<<< HEAD
+=======
+        preprocess=args.preprocess,
+        section_filter=args.section_filter,
+        top_k=args.top_k,
+        include_evidence=args.include_evidence,
+        progress_callback=progress_callback,
+>>>>>>> feat/demo
     )
     payload = enhance_benchmark_payload(payload, top_n=args.top_n)
     payload["artifacts"] = {}
@@ -212,6 +426,205 @@ def _run_cisa_benchmark(args: argparse.Namespace) -> None:
     _emit_cisa_payload(payload, as_json=args.json)
 
 
+<<<<<<< HEAD
+=======
+def _run_cisa_sweep(args: argparse.Namespace) -> None:
+    progress_callback = _progress_callback(args.quiet)
+    payload = run_cisa_sweep(
+        dataset_path=args.dataset,
+        thresholds=_parse_float_list(args.thresholds),
+        top_ks=_parse_top_k_list(args.top_k_values),
+        label_dict_path=args.label_dict,
+        ttpid2name_path=args.ttpid2name,
+        model_id=args.model_id,
+        revision=args.revision,
+        device=args.device,
+        order=args.order,
+        batch_size=args.batch_size,
+        limit=args.limit,
+        offset=args.offset,
+        expected_mode=args.expected_mode,
+        text_field=args.text_field,
+        preprocess=args.preprocess,
+        section_filter=args.section_filter,
+        progress_callback=progress_callback,
+    )
+    payload["artifacts"] = {}
+    if args.output:
+        write_sweep_rows_csv(payload, args.output)
+        payload["artifacts"]["sweep_csv"] = args.output
+    if args.report_md:
+        write_sweep_markdown(payload, args.report_md)
+        payload["artifacts"]["markdown_report"] = args.report_md
+    _emit_cisa_payload(payload, as_json=args.json)
+
+
+def _run_cisa_gap_report(args: argparse.Namespace) -> None:
+    progress_callback = _progress_callback(args.quiet)
+    variants = [
+        ("baseline", "none", "none"),
+        ("paper-ioc", "paper-ioc", "none"),
+        ("paper-ioc + CISA section filter", "paper-ioc", "cisa-attack-narrative"),
+    ]
+    items = []
+    for label, preprocess, section_filter in variants:
+        if progress_callback:
+            progress_callback(f"gap-report variant={label} start")
+        payload = run_cisa_benchmark(
+            dataset_path=args.dataset,
+            threshold=args.threshold,
+            label_dict_path=args.label_dict,
+            ttpid2name_path=args.ttpid2name,
+            model_id=args.model_id,
+            revision=args.revision,
+            device=args.device,
+            order=args.order,
+            batch_size=args.batch_size,
+            limit=args.limit,
+            offset=args.offset,
+            expected_mode=args.expected_mode,
+            text_field=args.text_field,
+            preprocess=preprocess,  # type: ignore[arg-type]
+            section_filter=section_filter,  # type: ignore[arg-type]
+            top_k=args.top_k,
+            progress_callback=progress_callback,
+        )
+        items.append({"label": label, "payload": payload})
+        if progress_callback:
+            progress_callback(f"gap-report variant={label} done")
+    chart_artifacts = _write_comparison_chart_artifacts(items, args.output_md, args.charts_dir)
+    write_comparison_markdown(
+        "CISA Gap Comparison",
+        items,
+        args.output_md,
+        artifacts=chart_artifacts,
+    )
+    result = {
+        "items": items,
+        "artifacts": {"markdown_report": args.output_md, **chart_artifacts},
+    }
+    _emit_cisa_payload(result, as_json=args.json)
+
+
+def _run_cisa_compare_models(args: argparse.Namespace) -> None:
+    progress_callback = _progress_callback(args.quiet)
+    retrained_model = Path(args.retrained_model)
+    if not retrained_model.exists():
+        raise FileNotFoundError(
+            f"retrained model does not exist: {retrained_model}. "
+            "Run `ttpxhunter train sentence-classifier` first."
+        )
+
+    variants = [
+        (
+            "original baseline",
+            args.model_id,
+            args.label_dict,
+            args.ttpid2name,
+            "none",
+            "none",
+        ),
+        (
+            "original paper-ioc + CISA section filter",
+            args.model_id,
+            args.label_dict,
+            args.ttpid2name,
+            "paper-ioc",
+            "cisa-attack-narrative",
+        ),
+        (
+            "retrained baseline",
+            str(retrained_model),
+            args.retrained_label_dict,
+            args.retrained_ttpid2name,
+            "none",
+            "none",
+        ),
+        (
+            "retrained paper-ioc + CISA section filter",
+            str(retrained_model),
+            args.retrained_label_dict,
+            args.retrained_ttpid2name,
+            "paper-ioc",
+            "cisa-attack-narrative",
+        ),
+    ]
+    items = []
+    for label, model_id, label_dict, ttpid2name, preprocess, section_filter in variants:
+        if progress_callback:
+            progress_callback(f"compare-models variant={label} start")
+        payload = run_cisa_benchmark(
+            dataset_path=args.dataset,
+            threshold=args.threshold,
+            label_dict_path=label_dict,
+            ttpid2name_path=ttpid2name,
+            model_id=model_id,
+            revision=args.revision if model_id == args.model_id else None,
+            device=args.device,
+            order=args.order,
+            batch_size=args.batch_size,
+            limit=args.limit,
+            offset=args.offset,
+            expected_mode=args.expected_mode,
+            text_field=args.text_field,
+            preprocess=preprocess,  # type: ignore[arg-type]
+            section_filter=section_filter,  # type: ignore[arg-type]
+            top_k=args.top_k,
+            progress_callback=progress_callback,
+        )
+        items.append({"label": label, "payload": payload})
+        if progress_callback:
+            progress_callback(f"compare-models variant={label} done")
+    chart_artifacts = _write_comparison_chart_artifacts(items, args.output_md, args.charts_dir)
+    write_comparison_markdown(
+        "CISA Model Comparison",
+        items,
+        args.output_md,
+        artifacts=chart_artifacts,
+    )
+    result = {
+        "items": items,
+        "artifacts": {"markdown_report": args.output_md, **chart_artifacts},
+    }
+    _emit_cisa_payload(result, as_json=args.json)
+
+
+def _run_train_sentence_classifier(args: argparse.Namespace) -> None:
+    progress_callback = _progress_callback(args.quiet)
+    summary = train_sentence_classifier(
+        dataset_path=args.dataset,
+        base_model_id=args.base_model_id,
+        output_dir=args.output_dir,
+        label_dict_path=args.label_dict,
+        ttpid2name_path=args.ttpid2name,
+        revision=args.revision,
+        device=args.device,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        learning_rate=args.learning_rate,
+        max_length=args.max_length,
+        validation_ratio=args.validation_ratio,
+        seed=args.seed,
+        limit_per_class=args.limit_per_class,
+        progress_callback=progress_callback,
+    )
+    if args.json:
+        print(json.dumps(summary, indent=2))
+        return
+    print("Training complete")
+    print(f"  Output: {summary['output_dir']}")
+    print(f"  Train examples: {summary['train_examples']}")
+    print(f"  Validation examples: {summary['validation_examples']}")
+    if summary["history"]:
+        last = summary["history"][-1]
+        print(
+            f"  Last epoch: train_loss={last['train_loss']} "
+            f"validation_loss={last['validation_loss']} "
+            f"validation_accuracy={last['validation_accuracy']}"
+        )
+
+
+>>>>>>> feat/demo
 def _write_json(payload: dict, path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -224,6 +637,43 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
         print(json.dumps(payload, indent=2))
         return
 
+<<<<<<< HEAD
+=======
+    if "sweep_rows" in payload:
+        rows = sorted(payload["sweep_rows"], key=lambda row: row["micro_f1"], reverse=True)
+        print("CISA threshold/top-k sweep")
+        for row in rows[:10]:
+            print(
+                f"  threshold={row['threshold']} top_k={row['top_k']} "
+                f"micro_f1={row['micro_f1']:.6f} "
+                f"precision={row['micro_precision']:.6f} recall={row['micro_recall']:.6f} "
+                f"hamming_loss={row['hamming_loss']:.6f}"
+            )
+        artifacts = payload.get("artifacts", {})
+        if artifacts:
+            print("  Wrote:")
+            for label, path in artifacts.items():
+                print(f"    {label}: {path}")
+        return
+
+    if "items" in payload:
+        print("CISA comparison")
+        for item in payload["items"]:
+            aggregate = item["payload"]["aggregate"]
+            micro = aggregate["micro"]
+            print(
+                f"  {item['label']}: micro_f1={micro['f1']:.6f} "
+                f"precision={micro['precision']:.6f} recall={micro['recall']:.6f} "
+                f"hamming_loss={aggregate.get('hamming_loss', 0.0):.6f}"
+            )
+        artifacts = payload.get("artifacts", {})
+        if artifacts:
+            print("  Wrote:")
+            for label, path in artifacts.items():
+                print(f"    {label}: {path}")
+        return
+
+>>>>>>> feat/demo
     if "aggregate" in payload:
         dataset = payload["dataset"]
         model = payload["model"]
@@ -254,6 +704,17 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
             f"  Macro: precision={macro['precision']:.6f} "
             f"recall={macro['recall']:.6f} f1={macro['f1']:.6f}"
         )
+<<<<<<< HEAD
+=======
+        label_macro = aggregate.get("label_macro")
+        if label_macro:
+            print(
+                f"  Label macro: precision={label_macro['precision']:.6f} "
+                f"recall={label_macro['recall']:.6f} f1={label_macro['f1']:.6f}"
+            )
+        if "hamming_loss" in aggregate:
+            print(f"  Hamming loss: {aggregate['hamming_loss']:.6f}")
+>>>>>>> feat/demo
         if quality:
             print(
                 f"  Articles: exact={quality['exact_match_articles']} "
@@ -282,6 +743,61 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
         print(f"{key}: {value}")
 
 
+<<<<<<< HEAD
+=======
+def _parse_float_list(value: str) -> list[float]:
+    return [float(item.strip()) for item in value.split(",") if item.strip()]
+
+
+def _parse_top_k_list(value: str) -> list[int | None]:
+    parsed: list[int | None] = []
+    for item in value.split(","):
+        token = item.strip().lower()
+        if not token:
+            continue
+        if token in {"none", "null", "-"}:
+            parsed.append(None)
+        else:
+            parsed.append(int(token))
+    return parsed
+
+
+def _write_comparison_chart_artifacts(
+    items: Sequence[dict],
+    output_md: str,
+    charts_dir: str | None,
+) -> dict[str, str]:
+    report_path = Path(output_md)
+    resolved_charts_dir = (
+        Path(charts_dir)
+        if charts_dir is not None
+        else report_path.with_suffix("").parent / f"{report_path.stem}_charts"
+    )
+    chart_paths = write_comparison_charts(items, resolved_charts_dir)
+    return {
+        key: _relative_path_for_markdown(path, report_path.parent)
+        for key, path in chart_paths.items()
+    }
+
+
+def _relative_path_for_markdown(path: Path, report_dir: Path) -> str:
+    try:
+        return str(path.relative_to(report_dir))
+    except ValueError:
+        return str(path)
+
+
+def _progress_callback(quiet: bool):
+    if quiet:
+        return None
+
+    def emit(message: str) -> None:
+        print(f"[progress] {message}", file=sys.stderr, flush=True)
+
+    return emit
+
+
+>>>>>>> feat/demo
 def main(argv: Sequence[str] | None = None) -> None:
     args = parse_args(argv)
     args.handler(args)

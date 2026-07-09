@@ -8,64 +8,51 @@
     "offset": 0,
     "limit": null,
     "text_field": "clean",
-<<<<<<< HEAD
-    "expected_mode": "model-label-space"
-=======
     "expected_mode": "model-label-space",
-    "preprocess": "none",
+    "preprocess": "paper-ioc",
     "section_filter": "none"
->>>>>>> feat/demo
   },
   "model": {
     "model_id": "nanda-rani/TTPXHunter",
     "revision": null,
-<<<<<<< HEAD
-    "threshold": 0.644,
-    "device": "mps",
-    "batch_size": 32
-=======
-    "device": "mps",
-    "batch_size": 32,
+    "device": "cpu",
+    "batch_size": 16,
     "threshold": 0.644,
     "top_k": null
->>>>>>> feat/demo
   },
   "aggregate": {
     "article_count": 77,
-    "tp": 516,
-    "fp": 1596,
-    "fn": 809,
+    "tp": 512,
+    "fp": 1629,
+    "fn": 813,
     "micro": {
-      "tp": 516,
-      "fp": 1596,
-      "fn": 809,
-      "precision": 0.244318,
-      "recall": 0.389434,
-      "f1": 0.300262
+      "tp": 512,
+      "fp": 1629,
+      "fn": 813,
+      "precision": 0.239141,
+      "recall": 0.386415,
+      "f1": 0.295441
     },
     "macro": {
-      "precision": 0.210597,
-      "recall": 0.34208,
-      "f1": 0.242
+      "precision": 0.207672,
+      "recall": 0.341068,
+      "f1": 0.239309
     },
-<<<<<<< HEAD
-=======
     "article_macro": {
-      "precision": 0.210597,
-      "recall": 0.34208,
-      "f1": 0.242
+      "precision": 0.207672,
+      "recall": 0.341068,
+      "f1": 0.239309
     },
     "label_macro": {
-      "precision": 0.243915,
-      "recall": 0.304644,
-      "f1": 0.221389,
+      "precision": 0.240045,
+      "recall": 0.306792,
+      "f1": 0.218158,
       "label_count": 193
     },
-    "hamming_loss": 0.161833,
+    "hamming_loss": 0.164323,
     "label_space_size": 193,
->>>>>>> feat/demo
     "expected_count": 1325,
-    "predicted_count": 2112
+    "predicted_count": 2141
   },
   "technique_names": {
     "T1001": "Data Obfuscation",
@@ -263,12 +250,12 @@
       "expected_count": 35,
       "predicted_count": 35,
       "metrics": {
-        "tp": 16,
-        "fp": 19,
-        "fn": 19,
-        "precision": 0.457143,
-        "recall": 0.457143,
-        "f1": 0.457143
+        "tp": 15,
+        "fp": 20,
+        "fn": 20,
+        "precision": 0.428571,
+        "recall": 0.428571,
+        "f1": 0.428571
       },
       "matches": [
         "T1003",
@@ -281,7 +268,6 @@
         "T1140",
         "T1218",
         "T1219",
-        "T1486",
         "T1490",
         "T1547",
         "T1560",
@@ -301,6 +287,7 @@
         "T1133",
         "T1134",
         "T1204",
+        "T1486",
         "T1555",
         "T1566",
         "T1585",
@@ -326,6 +313,7 @@
         "T1542",
         "T1548",
         "T1553",
+        "T1586",
         "T1587",
         "T1591",
         "T1622"
@@ -375,6 +363,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1104",
@@ -443,10 +435,6 @@
         {
           "ttp_id": "T1201",
           "name": "Password Policy Discovery"
-        },
-        {
-          "ttp_id": "T1486",
-          "name": "Data Encrypted for Impact"
         },
         {
           "ttp_id": "T1027",
@@ -790,14 +778,14 @@
       "sentence_count": 501,
       "raw_attack_id_count": 75,
       "expected_count": 52,
-      "predicted_count": 64,
+      "predicted_count": 63,
       "metrics": {
-        "tp": 27,
+        "tp": 26,
         "fp": 37,
-        "fn": 25,
-        "precision": 0.421875,
-        "recall": 0.519231,
-        "f1": 0.465517
+        "fn": 26,
+        "precision": 0.412698,
+        "recall": 0.5,
+        "f1": 0.452174
       },
       "matches": [
         "T1003",
@@ -818,7 +806,6 @@
         "T1090",
         "T1112",
         "T1190",
-        "T1218",
         "T1550",
         "T1552",
         "T1555",
@@ -844,6 +831,7 @@
         "T1124",
         "T1133",
         "T1217",
+        "T1218",
         "T1518",
         "T1563",
         "T1573",
@@ -861,15 +849,16 @@
         "T1049",
         "T1056",
         "T1095",
+        "T1114",
         "T1119",
         "T1129",
+        "T1140",
         "T1176",
         "T1195",
         "T1199",
         "T1204",
         "T1213",
         "T1219",
-        "T1480",
         "T1482",
         "T1490",
         "T1498",
@@ -879,14 +868,13 @@
         "T1538",
         "T1548",
         "T1553",
+        "T1554",
         "T1558",
-        "T1564",
         "T1565",
         "T1568",
         "T1571",
         "T1578",
         "T1580",
-        "T1586",
         "T1597",
         "T1602",
         "T1612",
@@ -1042,10 +1030,6 @@
           "name": "Non-Standard Port"
         },
         {
-          "ttp_id": "T1586",
-          "name": "Compromise Accounts"
-        },
-        {
           "ttp_id": "T1568",
           "name": "Dynamic Resolution"
         },
@@ -1058,8 +1042,8 @@
           "name": "Obtain Capabilities"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1036",
+          "name": "Masquerading"
         },
         {
           "ttp_id": "T1622",
@@ -1088,10 +1072,6 @@
         {
           "ttp_id": "T1482",
           "name": "Domain Trust Discovery"
-        },
-        {
-          "ttp_id": "T1480",
-          "name": "Execution Guardrails"
         },
         {
           "ttp_id": "T1056",
@@ -1138,8 +1118,12 @@
           "name": "Archive Collected Data"
         },
         {
-          "ttp_id": "T1036",
-          "name": "Masquerading"
+          "ttp_id": "T1554",
+          "name": "Compromise Client Software Binary"
+        },
+        {
+          "ttp_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information"
         },
         {
           "ttp_id": "T1112",
@@ -1160,10 +1144,6 @@
         {
           "ttp_id": "T1531",
           "name": "Account Access Removal"
-        },
-        {
-          "ttp_id": "T1564",
-          "name": "Hide Artifacts"
         },
         {
           "ttp_id": "T1558",
@@ -1202,6 +1182,10 @@
           "name": "Remote Access Software"
         },
         {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
+        },
+        {
           "ttp_id": "T1195",
           "name": "Supply Chain Compromise"
         }
@@ -1213,24 +1197,24 @@
       "sentence_count": 272,
       "raw_attack_id_count": 16,
       "expected_count": 13,
-      "predicted_count": 30,
+      "predicted_count": 33,
       "metrics": {
-        "tp": 5,
-        "fp": 25,
-        "fn": 8,
-        "precision": 0.166667,
-        "recall": 0.384615,
-        "f1": 0.232558
+        "tp": 6,
+        "fp": 27,
+        "fn": 7,
+        "precision": 0.181818,
+        "recall": 0.461538,
+        "f1": 0.26087
       },
       "matches": [
         "T1027",
+        "T1046",
         "T1059",
         "T1083",
         "T1114",
         "T1583"
       ],
       "missing": [
-        "T1046",
         "T1078",
         "T1105",
         "T1136",
@@ -1242,6 +1226,7 @@
       "extra": [
         "T1003",
         "T1030",
+        "T1036",
         "T1037",
         "T1041",
         "T1053",
@@ -1254,12 +1239,13 @@
         "T1129",
         "T1140",
         "T1195",
-        "T1202",
         "T1213",
         "T1216",
+        "T1218",
         "T1219",
         "T1530",
         "T1553",
+        "T1564",
         "T1571",
         "T1573",
         "T1587",
@@ -1299,10 +1285,6 @@
           "name": "Obfuscated Files or Information"
         },
         {
-          "ttp_id": "T1102",
-          "name": "Web Service"
-        },
-        {
           "ttp_id": "T1593",
           "name": "Search Open Websites/Domains"
         },
@@ -1317,6 +1299,10 @@
         {
           "ttp_id": "T1594",
           "name": "Search Victim-Owned Websites"
+        },
+        {
+          "ttp_id": "T1046",
+          "name": "Network Service Discovery"
         },
         {
           "ttp_id": "T1083",
@@ -1371,8 +1357,16 @@
           "name": "Shared Modules"
         },
         {
-          "ttp_id": "T1202",
-          "name": "Indirect Command Execution"
+          "ttp_id": "T1036",
+          "name": "Masquerading"
+        },
+        {
+          "ttp_id": "T1102",
+          "name": "Web Service"
+        },
+        {
+          "ttp_id": "T1564",
+          "name": "Hide Artifacts"
         },
         {
           "ttp_id": "T1041",
@@ -1389,6 +1383,10 @@
         {
           "ttp_id": "T1219",
           "name": "Remote Access Software"
+        },
+        {
+          "ttp_id": "T1218",
+          "name": "System Binary Proxy Execution"
         },
         {
           "ttp_id": "T1571",
@@ -1410,23 +1408,23 @@
       "sentence_count": 123,
       "raw_attack_id_count": 5,
       "expected_count": 5,
-      "predicted_count": 19,
+      "predicted_count": 20,
       "metrics": {
-        "tp": 1,
+        "tp": 2,
         "fp": 18,
-        "fn": 4,
-        "precision": 0.052632,
-        "recall": 0.2,
-        "f1": 0.083333
+        "fn": 3,
+        "precision": 0.1,
+        "recall": 0.4,
+        "f1": 0.16
       },
       "matches": [
+        "T1586",
         "T1598"
       ],
       "missing": [
         "T1555",
         "T1557",
-        "T1558",
-        "T1586"
+        "T1558"
       ],
       "extra": [
         "T1020",
@@ -1471,6 +1469,10 @@
         {
           "ttp_id": "T1531",
           "name": "Account Access Removal"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1119",
@@ -1540,14 +1542,14 @@
       "sentence_count": 141,
       "raw_attack_id_count": 17,
       "expected_count": 15,
-      "predicted_count": 20,
+      "predicted_count": 21,
       "metrics": {
         "tp": 3,
-        "fp": 17,
+        "fp": 18,
         "fn": 12,
-        "precision": 0.15,
+        "precision": 0.142857,
         "recall": 0.2,
-        "f1": 0.171429
+        "f1": 0.166667
       },
       "matches": [
         "T1070",
@@ -1584,6 +1586,7 @@
         "T1531",
         "T1548",
         "T1566",
+        "T1586",
         "T1587",
         "T1588"
       ],
@@ -1616,6 +1619,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1119",
@@ -1693,14 +1700,14 @@
       "sentence_count": 217,
       "raw_attack_id_count": 28,
       "expected_count": 19,
-      "predicted_count": 35,
+      "predicted_count": 34,
       "metrics": {
-        "tp": 10,
+        "tp": 9,
         "fp": 25,
-        "fn": 9,
-        "precision": 0.285714,
-        "recall": 0.526316,
-        "f1": 0.37037
+        "fn": 10,
+        "precision": 0.264706,
+        "recall": 0.473684,
+        "f1": 0.339623
       },
       "matches": [
         "T1003",
@@ -1708,7 +1715,6 @@
         "T1039",
         "T1078",
         "T1087",
-        "T1210",
         "T1550",
         "T1557",
         "T1558",
@@ -1722,6 +1728,7 @@
         "T1110",
         "T1133",
         "T1187",
+        "T1210",
         "T1529",
         "T1595"
       ],
@@ -1883,10 +1890,6 @@
           "name": "Multi-Factor Authentication Request Generation"
         },
         {
-          "ttp_id": "T1210",
-          "name": "Exploitation of Remote Services"
-        },
-        {
           "ttp_id": "T1505",
           "name": "Server Software Component"
         },
@@ -1924,12 +1927,12 @@
       "expected_count": 30,
       "predicted_count": 47,
       "metrics": {
-        "tp": 15,
-        "fp": 32,
-        "fn": 15,
-        "precision": 0.319149,
-        "recall": 0.5,
-        "f1": 0.38961
+        "tp": 14,
+        "fp": 33,
+        "fn": 16,
+        "precision": 0.297872,
+        "recall": 0.466667,
+        "f1": 0.363636
       },
       "matches": [
         "T1003",
@@ -1942,7 +1945,6 @@
         "T1057",
         "T1059",
         "T1190",
-        "T1203",
         "T1505",
         "T1547",
         "T1562",
@@ -1955,6 +1957,7 @@
         "T1055",
         "T1068",
         "T1098",
+        "T1203",
         "T1210",
         "T1555",
         "T1558",
@@ -1994,6 +1997,7 @@
         "T1553",
         "T1560",
         "T1570",
+        "T1573",
         "T1580",
         "T1587",
         "T1588",
@@ -2033,10 +2037,6 @@
       ],
       "predicted": [
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
-        },
-        {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
         },
@@ -2069,10 +2069,6 @@
           "name": "Process Discovery"
         },
         {
-          "ttp_id": "T1059",
-          "name": "Command and Scripting Interpreter"
-        },
-        {
           "ttp_id": "T1012",
           "name": "Query Registry"
         },
@@ -2081,20 +2077,20 @@
           "name": "Automated Exfiltration"
         },
         {
-          "ttp_id": "T1082",
-          "name": "System Information Discovery"
-        },
-        {
           "ttp_id": "T1083",
           "name": "File and Directory Discovery"
+        },
+        {
+          "ttp_id": "T1112",
+          "name": "Modify Registry"
         },
         {
           "ttp_id": "T1505",
           "name": "Server Software Component"
         },
         {
-          "ttp_id": "T1003",
-          "name": "OS Credential Dumping"
+          "ttp_id": "T1005",
+          "name": "Data from Local System"
         },
         {
           "ttp_id": "T1218",
@@ -2125,16 +2121,24 @@
           "name": "Boot or Logon Autostart Execution"
         },
         {
-          "ttp_id": "T1112",
-          "name": "Modify Registry"
+          "ttp_id": "T1003",
+          "name": "OS Credential Dumping"
         },
         {
           "ttp_id": "T1053",
           "name": "Scheduled Task/Job"
         },
         {
-          "ttp_id": "T1005",
-          "name": "Data from Local System"
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
+        },
+        {
+          "ttp_id": "T1070",
+          "name": "Indicator Removal on Host"
+        },
+        {
+          "ttp_id": "T1059",
+          "name": "Command and Scripting Interpreter"
         },
         {
           "ttp_id": "T1069",
@@ -2153,8 +2157,16 @@
           "name": "Serverless Execution"
         },
         {
+          "ttp_id": "T1573",
+          "name": "Encrypted Channel"
+        },
+        {
           "ttp_id": "T1047",
           "name": "Windows Management Instrumentation"
+        },
+        {
+          "ttp_id": "T1082",
+          "name": "System Information Discovery"
         },
         {
           "ttp_id": "T1106",
@@ -2163,10 +2175,6 @@
         {
           "ttp_id": "T1560",
           "name": "Archive Collected Data"
-        },
-        {
-          "ttp_id": "T1027",
-          "name": "Obfuscated Files or Information"
         },
         {
           "ttp_id": "T1588",
@@ -2199,10 +2207,6 @@
         {
           "ttp_id": "T1553",
           "name": "Subvert Trust Controls"
-        },
-        {
-          "ttp_id": "T1070",
-          "name": "Indicator Removal on Host"
         },
         {
           "ttp_id": "T1021",
@@ -2348,18 +2352,21 @@
       "sentence_count": 169,
       "raw_attack_id_count": 21,
       "expected_count": 18,
-      "predicted_count": 31,
+      "predicted_count": 33,
       "metrics": {
-        "tp": 8,
-        "fp": 23,
-        "fn": 10,
-        "precision": 0.258065,
-        "recall": 0.444444,
-        "f1": 0.326531
+        "tp": 11,
+        "fp": 22,
+        "fn": 7,
+        "precision": 0.333333,
+        "recall": 0.611111,
+        "f1": 0.431373
       },
       "matches": [
         "T1016",
+        "T1036",
         "T1059",
+        "T1070",
+        "T1083",
         "T1087",
         "T1140",
         "T1190",
@@ -2369,12 +2376,9 @@
       ],
       "missing": [
         "T1003",
-        "T1036",
         "T1046",
-        "T1070",
         "T1071",
         "T1082",
-        "T1083",
         "T1105",
         "T1484",
         "T1518"
@@ -2393,7 +2397,6 @@
         "T1124",
         "T1203",
         "T1213",
-        "T1218",
         "T1480",
         "T1485",
         "T1498",
@@ -2490,12 +2493,16 @@
           "name": "Data Destruction"
         },
         {
+          "ttp_id": "T1070",
+          "name": "Indicator Removal on Host"
+        },
+        {
           "ttp_id": "T1564",
           "name": "Hide Artifacts"
         },
         {
-          "ttp_id": "T1112",
-          "name": "Modify Registry"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1482",
@@ -2510,8 +2517,12 @@
           "name": "System Network Connections Discovery"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1036",
+          "name": "Masquerading"
+        },
+        {
+          "ttp_id": "T1112",
+          "name": "Modify Registry"
         },
         {
           "ttp_id": "T1098",
@@ -2557,10 +2568,10 @@
       "sentence_count": 144,
       "raw_attack_id_count": 1,
       "expected_count": 1,
-      "predicted_count": 11,
+      "predicted_count": 12,
       "metrics": {
         "tp": 0,
-        "fp": 11,
+        "fp": 12,
         "fn": 1,
         "precision": 0.0,
         "recall": 0.0,
@@ -2573,6 +2584,7 @@
       "extra": [
         "T1036",
         "T1078",
+        "T1114",
         "T1140",
         "T1195",
         "T1200",
@@ -2630,6 +2642,10 @@
         {
           "ttp_id": "T1200",
           "name": "Hardware Additions"
+        },
+        {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
         }
       ]
     },
@@ -2639,14 +2655,14 @@
       "sentence_count": 213,
       "raw_attack_id_count": 4,
       "expected_count": 4,
-      "predicted_count": 36,
+      "predicted_count": 38,
       "metrics": {
         "tp": 1,
-        "fp": 35,
+        "fp": 37,
         "fn": 3,
-        "precision": 0.027778,
+        "precision": 0.026316,
         "recall": 0.25,
-        "f1": 0.05
+        "f1": 0.047619
       },
       "matches": [
         "T1539"
@@ -2666,10 +2682,10 @@
         "T1029",
         "T1033",
         "T1036",
-        "T1053",
         "T1057",
         "T1059",
         "T1071",
+        "T1074",
         "T1083",
         "T1087",
         "T1106",
@@ -2681,6 +2697,7 @@
         "T1190",
         "T1201",
         "T1203",
+        "T1204",
         "T1213",
         "T1218",
         "T1482",
@@ -2690,6 +2707,7 @@
         "T1548",
         "T1562",
         "T1565",
+        "T1586",
         "T1587",
         "T1588"
       ],
@@ -2703,6 +2721,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1588",
@@ -2729,8 +2751,8 @@
           "name": "Data Manipulation"
         },
         {
-          "ttp_id": "T1059",
-          "name": "Command and Scripting Interpreter"
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
         },
         {
           "ttp_id": "T1218",
@@ -2739,6 +2761,10 @@
         {
           "ttp_id": "T1036",
           "name": "Masquerading"
+        },
+        {
+          "ttp_id": "T1204",
+          "name": "User Execution"
         },
         {
           "ttp_id": "T1087",
@@ -2765,16 +2791,16 @@
           "name": "Query Registry"
         },
         {
-          "ttp_id": "T1027",
-          "name": "Obfuscated Files or Information"
+          "ttp_id": "T1059",
+          "name": "Command and Scripting Interpreter"
+        },
+        {
+          "ttp_id": "T1074",
+          "name": "Data Staged"
         },
         {
           "ttp_id": "T1112",
           "name": "Modify Registry"
-        },
-        {
-          "ttp_id": "T1053",
-          "name": "Scheduled Task/Job"
         },
         {
           "ttp_id": "T1003",
@@ -3249,14 +3275,14 @@
       "sentence_count": 148,
       "raw_attack_id_count": 7,
       "expected_count": 6,
-      "predicted_count": 23,
+      "predicted_count": 24,
       "metrics": {
         "tp": 2,
-        "fp": 21,
+        "fp": 22,
         "fn": 4,
-        "precision": 0.086957,
+        "precision": 0.083333,
         "recall": 0.333333,
-        "f1": 0.137931
+        "f1": 0.133333
       },
       "matches": [
         "T1059",
@@ -3288,6 +3314,7 @@
         "T1553",
         "T1562",
         "T1583",
+        "T1586",
         "T1587",
         "T1588"
       ],
@@ -3311,6 +3338,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1104",
@@ -3400,14 +3431,14 @@
       "sentence_count": 291,
       "raw_attack_id_count": 43,
       "expected_count": 33,
-      "predicted_count": 39,
+      "predicted_count": 38,
       "metrics": {
         "tp": 11,
-        "fp": 28,
+        "fp": 27,
         "fn": 22,
-        "precision": 0.282051,
+        "precision": 0.289474,
         "recall": 0.333333,
-        "f1": 0.305556
+        "f1": 0.309859
       },
       "matches": [
         "T1018",
@@ -3453,7 +3484,6 @@
         "T1049",
         "T1069",
         "T1071",
-        "T1114",
         "T1136",
         "T1201",
         "T1213",
@@ -3663,10 +3693,6 @@
         {
           "ttp_id": "T1530",
           "name": "Data from Cloud Storage Object"
-        },
-        {
-          "ttp_id": "T1114",
-          "name": "Email Collection"
         }
       ]
     },
@@ -3676,14 +3702,14 @@
       "sentence_count": 123,
       "raw_attack_id_count": 26,
       "expected_count": 12,
-      "predicted_count": 24,
+      "predicted_count": 23,
       "metrics": {
         "tp": 4,
-        "fp": 20,
+        "fp": 19,
         "fn": 8,
-        "precision": 0.166667,
+        "precision": 0.173913,
         "recall": 0.333333,
-        "f1": 0.222222
+        "f1": 0.228571
       },
       "matches": [
         "T1199",
@@ -3706,7 +3732,6 @@
         "T1014",
         "T1016",
         "T1027",
-        "T1029",
         "T1049",
         "T1059",
         "T1119",
@@ -3829,10 +3854,6 @@
         {
           "ttp_id": "T1553",
           "name": "Subvert Trust Controls"
-        },
-        {
-          "ttp_id": "T1029",
-          "name": "Scheduled Transfer"
         }
       ]
     },
@@ -3842,14 +3863,14 @@
       "sentence_count": 155,
       "raw_attack_id_count": 21,
       "expected_count": 18,
-      "predicted_count": 23,
+      "predicted_count": 25,
       "metrics": {
         "tp": 4,
-        "fp": 19,
+        "fp": 21,
         "fn": 14,
-        "precision": 0.173913,
+        "precision": 0.16,
         "recall": 0.222222,
-        "f1": 0.195122
+        "f1": 0.186047
       },
       "matches": [
         "T1036",
@@ -3879,6 +3900,7 @@
         "T1029",
         "T1030",
         "T1040",
+        "T1083",
         "T1104",
         "T1114",
         "T1119",
@@ -3892,6 +3914,7 @@
         "T1531",
         "T1548",
         "T1553",
+        "T1586",
         "T1587"
       ],
       "expected": [
@@ -3924,8 +3947,16 @@
           "name": "Develop Capabilities"
         },
         {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
+        },
+        {
           "ttp_id": "T1119",
           "name": "Automated Collection"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1030",
@@ -4015,14 +4046,14 @@
       "sentence_count": 229,
       "raw_attack_id_count": 39,
       "expected_count": 32,
-      "predicted_count": 32,
+      "predicted_count": 33,
       "metrics": {
-        "tp": 13,
+        "tp": 14,
         "fp": 19,
-        "fn": 19,
-        "precision": 0.40625,
-        "recall": 0.40625,
-        "f1": 0.40625
+        "fn": 18,
+        "precision": 0.424242,
+        "recall": 0.4375,
+        "f1": 0.430769
       },
       "matches": [
         "T1003",
@@ -4033,10 +4064,11 @@
         "T1053",
         "T1059",
         "T1068",
+        "T1070",
         "T1078",
+        "T1133",
         "T1190",
         "T1219",
-        "T1505",
         "T1587"
       ],
       "missing": [
@@ -4045,11 +4077,10 @@
         "T1036",
         "T1040",
         "T1057",
-        "T1070",
         "T1071",
         "T1074",
-        "T1133",
         "T1136",
+        "T1505",
         "T1543",
         "T1553",
         "T1564",
@@ -4061,11 +4092,10 @@
         "T1588"
       ],
       "extra": [
-        "T1007",
         "T1069",
+        "T1083",
         "T1119",
         "T1124",
-        "T1137",
         "T1140",
         "T1202",
         "T1203",
@@ -4078,6 +4108,7 @@
         "T1534",
         "T1550",
         "T1584",
+        "T1593",
         "T1597",
         "T1608"
       ],
@@ -4129,10 +4160,6 @@
           "name": "Automated Collection"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
-        },
-        {
           "ttp_id": "T1140",
           "name": "Deobfuscate/Decode Files or Information"
         },
@@ -4145,32 +4172,32 @@
           "name": "Search Closed Sources"
         },
         {
+          "ttp_id": "T1133",
+          "name": "External Remote Services"
+        },
+        {
           "ttp_id": "T1069",
           "name": "Permission Groups Discovery"
         },
         {
-          "ttp_id": "T1068",
-          "name": "Exploitation for Privilege Escalation"
+          "ttp_id": "T1190",
+          "name": "Exploit Public-Facing Application"
         },
         {
           "ttp_id": "T1078",
           "name": "Valid Accounts"
         },
         {
+          "ttp_id": "T1068",
+          "name": "Exploitation for Privilege Escalation"
+        },
+        {
           "ttp_id": "T1021",
           "name": "Remote Services"
         },
         {
-          "ttp_id": "T1505",
-          "name": "Server Software Component"
-        },
-        {
-          "ttp_id": "T1137",
-          "name": "Office Application Startup"
-        },
-        {
-          "ttp_id": "T1007",
-          "name": "System Service Discovery"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1124",
@@ -4193,8 +4220,8 @@
           "name": "Network Service Discovery"
         },
         {
-          "ttp_id": "T1190",
-          "name": "Exploit Public-Facing Application"
+          "ttp_id": "T1203",
+          "name": "Exploitation for Client Execution"
         },
         {
           "ttp_id": "T1220",
@@ -4211,6 +4238,14 @@
         {
           "ttp_id": "T1534",
           "name": "Internal Spearphishing"
+        },
+        {
+          "ttp_id": "T1070",
+          "name": "Indicator Removal on Host"
+        },
+        {
+          "ttp_id": "T1593",
+          "name": "Search Open Websites/Domains"
         },
         {
           "ttp_id": "T1584",
@@ -4252,10 +4287,10 @@
       "sentence_count": 161,
       "raw_attack_id_count": 0,
       "expected_count": 0,
-      "predicted_count": 23,
+      "predicted_count": 24,
       "metrics": {
         "tp": 0,
-        "fp": 23,
+        "fp": 24,
         "fn": 0,
         "precision": 0.0,
         "recall": 0.0,
@@ -4277,6 +4312,7 @@
         "T1136",
         "T1207",
         "T1213",
+        "T1218",
         "T1482",
         "T1518",
         "T1531",
@@ -4293,6 +4329,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1213",
+          "name": "Data from Information Repositories"
         },
         {
           "ttp_id": "T1119",
@@ -4335,6 +4375,10 @@
           "name": "Modify Registry"
         },
         {
+          "ttp_id": "T1218",
+          "name": "System Binary Proxy Execution"
+        },
+        {
           "ttp_id": "T1016",
           "name": "System Network Configuration Discovery"
         },
@@ -4353,10 +4397,6 @@
         {
           "ttp_id": "T1548",
           "name": "Abuse Elevation Control Mechanism"
-        },
-        {
-          "ttp_id": "T1213",
-          "name": "Data from Information Repositories"
         },
         {
           "ttp_id": "T1534",
@@ -4390,14 +4430,14 @@
       "sentence_count": 146,
       "raw_attack_id_count": 11,
       "expected_count": 10,
-      "predicted_count": 21,
+      "predicted_count": 19,
       "metrics": {
         "tp": 3,
-        "fp": 18,
+        "fp": 16,
         "fn": 7,
-        "precision": 0.142857,
+        "precision": 0.157895,
         "recall": 0.3,
-        "f1": 0.193548
+        "f1": 0.206897
       },
       "matches": [
         "T1018",
@@ -4415,9 +4455,9 @@
       ],
       "extra": [
         "T1014",
-        "T1068",
         "T1119",
         "T1140",
+        "T1202",
         "T1203",
         "T1213",
         "T1482",
@@ -4425,9 +4465,7 @@
         "T1528",
         "T1531",
         "T1546",
-        "T1550",
         "T1553",
-        "T1565",
         "T1584",
         "T1587",
         "T1588",
@@ -4447,12 +4485,12 @@
       ],
       "predicted": [
         {
-          "ttp_id": "T1190",
-          "name": "Exploit Public-Facing Application"
+          "ttp_id": "T1203",
+          "name": "Exploitation for Client Execution"
         },
         {
-          "ttp_id": "T1068",
-          "name": "Exploitation for Privilege Escalation"
+          "ttp_id": "T1190",
+          "name": "Exploit Public-Facing Application"
         },
         {
           "ttp_id": "T1546",
@@ -4479,10 +4517,6 @@
           "name": "Forge Web Credentials"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
-        },
-        {
           "ttp_id": "T1584",
           "name": "Compromise Infrastructure"
         },
@@ -4495,8 +4529,8 @@
           "name": "Indicator Removal on Host"
         },
         {
-          "ttp_id": "T1550",
-          "name": "Use Alternate Authentication Material"
+          "ttp_id": "T1202",
+          "name": "Indirect Command Execution"
         },
         {
           "ttp_id": "T1588",
@@ -4517,10 +4551,6 @@
         {
           "ttp_id": "T1531",
           "name": "Account Access Removal"
-        },
-        {
-          "ttp_id": "T1565",
-          "name": "Data Manipulation"
         },
         {
           "ttp_id": "T1014",
@@ -4548,7 +4578,7 @@
         "f1": 0.5
       },
       "matches": [
-        "T1016",
+        "T1018",
         "T1036",
         "T1046",
         "T1059",
@@ -4569,7 +4599,7 @@
       ],
       "missing": [
         "T1005",
-        "T1018",
+        "T1016",
         "T1033",
         "T1105",
         "T1106",
@@ -4591,7 +4621,6 @@
         "T1068",
         "T1082",
         "T1083",
-        "T1102",
         "T1112",
         "T1119",
         "T1132",
@@ -4600,6 +4629,7 @@
         "T1213",
         "T1498",
         "T1528",
+        "T1564",
         "T1565",
         "T1570",
         "T1571",
@@ -4711,8 +4741,8 @@
           "name": "System Network Connections Discovery"
         },
         {
-          "ttp_id": "T1016",
-          "name": "System Network Configuration Discovery"
+          "ttp_id": "T1018",
+          "name": "Remote System Discovery"
         },
         {
           "ttp_id": "T1482",
@@ -4737,6 +4767,10 @@
         {
           "ttp_id": "T1584",
           "name": "Compromise Infrastructure"
+        },
+        {
+          "ttp_id": "T1564",
+          "name": "Hide Artifacts"
         },
         {
           "ttp_id": "T1040",
@@ -4791,10 +4825,6 @@
           "name": "Network Service Discovery"
         },
         {
-          "ttp_id": "T1102",
-          "name": "Web Service"
-        },
-        {
           "ttp_id": "T1132",
           "name": "Data Encoding"
         },
@@ -4822,14 +4852,14 @@
       "sentence_count": 207,
       "raw_attack_id_count": 41,
       "expected_count": 34,
-      "predicted_count": 33,
+      "predicted_count": 32,
       "metrics": {
         "tp": 13,
-        "fp": 20,
+        "fp": 19,
         "fn": 21,
-        "precision": 0.393939,
+        "precision": 0.40625,
         "recall": 0.382353,
-        "f1": 0.38806
+        "f1": 0.393939
       },
       "matches": [
         "T1005",
@@ -4876,7 +4906,6 @@
         "T1102",
         "T1119",
         "T1136",
-        "T1203",
         "T1213",
         "T1218",
         "T1219",
@@ -4953,8 +4982,8 @@
           "name": "System Binary Proxy Execution"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
+          "ttp_id": "T1480",
+          "name": "Execution Guardrails"
         },
         {
           "ttp_id": "T1112",
@@ -5045,10 +5074,6 @@
           "name": "Remote System Discovery"
         },
         {
-          "ttp_id": "T1480",
-          "name": "Execution Guardrails"
-        },
-        {
           "ttp_id": "T1136",
           "name": "Create Account"
         },
@@ -5068,17 +5093,16 @@
       "sentence_count": 310,
       "raw_attack_id_count": 46,
       "expected_count": 35,
-      "predicted_count": 27,
+      "predicted_count": 26,
       "metrics": {
-        "tp": 8,
+        "tp": 7,
         "fp": 19,
-        "fn": 27,
-        "precision": 0.296296,
-        "recall": 0.228571,
-        "f1": 0.258065
+        "fn": 28,
+        "precision": 0.269231,
+        "recall": 0.2,
+        "f1": 0.229508
       },
       "matches": [
-        "T1021",
         "T1027",
         "T1059",
         "T1190",
@@ -5089,6 +5113,7 @@
       ],
       "missing": [
         "T1003",
+        "T1021",
         "T1046",
         "T1048",
         "T1070",
@@ -5228,10 +5253,6 @@
           "name": "Exploitation for Client Execution"
         },
         {
-          "ttp_id": "T1021",
-          "name": "Remote Services"
-        },
-        {
           "ttp_id": "T1041",
           "name": "Exfiltration Over C2 Channel"
         },
@@ -5293,12 +5314,12 @@
       "expected_count": 17,
       "predicted_count": 32,
       "metrics": {
-        "tp": 8,
-        "fp": 24,
-        "fn": 9,
-        "precision": 0.25,
-        "recall": 0.470588,
-        "f1": 0.326531
+        "tp": 7,
+        "fp": 25,
+        "fn": 10,
+        "precision": 0.21875,
+        "recall": 0.411765,
+        "f1": 0.285714
       },
       "matches": [
         "T1018",
@@ -5307,7 +5328,6 @@
         "T1070",
         "T1105",
         "T1129",
-        "T1190",
         "T1505"
       ],
       "missing": [
@@ -5316,6 +5336,7 @@
         "T1068",
         "T1071",
         "T1113",
+        "T1190",
         "T1546",
         "T1563",
         "T1566",
@@ -5345,6 +5366,7 @@
         "T1567",
         "T1568",
         "T1583",
+        "T1586",
         "T1587"
       ],
       "expected": [
@@ -5382,6 +5404,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1203",
@@ -5438,10 +5464,6 @@
         {
           "ttp_id": "T1132",
           "name": "Data Encoding"
-        },
-        {
-          "ttp_id": "T1190",
-          "name": "Exploit Public-Facing Application"
         },
         {
           "ttp_id": "T1036",
@@ -5503,17 +5525,18 @@
       "sentence_count": 296,
       "raw_attack_id_count": 19,
       "expected_count": 13,
-      "predicted_count": 42,
+      "predicted_count": 44,
       "metrics": {
-        "tp": 8,
-        "fp": 34,
-        "fn": 5,
-        "precision": 0.190476,
-        "recall": 0.615385,
-        "f1": 0.290909
+        "tp": 9,
+        "fp": 35,
+        "fn": 4,
+        "precision": 0.204545,
+        "recall": 0.692308,
+        "f1": 0.315789
       },
       "matches": [
         "T1003",
+        "T1016",
         "T1033",
         "T1047",
         "T1059",
@@ -5523,7 +5546,6 @@
         "T1090"
       ],
       "missing": [
-        "T1016",
         "T1110",
         "T1190",
         "T1505",
@@ -5531,25 +5553,26 @@
       ],
       "extra": [
         "T1001",
-        "T1005",
         "T1012",
         "T1021",
         "T1027",
-        "T1036",
         "T1049",
         "T1057",
         "T1074",
         "T1083",
         "T1087",
         "T1112",
+        "T1114",
         "T1119",
         "T1140",
         "T1203",
+        "T1213",
         "T1218",
         "T1480",
         "T1482",
         "T1490",
         "T1491",
+        "T1518",
         "T1531",
         "T1553",
         "T1562",
@@ -5626,12 +5649,12 @@
           "name": "Remote Services"
         },
         {
-          "ttp_id": "T1571",
-          "name": "Non-Standard Port"
-        },
-        {
           "ttp_id": "T1082",
           "name": "System Information Discovery"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1047",
@@ -5656,10 +5679,6 @@
         {
           "ttp_id": "T1074",
           "name": "Data Staged"
-        },
-        {
-          "ttp_id": "T1083",
-          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1119",
@@ -5690,6 +5709,10 @@
           "name": "Container and Resource Discovery"
         },
         {
+          "ttp_id": "T1571",
+          "name": "Non-Standard Port"
+        },
+        {
           "ttp_id": "T1057",
           "name": "Process Discovery"
         },
@@ -5700,6 +5723,10 @@
         {
           "ttp_id": "T1586",
           "name": "Compromise Accounts"
+        },
+        {
+          "ttp_id": "T1518",
+          "name": "Software Discovery"
         },
         {
           "ttp_id": "T1203",
@@ -5722,12 +5749,8 @@
           "name": "Hide Artifacts"
         },
         {
-          "ttp_id": "T1005",
-          "name": "Data from Local System"
-        },
-        {
-          "ttp_id": "T1036",
-          "name": "Masquerading"
+          "ttp_id": "T1016",
+          "name": "System Network Configuration Discovery"
         },
         {
           "ttp_id": "T1482",
@@ -5746,6 +5769,14 @@
           "name": "Search Open Websites/Domains"
         },
         {
+          "ttp_id": "T1213",
+          "name": "Data from Information Repositories"
+        },
+        {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
+        },
+        {
           "ttp_id": "T1531",
           "name": "Account Access Removal"
         }
@@ -5757,22 +5788,22 @@
       "sentence_count": 207,
       "raw_attack_id_count": 32,
       "expected_count": 28,
-      "predicted_count": 34,
+      "predicted_count": 35,
       "metrics": {
         "tp": 14,
-        "fp": 20,
+        "fp": 21,
         "fn": 14,
-        "precision": 0.411765,
+        "precision": 0.4,
         "recall": 0.5,
-        "f1": 0.451613
+        "f1": 0.444444
       },
       "matches": [
-        "T1003",
         "T1018",
         "T1046",
         "T1059",
         "T1069",
         "T1078",
+        "T1083",
         "T1115",
         "T1135",
         "T1136",
@@ -5783,12 +5814,12 @@
         "T1587"
       ],
       "missing": [
+        "T1003",
         "T1012",
         "T1021",
         "T1033",
         "T1048",
         "T1053",
-        "T1083",
         "T1098",
         "T1105",
         "T1112",
@@ -5804,6 +5835,7 @@
         "T1027",
         "T1029",
         "T1049",
+        "T1070",
         "T1119",
         "T1140",
         "T1195",
@@ -5928,12 +5960,12 @@
           "name": "Data from Local System"
         },
         {
-          "ttp_id": "T1003",
-          "name": "OS Credential Dumping"
-        },
-        {
           "ttp_id": "T1219",
           "name": "Remote Access Software"
+        },
+        {
+          "ttp_id": "T1070",
+          "name": "Indicator Removal on Host"
         },
         {
           "ttp_id": "T1115",
@@ -5946,6 +5978,10 @@
         {
           "ttp_id": "T1027",
           "name": "Obfuscated Files or Information"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1566",
@@ -6331,10 +6367,10 @@
       "sentence_count": 78,
       "raw_attack_id_count": 3,
       "expected_count": 3,
-      "predicted_count": 22,
+      "predicted_count": 24,
       "metrics": {
         "tp": 0,
-        "fp": 22,
+        "fp": 24,
         "fn": 3,
         "precision": 0.0,
         "recall": 0.0,
@@ -6358,9 +6394,11 @@
         "T1119",
         "T1203",
         "T1205",
+        "T1210",
         "T1218",
         "T1482",
         "T1498",
+        "T1518",
         "T1531",
         "T1565",
         "T1571",
@@ -6376,6 +6414,10 @@
         "T1590"
       ],
       "predicted": [
+        {
+          "ttp_id": "T1518",
+          "name": "Software Discovery"
+        },
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
@@ -6433,6 +6475,10 @@
           "name": "Data Manipulation"
         },
         {
+          "ttp_id": "T1210",
+          "name": "Exploitation of Remote Services"
+        },
+        {
           "ttp_id": "T1602",
           "name": "Data from Configuration Repository"
         },
@@ -6472,14 +6518,14 @@
       "sentence_count": 173,
       "raw_attack_id_count": 28,
       "expected_count": 24,
-      "predicted_count": 37,
+      "predicted_count": 38,
       "metrics": {
         "tp": 7,
-        "fp": 30,
+        "fp": 31,
         "fn": 17,
-        "precision": 0.189189,
+        "precision": 0.184211,
         "recall": 0.291667,
-        "f1": 0.229508
+        "f1": 0.225806
       },
       "matches": [
         "T1027",
@@ -6518,6 +6564,7 @@
         "T1055",
         "T1057",
         "T1059",
+        "T1083",
         "T1098",
         "T1102",
         "T1112",
@@ -6575,6 +6622,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1119",
@@ -6661,6 +6712,10 @@
           "name": "Abuse Elevation Control Mechanism"
         },
         {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
           "ttp_id": "T1490",
           "name": "Inhibit System Recovery"
         },
@@ -6705,10 +6760,6 @@
           "name": "Account Manipulation"
         },
         {
-          "ttp_id": "T1586",
-          "name": "Compromise Accounts"
-        },
-        {
           "ttp_id": "T1498",
           "name": "Network Denial of Service"
         },
@@ -6724,29 +6775,29 @@
       "sentence_count": 260,
       "raw_attack_id_count": 17,
       "expected_count": 13,
-      "predicted_count": 46,
+      "predicted_count": 39,
       "metrics": {
-        "tp": 10,
-        "fp": 36,
-        "fn": 3,
-        "precision": 0.217391,
-        "recall": 0.769231,
-        "f1": 0.338983
+        "tp": 6,
+        "fp": 33,
+        "fn": 7,
+        "precision": 0.153846,
+        "recall": 0.461538,
+        "f1": 0.230769
       },
       "matches": [
         "T1036",
-        "T1055",
         "T1059",
         "T1070",
         "T1083",
-        "T1095",
-        "T1105",
         "T1140",
-        "T1190",
-        "T1505"
+        "T1190"
       ],
       "missing": [
         "T1016",
+        "T1055",
+        "T1095",
+        "T1105",
+        "T1505",
         "T1583",
         "T1595"
       ],
@@ -6767,7 +6818,6 @@
         "T1124",
         "T1129",
         "T1203",
-        "T1211",
         "T1213",
         "T1218",
         "T1480",
@@ -6775,7 +6825,6 @@
         "T1497",
         "T1518",
         "T1531",
-        "T1546",
         "T1550",
         "T1559",
         "T1564",
@@ -6785,8 +6834,7 @@
         "T1587",
         "T1588",
         "T1597",
-        "T1602",
-        "T1606"
+        "T1602"
       ],
       "expected": [
         "T1016",
@@ -6829,10 +6877,6 @@
           "name": "Automated Collection"
         },
         {
-          "ttp_id": "T1505",
-          "name": "Server Software Component"
-        },
-        {
           "ttp_id": "T1102",
           "name": "Web Service"
         },
@@ -6845,20 +6889,12 @@
           "name": "Search Closed Sources"
         },
         {
-          "ttp_id": "T1211",
-          "name": "Exploitation for Defense Evasion"
-        },
-        {
-          "ttp_id": "T1606",
-          "name": "Forge Web Credentials"
-        },
-        {
           "ttp_id": "T1565",
           "name": "Data Manipulation"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1518",
@@ -6877,12 +6913,12 @@
           "name": "Obfuscated Files or Information"
         },
         {
-          "ttp_id": "T1574",
-          "name": "Hijack Execution Flow"
-        },
-        {
           "ttp_id": "T1098",
           "name": "Account Manipulation"
+        },
+        {
+          "ttp_id": "T1574",
+          "name": "Hijack Execution Flow"
         },
         {
           "ttp_id": "T1480",
@@ -6891,10 +6927,6 @@
         {
           "ttp_id": "T1041",
           "name": "Exfiltration Over C2 Channel"
-        },
-        {
-          "ttp_id": "T1083",
-          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1059",
@@ -6907,10 +6939,6 @@
         {
           "ttp_id": "T1082",
           "name": "System Information Discovery"
-        },
-        {
-          "ttp_id": "T1105",
-          "name": "Ingress Tool Transfer"
         },
         {
           "ttp_id": "T1569",
@@ -6927,18 +6955,6 @@
         {
           "ttp_id": "T1020",
           "name": "Automated Exfiltration"
-        },
-        {
-          "ttp_id": "T1546",
-          "name": "Event Triggered Execution"
-        },
-        {
-          "ttp_id": "T1055",
-          "name": "Process Injection"
-        },
-        {
-          "ttp_id": "T1095",
-          "name": "Non-Application Layer Protocol"
         },
         {
           "ttp_id": "T1129",
@@ -6963,6 +6979,10 @@
         {
           "ttp_id": "T1559",
           "name": "Inter-Process Communication"
+        },
+        {
+          "ttp_id": "T1218",
+          "name": "System Binary Proxy Execution"
         },
         {
           "ttp_id": "T1057",
@@ -7029,7 +7049,7 @@
         "T1030",
         "T1036",
         "T1049",
-        "T1087",
+        "T1083",
         "T1104",
         "T1112",
         "T1136",
@@ -7148,8 +7168,8 @@
           "name": "Modify Registry"
         },
         {
-          "ttp_id": "T1087",
-          "name": "Account Discovery"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1016",
@@ -7381,10 +7401,6 @@
           "name": "Credentials from Password Stores"
         },
         {
-          "ttp_id": "T1003",
-          "name": "OS Credential Dumping"
-        },
-        {
           "ttp_id": "T1482",
           "name": "Domain Trust Discovery"
         },
@@ -7419,6 +7435,10 @@
         {
           "ttp_id": "T1586",
           "name": "Compromise Accounts"
+        },
+        {
+          "ttp_id": "T1003",
+          "name": "OS Credential Dumping"
         },
         {
           "ttp_id": "T1584",
@@ -7480,14 +7500,14 @@
       "sentence_count": 204,
       "raw_attack_id_count": 13,
       "expected_count": 7,
-      "predicted_count": 26,
+      "predicted_count": 27,
       "metrics": {
         "tp": 2,
-        "fp": 24,
+        "fp": 25,
         "fn": 5,
-        "precision": 0.076923,
+        "precision": 0.074074,
         "recall": 0.285714,
-        "f1": 0.121212
+        "f1": 0.117647
       },
       "matches": [
         "T1021",
@@ -7504,6 +7524,7 @@
         "T1027",
         "T1029",
         "T1036",
+        "T1069",
         "T1095",
         "T1114",
         "T1119",
@@ -7511,7 +7532,6 @@
         "T1134",
         "T1140",
         "T1189",
-        "T1203",
         "T1204",
         "T1213",
         "T1480",
@@ -7522,6 +7542,7 @@
         "T1553",
         "T1565",
         "T1584",
+        "T1586",
         "T1587",
         "T1588",
         "T1602"
@@ -7539,6 +7560,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1029",
@@ -7563,10 +7588,6 @@
         {
           "ttp_id": "T1134",
           "name": "Access Token Manipulation"
-        },
-        {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
         },
         {
           "ttp_id": "T1204",
@@ -7595,6 +7616,10 @@
         {
           "ttp_id": "T1530",
           "name": "Data from Cloud Storage Object"
+        },
+        {
+          "ttp_id": "T1069",
+          "name": "Permission Groups Discovery"
         },
         {
           "ttp_id": "T1531",
@@ -7678,11 +7703,11 @@
         "T1027",
         "T1029",
         "T1036",
+        "T1083",
         "T1104",
         "T1119",
         "T1136",
         "T1213",
-        "T1218",
         "T1482",
         "T1491",
         "T1498",
@@ -7743,6 +7768,10 @@
           "name": "Domain Trust Discovery"
         },
         {
+          "ttp_id": "T1548",
+          "name": "Abuse Elevation Control Mechanism"
+        },
+        {
           "ttp_id": "T1558",
           "name": "Steal or Forge Kerberos Tickets"
         },
@@ -7751,8 +7780,8 @@
           "name": "Multi-Stage Channels"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1562",
@@ -7781,10 +7810,6 @@
         {
           "ttp_id": "T1136",
           "name": "Create Account"
-        },
-        {
-          "ttp_id": "T1548",
-          "name": "Abuse Elevation Control Mechanism"
         },
         {
           "ttp_id": "T1498",
@@ -7837,7 +7862,6 @@
         "T1124",
         "T1136",
         "T1140",
-        "T1203",
         "T1213",
         "T1482",
         "T1498",
@@ -7847,6 +7871,7 @@
         "T1553",
         "T1565",
         "T1568",
+        "T1586",
         "T1587",
         "T1589",
         "T1597"
@@ -7877,6 +7902,10 @@
           "name": "Develop Capabilities"
         },
         {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
+        },
+        {
           "ttp_id": "T1029",
           "name": "Scheduled Transfer"
         },
@@ -7887,10 +7916,6 @@
         {
           "ttp_id": "T1104",
           "name": "Multi-Stage Channels"
-        },
-        {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
         },
         {
           "ttp_id": "T1568",
@@ -8021,12 +8046,12 @@
         "T1036",
         "T1047",
         "T1082",
+        "T1083",
         "T1087",
         "T1102",
         "T1140",
         "T1200",
         "T1213",
-        "T1218",
         "T1480",
         "T1498",
         "T1528",
@@ -8081,20 +8106,20 @@
           "name": "Impair Defenses"
         },
         {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
           "ttp_id": "T1105",
           "name": "Ingress Tool Transfer"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1036",
+          "name": "Masquerading"
         },
         {
           "ttp_id": "T1053",
           "name": "Scheduled Task/Job"
-        },
-        {
-          "ttp_id": "T1036",
-          "name": "Masquerading"
         },
         {
           "ttp_id": "T1140",
@@ -8149,10 +8174,6 @@
           "name": "Account Access Removal"
         },
         {
-          "ttp_id": "T1480",
-          "name": "Execution Guardrails"
-        },
-        {
           "ttp_id": "T1498",
           "name": "Network Denial of Service"
         },
@@ -8163,6 +8184,10 @@
         {
           "ttp_id": "T1528",
           "name": "Steal Application Access Token"
+        },
+        {
+          "ttp_id": "T1480",
+          "name": "Execution Guardrails"
         }
       ]
     },
@@ -8172,14 +8197,14 @@
       "sentence_count": 138,
       "raw_attack_id_count": 11,
       "expected_count": 9,
-      "predicted_count": 20,
+      "predicted_count": 21,
       "metrics": {
         "tp": 3,
-        "fp": 17,
+        "fp": 18,
         "fn": 6,
-        "precision": 0.15,
+        "precision": 0.142857,
         "recall": 0.333333,
-        "f1": 0.206897
+        "f1": 0.2
       },
       "matches": [
         "T1078",
@@ -8211,6 +8236,7 @@
         "T1531",
         "T1548",
         "T1553",
+        "T1586",
         "T1587"
       ],
       "expected": [
@@ -8228,6 +8254,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1119",
@@ -8563,6 +8593,7 @@
         "T1041",
         "T1059",
         "T1078",
+        "T1083",
         "T1087",
         "T1090",
         "T1114",
@@ -8572,7 +8603,6 @@
         "T1199",
         "T1203",
         "T1213",
-        "T1218",
         "T1219",
         "T1482",
         "T1491",
@@ -8615,12 +8645,12 @@
           "name": "Obtain Capabilities"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
-        },
-        {
           "ttp_id": "T1584",
           "name": "Compromise Infrastructure"
+        },
+        {
+          "ttp_id": "T1203",
+          "name": "Exploitation for Client Execution"
         },
         {
           "ttp_id": "T1199",
@@ -8651,6 +8681,10 @@
           "name": "Defacement"
         },
         {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
           "ttp_id": "T1059",
           "name": "Command and Scripting Interpreter"
         },
@@ -8675,14 +8709,6 @@
           "name": "Automated Exfiltration"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
-        },
-        {
-          "ttp_id": "T1027",
-          "name": "Obfuscated Files or Information"
-        },
-        {
           "ttp_id": "T1534",
           "name": "Internal Spearphishing"
         },
@@ -8705,6 +8731,10 @@
         {
           "ttp_id": "T1137",
           "name": "Office Application Startup"
+        },
+        {
+          "ttp_id": "T1574",
+          "name": "Hijack Execution Flow"
         },
         {
           "ttp_id": "T1213",
@@ -8735,10 +8765,6 @@
           "name": "Remote Access Software"
         },
         {
-          "ttp_id": "T1574",
-          "name": "Hijack Execution Flow"
-        },
-        {
           "ttp_id": "T1553",
           "name": "Subvert Trust Controls"
         },
@@ -8749,6 +8775,10 @@
         {
           "ttp_id": "T1119",
           "name": "Automated Collection"
+        },
+        {
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
         }
       ]
     },
@@ -8758,14 +8788,14 @@
       "sentence_count": 115,
       "raw_attack_id_count": 15,
       "expected_count": 14,
-      "predicted_count": 19,
+      "predicted_count": 20,
       "metrics": {
         "tp": 3,
-        "fp": 16,
+        "fp": 17,
         "fn": 11,
-        "precision": 0.157895,
+        "precision": 0.15,
         "recall": 0.214286,
-        "f1": 0.181818
+        "f1": 0.176471
       },
       "matches": [
         "T1053",
@@ -8799,6 +8829,7 @@
         "T1530",
         "T1548",
         "T1553",
+        "T1586",
         "T1587",
         "T1588",
         "T1589"
@@ -8823,6 +8854,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1531",
@@ -8904,14 +8939,14 @@
       "sentence_count": 117,
       "raw_attack_id_count": 15,
       "expected_count": 14,
-      "predicted_count": 20,
+      "predicted_count": 21,
       "metrics": {
         "tp": 3,
-        "fp": 17,
+        "fp": 18,
         "fn": 11,
-        "precision": 0.15,
+        "precision": 0.142857,
         "recall": 0.214286,
-        "f1": 0.176471
+        "f1": 0.171429
       },
       "matches": [
         "T1053",
@@ -8946,6 +8981,7 @@
         "T1530",
         "T1548",
         "T1553",
+        "T1586",
         "T1587",
         "T1588",
         "T1589"
@@ -8974,6 +9010,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1119",
@@ -9055,14 +9095,14 @@
       "sentence_count": 93,
       "raw_attack_id_count": 9,
       "expected_count": 6,
-      "predicted_count": 17,
+      "predicted_count": 18,
       "metrics": {
         "tp": 1,
-        "fp": 16,
+        "fp": 17,
         "fn": 5,
-        "precision": 0.058824,
+        "precision": 0.055556,
         "recall": 0.166667,
-        "f1": 0.086957
+        "f1": 0.083333
       },
       "matches": [
         "T1486"
@@ -9089,6 +9129,7 @@
         "T1548",
         "T1553",
         "T1571",
+        "T1586",
         "T1587",
         "T1613"
       ],
@@ -9112,6 +9153,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1027",
@@ -9177,14 +9222,14 @@
       "sentence_count": 88,
       "raw_attack_id_count": 6,
       "expected_count": 6,
-      "predicted_count": 14,
+      "predicted_count": 15,
       "metrics": {
         "tp": 3,
-        "fp": 11,
+        "fp": 12,
         "fn": 3,
-        "precision": 0.214286,
+        "precision": 0.2,
         "recall": 0.5,
-        "f1": 0.3
+        "f1": 0.285714
       },
       "matches": [
         "T1059",
@@ -9207,6 +9252,7 @@
         "T1560",
         "T1568",
         "T1583",
+        "T1586",
         "T1587"
       ],
       "expected": [
@@ -9225,6 +9271,10 @@
         {
           "ttp_id": "T1587",
           "name": "Develop Capabilities"
+        },
+        {
+          "ttp_id": "T1586",
+          "name": "Compromise Accounts"
         },
         {
           "ttp_id": "T1486",
@@ -9315,13 +9365,13 @@
         "T1041",
         "T1068",
         "T1078",
+        "T1083",
         "T1102",
+        "T1114",
         "T1140",
         "T1202",
         "T1211",
         "T1213",
-        "T1218",
-        "T1480",
         "T1498",
         "T1531",
         "T1569",
@@ -9368,12 +9418,8 @@
           "name": "Automated Exfiltration"
         },
         {
-          "ttp_id": "T1569",
-          "name": "System Services"
-        },
-        {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1036",
@@ -9390,6 +9436,10 @@
         {
           "ttp_id": "T1053",
           "name": "Scheduled Task/Job"
+        },
+        {
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
         },
         {
           "ttp_id": "T1211",
@@ -9412,20 +9462,16 @@
           "name": "Valid Accounts"
         },
         {
-          "ttp_id": "T1027",
-          "name": "Obfuscated Files or Information"
-        },
-        {
           "ttp_id": "T1041",
           "name": "Exfiltration Over C2 Channel"
         },
         {
-          "ttp_id": "T1140",
-          "name": "Deobfuscate/Decode Files or Information"
-        },
-        {
           "ttp_id": "T1008",
           "name": "Fallback Channels"
+        },
+        {
+          "ttp_id": "T1140",
+          "name": "Deobfuscate/Decode Files or Information"
         },
         {
           "ttp_id": "T1202",
@@ -9434,6 +9480,10 @@
         {
           "ttp_id": "T1573",
           "name": "Encrypted Channel"
+        },
+        {
+          "ttp_id": "T1569",
+          "name": "System Services"
         },
         {
           "ttp_id": "T1213",
@@ -9448,16 +9498,16 @@
           "name": "Account Access Removal"
         },
         {
-          "ttp_id": "T1480",
-          "name": "Execution Guardrails"
-        },
-        {
           "ttp_id": "T1498",
           "name": "Network Denial of Service"
         },
         {
           "ttp_id": "T1102",
           "name": "Web Service"
+        },
+        {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
         }
       ]
     },
@@ -9467,44 +9517,46 @@
       "sentence_count": 174,
       "raw_attack_id_count": 12,
       "expected_count": 10,
-      "predicted_count": 19,
+      "predicted_count": 22,
       "metrics": {
-        "tp": 4,
-        "fp": 15,
-        "fn": 6,
-        "precision": 0.210526,
-        "recall": 0.4,
-        "f1": 0.275862
+        "tp": 5,
+        "fp": 17,
+        "fn": 5,
+        "precision": 0.227273,
+        "recall": 0.5,
+        "f1": 0.3125
       },
       "matches": [
         "T1016",
         "T1119",
         "T1190",
-        "T1572"
+        "T1572",
+        "T1599"
       ],
       "missing": [
         "T1020",
         "T1078",
         "T1133",
         "T1555",
-        "T1595",
-        "T1599"
+        "T1595"
       ],
       "extra": [
         "T1046",
         "T1049",
+        "T1114",
         "T1129",
-        "T1195",
         "T1199",
         "T1205",
         "T1213",
         "T1482",
         "T1498",
+        "T1518",
         "T1531",
         "T1553",
         "T1565",
         "T1583",
         "T1587",
+        "T1598",
         "T1602"
       ],
       "expected": [
@@ -9589,12 +9641,24 @@
           "name": "Domain Trust Discovery"
         },
         {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
+        },
+        {
+          "ttp_id": "T1598",
+          "name": "Phishing for Information"
+        },
+        {
+          "ttp_id": "T1599",
+          "name": "Network Boundary Bridging"
+        },
+        {
           "ttp_id": "T1553",
           "name": "Subvert Trust Controls"
         },
         {
-          "ttp_id": "T1195",
-          "name": "Supply Chain Compromise"
+          "ttp_id": "T1518",
+          "name": "Software Discovery"
         }
       ]
     },
@@ -9753,14 +9817,14 @@
       "sentence_count": 241,
       "raw_attack_id_count": 23,
       "expected_count": 13,
-      "predicted_count": 36,
+      "predicted_count": 35,
       "metrics": {
-        "tp": 11,
+        "tp": 10,
         "fp": 25,
-        "fn": 2,
-        "precision": 0.305556,
-        "recall": 0.846154,
-        "f1": 0.44898
+        "fn": 3,
+        "precision": 0.285714,
+        "recall": 0.769231,
+        "f1": 0.416667
       },
       "matches": [
         "T1059",
@@ -9769,7 +9833,6 @@
         "T1071",
         "T1090",
         "T1105",
-        "T1203",
         "T1222",
         "T1505",
         "T1560",
@@ -9777,6 +9840,7 @@
       ],
       "missing": [
         "T1003",
+        "T1203",
         "T1573"
       ],
       "extra": [
@@ -9794,6 +9858,7 @@
         "T1140",
         "T1190",
         "T1195",
+        "T1204",
         "T1213",
         "T1221",
         "T1482",
@@ -9801,7 +9866,6 @@
         "T1498",
         "T1518",
         "T1553",
-        "T1571",
         "T1584",
         "T1587",
         "T1614"
@@ -9827,20 +9891,20 @@
           "name": "Exploit Public-Facing Application"
         },
         {
-          "ttp_id": "T1588",
-          "name": "Obtain Capabilities"
+          "ttp_id": "T1221",
+          "name": "Template Injection"
         },
         {
           "ttp_id": "T1584",
           "name": "Compromise Infrastructure"
         },
         {
-          "ttp_id": "T1587",
-          "name": "Develop Capabilities"
+          "ttp_id": "T1588",
+          "name": "Obtain Capabilities"
         },
         {
-          "ttp_id": "T1221",
-          "name": "Template Injection"
+          "ttp_id": "T1587",
+          "name": "Develop Capabilities"
         },
         {
           "ttp_id": "T1195",
@@ -9849,10 +9913,6 @@
         {
           "ttp_id": "T1068",
           "name": "Exploitation for Privilege Escalation"
-        },
-        {
-          "ttp_id": "T1102",
-          "name": "Web Service"
         },
         {
           "ttp_id": "T1560",
@@ -9871,6 +9931,10 @@
           "name": "Server Software Component"
         },
         {
+          "ttp_id": "T1102",
+          "name": "Web Service"
+        },
+        {
           "ttp_id": "T1071",
           "name": "Application Layer Protocol"
         },
@@ -9885,10 +9949,6 @@
         {
           "ttp_id": "T1033",
           "name": "System Owner/User Discovery"
-        },
-        {
-          "ttp_id": "T1083",
-          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1001",
@@ -9915,8 +9975,8 @@
           "name": "Remote Services"
         },
         {
-          "ttp_id": "T1571",
-          "name": "Non-Standard Port"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1140",
@@ -9935,16 +9995,16 @@
           "name": "Native API"
         },
         {
-          "ttp_id": "T1553",
-          "name": "Subvert Trust Controls"
+          "ttp_id": "T1614",
+          "name": "System Location Discovery"
         },
         {
           "ttp_id": "T1082",
           "name": "System Information Discovery"
         },
         {
-          "ttp_id": "T1614",
-          "name": "System Location Discovery"
+          "ttp_id": "T1553",
+          "name": "Subvert Trust Controls"
         },
         {
           "ttp_id": "T1213",
@@ -9959,12 +10019,12 @@
           "name": "Domain Trust Discovery"
         },
         {
-          "ttp_id": "T1029",
-          "name": "Scheduled Transfer"
+          "ttp_id": "T1204",
+          "name": "User Execution"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
+          "ttp_id": "T1029",
+          "name": "Scheduled Transfer"
         }
       ]
     },
@@ -10051,16 +10111,16 @@
           "name": "Phishing"
         },
         {
-          "ttp_id": "T1059",
-          "name": "Command and Scripting Interpreter"
+          "ttp_id": "T1036",
+          "name": "Masquerading"
         },
         {
           "ttp_id": "T1027",
           "name": "Obfuscated Files or Information"
         },
         {
-          "ttp_id": "T1036",
-          "name": "Masquerading"
+          "ttp_id": "T1059",
+          "name": "Command and Scripting Interpreter"
         },
         {
           "ttp_id": "T1020",
@@ -10083,10 +10143,6 @@
           "name": "Encrypted Channel"
         },
         {
-          "ttp_id": "T1071",
-          "name": "Application Layer Protocol"
-        },
-        {
           "ttp_id": "T1104",
           "name": "Multi-Stage Channels"
         },
@@ -10097,6 +10153,10 @@
         {
           "ttp_id": "T1586",
           "name": "Compromise Accounts"
+        },
+        {
+          "ttp_id": "T1071",
+          "name": "Application Layer Protocol"
         },
         {
           "ttp_id": "T1213",
@@ -10451,14 +10511,14 @@
       "sentence_count": 107,
       "raw_attack_id_count": 17,
       "expected_count": 9,
-      "predicted_count": 16,
+      "predicted_count": 19,
       "metrics": {
         "tp": 2,
-        "fp": 14,
+        "fp": 17,
         "fn": 7,
-        "precision": 0.125,
+        "precision": 0.105263,
         "recall": 0.222222,
-        "f1": 0.16
+        "f1": 0.142857
       },
       "matches": [
         "T1068",
@@ -10474,7 +10534,9 @@
         "T1560"
       ],
       "extra": [
+        "T1016",
         "T1021",
+        "T1027",
         "T1029",
         "T1049",
         "T1087",
@@ -10486,6 +10548,7 @@
         "T1531",
         "T1535",
         "T1550",
+        "T1564",
         "T1565",
         "T1587"
       ],
@@ -10534,8 +10597,20 @@
           "name": "Account Manipulation"
         },
         {
+          "ttp_id": "T1564",
+          "name": "Hide Artifacts"
+        },
+        {
           "ttp_id": "T1087",
           "name": "Account Discovery"
+        },
+        {
+          "ttp_id": "T1027",
+          "name": "Obfuscated Files or Information"
+        },
+        {
+          "ttp_id": "T1016",
+          "name": "System Network Configuration Discovery"
         },
         {
           "ttp_id": "T1021",
@@ -10573,16 +10648,17 @@
       "sentence_count": 222,
       "raw_attack_id_count": 63,
       "expected_count": 44,
-      "predicted_count": 39,
+      "predicted_count": 37,
       "metrics": {
         "tp": 21,
-        "fp": 18,
+        "fp": 16,
         "fn": 23,
-        "precision": 0.538462,
+        "precision": 0.567568,
         "recall": 0.477273,
-        "f1": 0.506024
+        "f1": 0.518519
       },
       "matches": [
+        "T1016",
         "T1027",
         "T1036",
         "T1041",
@@ -10602,14 +10678,12 @@
         "T1547",
         "T1548",
         "T1566",
-        "T1574",
         "T1588"
       ],
       "missing": [
         "T1001",
         "T1003",
         "T1005",
-        "T1016",
         "T1033",
         "T1057",
         "T1087",
@@ -10627,6 +10701,7 @@
         "T1560",
         "T1562",
         "T1572",
+        "T1574",
         "T1583",
         "T1589"
       ],
@@ -10638,12 +10713,10 @@
         "T1070",
         "T1119",
         "T1129",
-        "T1190",
         "T1213",
         "T1482",
         "T1528",
         "T1531",
-        "T1546",
         "T1553",
         "T1568",
         "T1573",
@@ -10734,16 +10807,8 @@
           "name": "User Execution"
         },
         {
-          "ttp_id": "T1574",
-          "name": "Hijack Execution Flow"
-        },
-        {
           "ttp_id": "T1129",
           "name": "Shared Modules"
-        },
-        {
-          "ttp_id": "T1059",
-          "name": "Command and Scripting Interpreter"
         },
         {
           "ttp_id": "T1547",
@@ -10752,6 +10817,10 @@
         {
           "ttp_id": "T1568",
           "name": "Dynamic Resolution"
+        },
+        {
+          "ttp_id": "T1059",
+          "name": "Command and Scripting Interpreter"
         },
         {
           "ttp_id": "T1218",
@@ -10764,10 +10833,6 @@
         {
           "ttp_id": "T1048",
           "name": "Exfiltration Over Alternative Protocol"
-        },
-        {
-          "ttp_id": "T1546",
-          "name": "Event Triggered Execution"
         },
         {
           "ttp_id": "T1070",
@@ -10788,10 +10853,6 @@
         {
           "ttp_id": "T1119",
           "name": "Automated Collection"
-        },
-        {
-          "ttp_id": "T1190",
-          "name": "Exploit Public-Facing Application"
         },
         {
           "ttp_id": "T1047",
@@ -10852,6 +10913,10 @@
         {
           "ttp_id": "T1008",
           "name": "Fallback Channels"
+        },
+        {
+          "ttp_id": "T1016",
+          "name": "System Network Configuration Discovery"
         }
       ]
     },
@@ -10861,14 +10926,14 @@
       "sentence_count": 100,
       "raw_attack_id_count": 15,
       "expected_count": 15,
-      "predicted_count": 12,
+      "predicted_count": 13,
       "metrics": {
         "tp": 4,
-        "fp": 8,
+        "fp": 9,
         "fn": 11,
-        "precision": 0.333333,
+        "precision": 0.307692,
         "recall": 0.266667,
-        "f1": 0.296296
+        "f1": 0.285714
       },
       "matches": [
         "T1090",
@@ -10891,6 +10956,7 @@
       ],
       "extra": [
         "T1027",
+        "T1482",
         "T1498",
         "T1528",
         "T1531",
@@ -10958,6 +11024,10 @@
           "name": "Steal Application Access Token"
         },
         {
+          "ttp_id": "T1482",
+          "name": "Domain Trust Discovery"
+        },
+        {
           "ttp_id": "T1565",
           "name": "Data Manipulation"
         },
@@ -10973,14 +11043,14 @@
       "sentence_count": 289,
       "raw_attack_id_count": 27,
       "expected_count": 13,
-      "predicted_count": 34,
+      "predicted_count": 35,
       "metrics": {
         "tp": 7,
-        "fp": 27,
+        "fp": 28,
         "fn": 6,
-        "precision": 0.205882,
+        "precision": 0.2,
         "recall": 0.538462,
-        "f1": 0.297872
+        "f1": 0.291667
       },
       "matches": [
         "T1003",
@@ -11025,6 +11095,7 @@
         "T1565",
         "T1580",
         "T1587",
+        "T1606",
         "T1610",
         "T1622"
       ],
@@ -11085,8 +11156,8 @@
           "name": "Internal Spearphishing"
         },
         {
-          "ttp_id": "T1078",
-          "name": "Valid Accounts"
+          "ttp_id": "T1606",
+          "name": "Forge Web Credentials"
         },
         {
           "ttp_id": "T1003",
@@ -11167,6 +11238,10 @@
         {
           "ttp_id": "T1553",
           "name": "Subvert Trust Controls"
+        },
+        {
+          "ttp_id": "T1078",
+          "name": "Valid Accounts"
         },
         {
           "ttp_id": "T1622",
@@ -11336,17 +11411,16 @@
       "sentence_count": 223,
       "raw_attack_id_count": 22,
       "expected_count": 14,
-      "predicted_count": 22,
+      "predicted_count": 23,
       "metrics": {
-        "tp": 3,
-        "fp": 19,
-        "fn": 11,
-        "precision": 0.136364,
-        "recall": 0.214286,
-        "f1": 0.166667
+        "tp": 2,
+        "fp": 21,
+        "fn": 12,
+        "precision": 0.086957,
+        "recall": 0.142857,
+        "f1": 0.108108
       },
       "matches": [
-        "T1190",
         "T1558",
         "T1587"
       ],
@@ -11356,6 +11430,7 @@
         "T1078",
         "T1090",
         "T1110",
+        "T1190",
         "T1195",
         "T1212",
         "T1552",
@@ -11370,11 +11445,13 @@
         "T1087",
         "T1119",
         "T1124",
+        "T1200",
         "T1201",
         "T1213",
         "T1480",
         "T1482",
         "T1498",
+        "T1505",
         "T1528",
         "T1531",
         "T1535",
@@ -11418,8 +11495,12 @@
           "name": "Automated Collection"
         },
         {
-          "ttp_id": "T1190",
-          "name": "Exploit Public-Facing Application"
+          "ttp_id": "T1200",
+          "name": "Hardware Additions"
+        },
+        {
+          "ttp_id": "T1505",
+          "name": "Server Software Component"
         },
         {
           "ttp_id": "T1584",
@@ -11528,7 +11609,6 @@
         "T1119",
         "T1124",
         "T1140",
-        "T1203",
         "T1213",
         "T1218",
         "T1219",
@@ -11543,6 +11623,7 @@
         "T1552",
         "T1565",
         "T1571",
+        "T1584",
         "T1585",
         "T1587",
         "T1608"
@@ -11601,8 +11682,8 @@
           "name": "Defacement"
         },
         {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
+          "ttp_id": "T1584",
+          "name": "Compromise Infrastructure"
         },
         {
           "ttp_id": "T1059",
@@ -11843,10 +11924,10 @@
       "sentence_count": 149,
       "raw_attack_id_count": 3,
       "expected_count": 2,
-      "predicted_count": 19,
+      "predicted_count": 20,
       "metrics": {
         "tp": 0,
-        "fp": 19,
+        "fp": 20,
         "fn": 2,
         "precision": 0.0,
         "recall": 0.0,
@@ -11876,6 +11957,7 @@
         "T1560",
         "T1565",
         "T1587",
+        "T1593",
         "T1602"
       ],
       "expected": [
@@ -11950,6 +12032,10 @@
         {
           "ttp_id": "T1526",
           "name": "Cloud Service Discovery"
+        },
+        {
+          "ttp_id": "T1593",
+          "name": "Search Open Websites/Domains"
         },
         {
           "ttp_id": "T1602",
@@ -12235,18 +12321,19 @@
       "sentence_count": 120,
       "raw_attack_id_count": 80,
       "expected_count": 41,
-      "predicted_count": 17,
+      "predicted_count": 19,
       "metrics": {
-        "tp": 3,
-        "fp": 14,
-        "fn": 38,
-        "precision": 0.176471,
-        "recall": 0.073171,
-        "f1": 0.103448
+        "tp": 4,
+        "fp": 15,
+        "fn": 37,
+        "precision": 0.210526,
+        "recall": 0.097561,
+        "f1": 0.133333
       },
       "matches": [
         "T1059",
         "T1090",
+        "T1114",
         "T1190"
       ],
       "missing": [
@@ -12264,7 +12351,6 @@
         "T1078",
         "T1083",
         "T1105",
-        "T1114",
         "T1115",
         "T1133",
         "T1140",
@@ -12292,6 +12378,7 @@
       "extra": [
         "T1049",
         "T1119",
+        "T1205",
         "T1213",
         "T1482",
         "T1531",
@@ -12402,6 +12489,10 @@
           "name": "Subvert Trust Controls"
         },
         {
+          "ttp_id": "T1205",
+          "name": "Traffic Signaling"
+        },
+        {
           "ttp_id": "T1593",
           "name": "Search Open Websites/Domains"
         },
@@ -12416,6 +12507,10 @@
         {
           "ttp_id": "T1059",
           "name": "Command and Scripting Interpreter"
+        },
+        {
+          "ttp_id": "T1114",
+          "name": "Email Collection"
         }
       ]
     },
@@ -12425,10 +12520,10 @@
       "sentence_count": 180,
       "raw_attack_id_count": 5,
       "expected_count": 4,
-      "predicted_count": 21,
+      "predicted_count": 22,
       "metrics": {
         "tp": 0,
-        "fp": 21,
+        "fp": 22,
         "fn": 4,
         "precision": 0.0,
         "recall": 0.0,
@@ -12451,6 +12546,7 @@
         "T1102",
         "T1119",
         "T1137",
+        "T1205",
         "T1213",
         "T1218",
         "T1480",
@@ -12458,9 +12554,9 @@
         "T1531",
         "T1550",
         "T1560",
-        "T1583",
         "T1587",
         "T1588",
+        "T1598",
         "T1610",
         "T1614"
       ],
@@ -12500,16 +12596,16 @@
           "name": "System Network Configuration Discovery"
         },
         {
+          "ttp_id": "T1598",
+          "name": "Phishing for Information"
+        },
+        {
           "ttp_id": "T1610",
           "name": "Deploy Container"
         },
         {
           "ttp_id": "T1218",
           "name": "System Binary Proxy Execution"
-        },
-        {
-          "ttp_id": "T1583",
-          "name": "Acquire Infrastructure"
         },
         {
           "ttp_id": "T1029",
@@ -12554,6 +12650,10 @@
         {
           "ttp_id": "T1213",
           "name": "Data from Information Repositories"
+        },
+        {
+          "ttp_id": "T1205",
+          "name": "Traffic Signaling"
         }
       ]
     },
@@ -12880,14 +12980,14 @@
       "sentence_count": 484,
       "raw_attack_id_count": 33,
       "expected_count": 16,
-      "predicted_count": 35,
+      "predicted_count": 39,
       "metrics": {
         "tp": 13,
-        "fp": 22,
+        "fp": 26,
         "fn": 3,
-        "precision": 0.371429,
+        "precision": 0.333333,
         "recall": 0.8125,
-        "f1": 0.509804
+        "f1": 0.472727
       },
       "matches": [
         "T1027",
@@ -12916,6 +13016,7 @@
         "T1036",
         "T1049",
         "T1070",
+        "T1083",
         "T1102",
         "T1104",
         "T1119",
@@ -12923,8 +13024,11 @@
         "T1189",
         "T1195",
         "T1203",
+        "T1213",
         "T1218",
         "T1222",
+        "T1480",
+        "T1485",
         "T1518",
         "T1531",
         "T1553",
@@ -13001,6 +13105,10 @@
           "name": "System Binary Proxy Execution"
         },
         {
+          "ttp_id": "T1070",
+          "name": "Indicator Removal on Host"
+        },
+        {
           "ttp_id": "T1020",
           "name": "Automated Exfiltration"
         },
@@ -13019,6 +13127,14 @@
         {
           "ttp_id": "T1140",
           "name": "Deobfuscate/Decode Files or Information"
+        },
+        {
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
+        },
+        {
+          "ttp_id": "T1480",
+          "name": "Execution Guardrails"
         },
         {
           "ttp_id": "T1027",
@@ -13045,10 +13161,6 @@
           "name": "Compromise Client Software Binary"
         },
         {
-          "ttp_id": "T1070",
-          "name": "Indicator Removal on Host"
-        },
-        {
           "ttp_id": "T1222",
           "name": "File and Directory Permissions Modification"
         },
@@ -13067,6 +13179,10 @@
         {
           "ttp_id": "T1518",
           "name": "Software Discovery"
+        },
+        {
+          "ttp_id": "T1485",
+          "name": "Data Destruction"
         },
         {
           "ttp_id": "T1566",
@@ -13089,6 +13205,10 @@
           "name": "System Network Connections Discovery"
         },
         {
+          "ttp_id": "T1213",
+          "name": "Data from Information Repositories"
+        },
+        {
           "ttp_id": "T1591",
           "name": "Gather Victim Org Information"
         }
@@ -13100,10 +13220,10 @@
       "sentence_count": 246,
       "raw_attack_id_count": 8,
       "expected_count": 2,
-      "predicted_count": 27,
+      "predicted_count": 28,
       "metrics": {
         "tp": 0,
-        "fp": 27,
+        "fp": 28,
         "fn": 2,
         "precision": 0.0,
         "recall": 0.0,
@@ -13125,6 +13245,7 @@
         "T1057",
         "T1069",
         "T1087",
+        "T1106",
         "T1114",
         "T1119",
         "T1199",
@@ -13203,6 +13324,10 @@
         {
           "ttp_id": "T1018",
           "name": "Remote System Discovery"
+        },
+        {
+          "ttp_id": "T1106",
+          "name": "Native API"
         },
         {
           "ttp_id": "T1114",
@@ -13775,24 +13900,24 @@
       "expected_count": 13,
       "predicted_count": 46,
       "metrics": {
-        "tp": 5,
-        "fp": 41,
-        "fn": 8,
-        "precision": 0.108696,
-        "recall": 0.384615,
-        "f1": 0.169492
+        "tp": 4,
+        "fp": 42,
+        "fn": 9,
+        "precision": 0.086957,
+        "recall": 0.307692,
+        "f1": 0.135593
       },
       "matches": [
         "T1016",
         "T1036",
         "T1059",
-        "T1083",
-        "T1106"
+        "T1083"
       ],
       "missing": [
         "T1047",
         "T1055",
         "T1057",
+        "T1106",
         "T1134",
         "T1486",
         "T1489",
@@ -13812,16 +13937,17 @@
         "T1069",
         "T1070",
         "T1071",
+        "T1074",
         "T1082",
         "T1087",
         "T1105",
         "T1119",
         "T1124",
         "T1129",
+        "T1136",
         "T1140",
         "T1204",
         "T1213",
-        "T1218",
         "T1482",
         "T1498",
         "T1518",
@@ -13891,20 +14017,12 @@
           "name": "Masquerading"
         },
         {
-          "ttp_id": "T1218",
-          "name": "System Binary Proxy Execution"
+          "ttp_id": "T1074",
+          "name": "Data Staged"
         },
         {
-          "ttp_id": "T1547",
-          "name": "Boot or Logon Autostart Execution"
-        },
-        {
-          "ttp_id": "T1106",
-          "name": "Native API"
-        },
-        {
-          "ttp_id": "T1012",
-          "name": "Query Registry"
+          "ttp_id": "T1083",
+          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1129",
@@ -13913,10 +14031,6 @@
         {
           "ttp_id": "T1082",
           "name": "System Information Discovery"
-        },
-        {
-          "ttp_id": "T1083",
-          "name": "File and Directory Discovery"
         },
         {
           "ttp_id": "T1070",
@@ -13971,6 +14085,10 @@
           "name": "Scheduled Transfer"
         },
         {
+          "ttp_id": "T1012",
+          "name": "Query Registry"
+        },
+        {
           "ttp_id": "T1204",
           "name": "User Execution"
         },
@@ -13981,6 +14099,10 @@
         {
           "ttp_id": "T1598",
           "name": "Phishing for Information"
+        },
+        {
+          "ttp_id": "T1547",
+          "name": "Boot or Logon Autostart Execution"
         },
         {
           "ttp_id": "T1568",
@@ -14013,6 +14135,10 @@
         {
           "ttp_id": "T1571",
           "name": "Non-Standard Port"
+        },
+        {
+          "ttp_id": "T1136",
+          "name": "Create Account"
         },
         {
           "ttp_id": "T1612",
@@ -14092,7 +14218,7 @@
         "T1007",
         "T1020",
         "T1027",
-        "T1041",
+        "T1036",
         "T1048",
         "T1049",
         "T1057",
@@ -14271,6 +14397,10 @@
           "name": "Input Capture"
         },
         {
+          "ttp_id": "T1036",
+          "name": "Masquerading"
+        },
+        {
           "ttp_id": "T1090",
           "name": "Proxy"
         },
@@ -14297,10 +14427,6 @@
         {
           "ttp_id": "T1083",
           "name": "File and Directory Discovery"
-        },
-        {
-          "ttp_id": "T1041",
-          "name": "Exfiltration Over C2 Channel"
         },
         {
           "ttp_id": "T1005",
@@ -14360,13 +14486,13 @@
         "T1190"
       ],
       "extra": [
+        "T1003",
         "T1021",
         "T1049",
-        "T1083",
         "T1087",
+        "T1102",
         "T1134",
         "T1136",
-        "T1203",
         "T1213",
         "T1480",
         "T1482",
@@ -14375,10 +14501,10 @@
         "T1531",
         "T1550",
         "T1553",
-        "T1565",
         "T1569",
         "T1583",
-        "T1587"
+        "T1587",
+        "T1614"
       ],
       "expected": [
         "T1078",
@@ -14409,16 +14535,8 @@
           "name": "Use Alternate Authentication Material"
         },
         {
-          "ttp_id": "T1565",
-          "name": "Data Manipulation"
-        },
-        {
           "ttp_id": "T1583",
           "name": "Acquire Infrastructure"
-        },
-        {
-          "ttp_id": "T1203",
-          "name": "Exploitation for Client Execution"
         },
         {
           "ttp_id": "T1021",
@@ -14427,6 +14545,10 @@
         {
           "ttp_id": "T1569",
           "name": "System Services"
+        },
+        {
+          "ttp_id": "T1614",
+          "name": "System Location Discovery"
         },
         {
           "ttp_id": "T1049",
@@ -14439,6 +14561,10 @@
         {
           "ttp_id": "T1480",
           "name": "Execution Guardrails"
+        },
+        {
+          "ttp_id": "T1003",
+          "name": "OS Credential Dumping"
         },
         {
           "ttp_id": "T1087",
@@ -14457,8 +14583,8 @@
           "name": "Steal Application Access Token"
         },
         {
-          "ttp_id": "T1083",
-          "name": "File and Directory Discovery"
+          "ttp_id": "T1102",
+          "name": "Web Service"
         },
         {
           "ttp_id": "T1553",
@@ -14586,10 +14712,6 @@
           "name": "Execution Guardrails"
         },
         {
-          "ttp_id": "T1531",
-          "name": "Account Access Removal"
-        },
-        {
           "ttp_id": "T1615",
           "name": "Group Policy Discovery"
         },
@@ -14600,6 +14722,10 @@
         {
           "ttp_id": "T1482",
           "name": "Domain Trust Discovery"
+        },
+        {
+          "ttp_id": "T1531",
+          "name": "Account Access Removal"
         },
         {
           "ttp_id": "T1498",
@@ -14613,14 +14739,14 @@
       "sentence_count": 71,
       "raw_attack_id_count": 14,
       "expected_count": 12,
-      "predicted_count": 10,
+      "predicted_count": 11,
       "metrics": {
         "tp": 3,
-        "fp": 7,
+        "fp": 8,
         "fn": 9,
-        "precision": 0.3,
+        "precision": 0.272727,
         "recall": 0.25,
-        "f1": 0.272727
+        "f1": 0.26087
       },
       "matches": [
         "T1204",
@@ -14642,6 +14768,7 @@
         "T1036",
         "T1059",
         "T1119",
+        "T1205",
         "T1480",
         "T1498",
         "T1531",
@@ -14685,6 +14812,10 @@
         {
           "ttp_id": "T1036",
           "name": "Masquerading"
+        },
+        {
+          "ttp_id": "T1205",
+          "name": "Traffic Signaling"
         },
         {
           "ttp_id": "T1480",
@@ -14840,14 +14971,14 @@
       "sentence_count": 112,
       "raw_attack_id_count": 22,
       "expected_count": 6,
-      "predicted_count": 13,
+      "predicted_count": 14,
       "metrics": {
         "tp": 4,
-        "fp": 9,
+        "fp": 10,
         "fn": 2,
-        "precision": 0.307692,
+        "precision": 0.285714,
         "recall": 0.666667,
-        "f1": 0.421053
+        "f1": 0.4
       },
       "matches": [
         "T1071",
@@ -14863,6 +14994,7 @@
         "T1016",
         "T1049",
         "T1069",
+        "T1205",
         "T1213",
         "T1565",
         "T1571",
@@ -14928,6 +15060,10 @@
           "name": "Data Manipulation"
         },
         {
+          "ttp_id": "T1205",
+          "name": "Traffic Signaling"
+        },
+        {
           "ttp_id": "T1213",
           "name": "Data from Information Repositories"
         }
@@ -14941,8 +15077,8 @@
       "articles_with_no_predictions": 0,
       "mean_expected_per_article": 17.207792,
       "median_expected_per_article": 13.0,
-      "mean_predicted_per_article": 27.428571,
-      "median_predicted_per_article": 24.0,
+      "mean_predicted_per_article": 27.805195,
+      "median_predicted_per_article": 25.0,
       "mean_sentences_per_article": 190.025974,
       "median_sentences_per_article": 165.0
     },
@@ -14950,7 +15086,7 @@
       {
         "ttp_id": "T1133",
         "name": "External Remote Services",
-        "count": 30
+        "count": 29
       },
       {
         "ttp_id": "T1078",
@@ -14965,7 +15101,12 @@
       {
         "ttp_id": "T1190",
         "name": "Exploit Public-Facing Application",
-        "count": 20
+        "count": 22
+      },
+      {
+        "ttp_id": "T1003",
+        "name": "OS Credential Dumping",
+        "count": 19
       },
       {
         "ttp_id": "T1110",
@@ -14973,19 +15114,14 @@
         "count": 18
       },
       {
-        "ttp_id": "T1003",
-        "name": "OS Credential Dumping",
-        "count": 18
-      },
-      {
         "ttp_id": "T1055",
         "name": "Process Injection",
-        "count": 15
+        "count": 16
       },
       {
         "ttp_id": "T1105",
         "name": "Ingress Tool Transfer",
-        "count": 15
+        "count": 16
       },
       {
         "ttp_id": "T1555",
@@ -15003,18 +15139,18 @@
         "count": 14
       },
       {
+        "ttp_id": "T1486",
+        "name": "Data Encrypted for Impact",
+        "count": 13
+      },
+      {
         "ttp_id": "T1046",
         "name": "Network Service Discovery",
-        "count": 13
+        "count": 12
       },
       {
         "ttp_id": "T1016",
         "name": "System Network Configuration Discovery",
-        "count": 13
-      },
-      {
-        "ttp_id": "T1486",
-        "name": "Data Encrypted for Impact",
         "count": 12
       },
       {
@@ -15037,7 +15173,7 @@
       {
         "ttp_id": "T1213",
         "name": "Data from Information Repositories",
-        "count": 60
+        "count": 62
       },
       {
         "ttp_id": "T1119",
@@ -15045,14 +15181,14 @@
         "count": 56
       },
       {
-        "ttp_id": "T1553",
-        "name": "Subvert Trust Controls",
+        "ttp_id": "T1482",
+        "name": "Domain Trust Discovery",
         "count": 46
       },
       {
-        "ttp_id": "T1482",
-        "name": "Domain Trust Discovery",
-        "count": 45
+        "ttp_id": "T1553",
+        "name": "Subvert Trust Controls",
+        "count": 46
       },
       {
         "ttp_id": "T1498",
@@ -15062,21 +15198,21 @@
       {
         "ttp_id": "T1029",
         "name": "Scheduled Transfer",
-        "count": 35
+        "count": 34
       },
       {
         "ttp_id": "T1565",
         "name": "Data Manipulation",
-        "count": 34
-      },
-      {
-        "ttp_id": "T1480",
-        "name": "Execution Guardrails",
         "count": 32
       },
       {
         "ttp_id": "T1027",
         "name": "Obfuscated Files or Information",
+        "count": 32
+      },
+      {
+        "ttp_id": "T1480",
+        "name": "Execution Guardrails",
         "count": 31
       },
       {
@@ -15095,9 +15231,9 @@
         "count": 29
       },
       {
-        "ttp_id": "T1020",
-        "name": "Automated Exfiltration",
-        "count": 28
+        "ttp_id": "T1140",
+        "name": "Deobfuscate/Decode Files or Information",
+        "count": 29
       }
     ],
     "top_matches": [
@@ -15109,7 +15245,17 @@
       {
         "ttp_id": "T1190",
         "name": "Exploit Public-Facing Application",
-        "count": 20
+        "count": 18
+      },
+      {
+        "ttp_id": "T1070",
+        "name": "Indicator Removal on Host",
+        "count": 17
+      },
+      {
+        "ttp_id": "T1083",
+        "name": "File and Directory Discovery",
+        "count": 16
       },
       {
         "ttp_id": "T1027",
@@ -15122,29 +15268,14 @@
         "count": 15
       },
       {
-        "ttp_id": "T1070",
-        "name": "Indicator Removal on Host",
-        "count": 15
-      },
-      {
-        "ttp_id": "T1083",
-        "name": "File and Directory Discovery",
-        "count": 14
-      },
-      {
-        "ttp_id": "T1021",
-        "name": "Remote Services",
-        "count": 14
-      },
-      {
         "ttp_id": "T1090",
         "name": "Proxy",
         "count": 13
       },
       {
-        "ttp_id": "T1003",
-        "name": "OS Credential Dumping",
-        "count": 11
+        "ttp_id": "T1021",
+        "name": "Remote Services",
+        "count": 13
       },
       {
         "ttp_id": "T1071",
@@ -15152,8 +15283,8 @@
         "count": 11
       },
       {
-        "ttp_id": "T1486",
-        "name": "Data Encrypted for Impact",
+        "ttp_id": "T1036",
+        "name": "Masquerading",
         "count": 11
       },
       {
@@ -15162,13 +15293,18 @@
         "count": 11
       },
       {
-        "ttp_id": "T1036",
-        "name": "Masquerading",
+        "ttp_id": "T1018",
+        "name": "Remote System Discovery",
+        "count": 11
+      },
+      {
+        "ttp_id": "T1003",
+        "name": "OS Credential Dumping",
         "count": 10
       },
       {
-        "ttp_id": "T1018",
-        "name": "Remote System Discovery",
+        "ttp_id": "T1486",
+        "name": "Data Encrypted for Impact",
         "count": 10
       },
       {
@@ -15191,28 +15327,16 @@
         "f1": 0.682353
       },
       {
-        "index": 67,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-048a",
-        "expected_count": 16,
-        "predicted_count": 35,
-        "tp": 13,
-        "fp": 22,
-        "fn": 3,
-        "precision": 0.371429,
-        "recall": 0.8125,
-        "f1": 0.509804
-      },
-      {
         "index": 53,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-055a",
         "expected_count": 44,
-        "predicted_count": 39,
+        "predicted_count": 37,
         "tp": 21,
-        "fp": 18,
+        "fp": 16,
         "fn": 23,
-        "precision": 0.538462,
+        "precision": 0.567568,
         "recall": 0.477273,
-        "f1": 0.506024
+        "f1": 0.518519
       },
       {
         "index": 22,
@@ -15251,16 +15375,16 @@
         "f1": 0.478873
       },
       {
-        "index": 3,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
-        "expected_count": 52,
-        "predicted_count": 64,
-        "tp": 27,
-        "fp": 37,
-        "fn": 25,
-        "precision": 0.421875,
-        "recall": 0.519231,
-        "f1": 0.465517
+        "index": 67,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-048a",
+        "expected_count": 16,
+        "predicted_count": 39,
+        "tp": 13,
+        "fp": 26,
+        "fn": 3,
+        "precision": 0.333333,
+        "recall": 0.8125,
+        "f1": 0.472727
       },
       {
         "index": 9,
@@ -15275,28 +15399,16 @@
         "f1": 0.461538
       },
       {
-        "index": 0,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
-        "expected_count": 35,
-        "predicted_count": 35,
-        "tp": 16,
-        "fp": 19,
-        "fn": 19,
-        "precision": 0.457143,
-        "recall": 0.457143,
-        "f1": 0.457143
-      },
-      {
-        "index": 27,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a",
-        "expected_count": 28,
-        "predicted_count": 34,
-        "tp": 14,
-        "fp": 20,
-        "fn": 14,
-        "precision": 0.411765,
+        "index": 3,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
+        "expected_count": 52,
+        "predicted_count": 63,
+        "tp": 26,
+        "fp": 37,
+        "fn": 26,
+        "precision": 0.412698,
         "recall": 0.5,
-        "f1": 0.451613
+        "f1": 0.452174
       },
       {
         "index": 33,
@@ -15311,18 +15423,6 @@
         "f1": 0.45
       },
       {
-        "index": 48,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-138b",
-        "expected_count": 13,
-        "predicted_count": 36,
-        "tp": 11,
-        "fp": 25,
-        "fn": 2,
-        "precision": 0.305556,
-        "recall": 0.846154,
-        "f1": 0.44898
-      },
-      {
         "index": 28,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-129a",
         "expected_count": 40,
@@ -15335,28 +15435,64 @@
         "f1": 0.444444
       },
       {
-        "index": 76,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-183a",
-        "expected_count": 6,
-        "predicted_count": 13,
-        "tp": 4,
-        "fp": 9,
-        "fn": 2,
-        "precision": 0.307692,
-        "recall": 0.666667,
-        "f1": 0.421053
+        "index": 27,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-136a",
+        "expected_count": 28,
+        "predicted_count": 35,
+        "tp": 14,
+        "fp": 21,
+        "fn": 14,
+        "precision": 0.4,
+        "recall": 0.5,
+        "f1": 0.444444
+      },
+      {
+        "index": 10,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-339a",
+        "expected_count": 18,
+        "predicted_count": 33,
+        "tp": 11,
+        "fp": 22,
+        "fn": 7,
+        "precision": 0.333333,
+        "recall": 0.611111,
+        "f1": 0.431373
       },
       {
         "index": 19,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-250a",
         "expected_count": 32,
-        "predicted_count": 32,
-        "tp": 13,
+        "predicted_count": 33,
+        "tp": 14,
         "fp": 19,
-        "fn": 19,
-        "precision": 0.40625,
-        "recall": 0.40625,
-        "f1": 0.40625
+        "fn": 18,
+        "precision": 0.424242,
+        "recall": 0.4375,
+        "f1": 0.430769
+      },
+      {
+        "index": 0,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060a",
+        "expected_count": 35,
+        "predicted_count": 35,
+        "tp": 15,
+        "fp": 20,
+        "fn": 20,
+        "precision": 0.428571,
+        "recall": 0.428571,
+        "f1": 0.428571
+      },
+      {
+        "index": 48,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-138b",
+        "expected_count": 13,
+        "predicted_count": 35,
+        "tp": 10,
+        "fp": 25,
+        "fn": 3,
+        "precision": 0.285714,
+        "recall": 0.769231,
+        "f1": 0.416667
       }
     ],
     "worst_articles": [
@@ -15376,9 +15512,9 @@
         "index": 64,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-148a",
         "expected_count": 4,
-        "predicted_count": 21,
+        "predicted_count": 22,
         "tp": 0,
-        "fp": 21,
+        "fp": 22,
         "fn": 4,
         "precision": 0.0,
         "recall": 0.0,
@@ -15388,9 +15524,9 @@
         "index": 29,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-108",
         "expected_count": 3,
-        "predicted_count": 22,
+        "predicted_count": 24,
         "tp": 0,
-        "fp": 22,
+        "fp": 24,
         "fn": 3,
         "precision": 0.0,
         "recall": 0.0,
@@ -15400,9 +15536,9 @@
         "index": 60,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-287a",
         "expected_count": 2,
-        "predicted_count": 19,
+        "predicted_count": 20,
         "tp": 0,
-        "fp": 19,
+        "fp": 20,
         "fn": 2,
         "precision": 0.0,
         "recall": 0.0,
@@ -15412,9 +15548,9 @@
         "index": 68,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-008a",
         "expected_count": 2,
-        "predicted_count": 27,
+        "predicted_count": 28,
         "tp": 0,
-        "fp": 27,
+        "fp": 28,
         "fn": 2,
         "precision": 0.0,
         "recall": 0.0,
@@ -15424,9 +15560,9 @@
         "index": 11,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a",
         "expected_count": 1,
-        "predicted_count": 11,
+        "predicted_count": 12,
         "tp": 0,
-        "fp": 11,
+        "fp": 12,
         "fn": 1,
         "precision": 0.0,
         "recall": 0.0,
@@ -15436,49 +15572,37 @@
         "index": 12,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-325a",
         "expected_count": 4,
-        "predicted_count": 36,
+        "predicted_count": 38,
         "tp": 1,
-        "fp": 35,
+        "fp": 37,
         "fn": 3,
-        "precision": 0.027778,
+        "precision": 0.026316,
         "recall": 0.25,
-        "f1": 0.05
-      },
-      {
-        "index": 5,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-353a",
-        "expected_count": 5,
-        "predicted_count": 19,
-        "tp": 1,
-        "fp": 18,
-        "fn": 4,
-        "precision": 0.052632,
-        "recall": 0.2,
-        "f1": 0.083333
+        "f1": 0.047619
       },
       {
         "index": 43,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-223a",
         "expected_count": 6,
-        "predicted_count": 17,
+        "predicted_count": 18,
         "tp": 1,
-        "fp": 16,
+        "fp": 17,
         "fn": 5,
-        "precision": 0.058824,
+        "precision": 0.055556,
         "recall": 0.166667,
-        "f1": 0.086957
+        "f1": 0.083333
       },
       {
-        "index": 63,
-        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200b",
-        "expected_count": 41,
-        "predicted_count": 17,
-        "tp": 3,
-        "fp": 14,
-        "fn": 38,
-        "precision": 0.176471,
-        "recall": 0.073171,
-        "f1": 0.103448
+        "index": 57,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-011a",
+        "expected_count": 14,
+        "predicted_count": 23,
+        "tp": 2,
+        "fp": 21,
+        "fn": 12,
+        "precision": 0.086957,
+        "recall": 0.142857,
+        "f1": 0.108108
       },
       {
         "index": 51,
@@ -15496,13 +15620,13 @@
         "index": 34,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-040a",
         "expected_count": 7,
-        "predicted_count": 26,
+        "predicted_count": 27,
         "tp": 2,
-        "fp": 24,
+        "fp": 25,
         "fn": 5,
-        "precision": 0.076923,
+        "precision": 0.074074,
         "recall": 0.285714,
-        "f1": 0.121212
+        "f1": 0.117647
       },
       {
         "index": 62,
@@ -15529,27 +15653,39 @@
         "f1": 0.129032
       },
       {
+        "index": 63,
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-200b",
+        "expected_count": 41,
+        "predicted_count": 19,
+        "tp": 4,
+        "fp": 15,
+        "fn": 37,
+        "precision": 0.210526,
+        "recall": 0.097561,
+        "f1": 0.133333
+      },
+      {
         "index": 15,
         "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-284a",
         "expected_count": 6,
-        "predicted_count": 23,
+        "predicted_count": 24,
         "tp": 2,
-        "fp": 21,
+        "fp": 22,
         "fn": 4,
-        "precision": 0.086957,
+        "precision": 0.083333,
         "recall": 0.333333,
-        "f1": 0.137931
+        "f1": 0.133333
       }
     ]
   },
   "artifacts": {
-    "json": "results/cisa/cisa_benchmark_full.json",
-    "markdown_report": "results/cisa/cisa_benchmark_full_report.md",
-    "rows_csv": "results/cisa/cisa_benchmark_full_rows.csv",
-    "chart_metrics": "results/cisa/charts_full/metrics_overview.svg",
-    "chart_confusion": "results/cisa/charts_full/confusion_counts.svg",
-    "chart_top_missing": "results/cisa/charts_full/top_missing.svg",
-    "chart_top_extra": "results/cisa/charts_full/top_extra.svg",
-    "chart_f1_distribution": "results/cisa/charts_full/article_f1_distribution.svg"
+    "json": "results/cisa/cisa_benchmark_full_ioc.json",
+    "markdown_report": "results/cisa/cisa_benchmark_full_ioc_report.md",
+    "rows_csv": "results/cisa/cisa_benchmark_full_ioc_rows.csv",
+    "chart_metrics": "results/cisa/charts_ioc/metrics_overview.svg",
+    "chart_confusion": "results/cisa/charts_ioc/confusion_counts.svg",
+    "chart_top_missing": "results/cisa/charts_ioc/top_missing.svg",
+    "chart_top_extra": "results/cisa/charts_ioc/top_extra.svg",
+    "chart_f1_distribution": "results/cisa/charts_ioc/article_f1_distribution.svg"
   }
 }

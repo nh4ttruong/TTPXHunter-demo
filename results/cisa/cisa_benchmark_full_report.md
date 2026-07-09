@@ -10,9 +10,18 @@
 | Articles evaluated | 77 / 77 |
 | Text field | `clean` |
 | Expected mode | `model-label-space` |
+<<<<<<< HEAD
 | Model | `nanda-rani/TTPXHunter` |
 | Revision | `not pinned` |
 | Threshold | 0.644 |
+=======
+| Preprocess | `none` |
+| Section filter | `none` |
+| Model | `nanda-rani/TTPXHunter` |
+| Revision | `not pinned` |
+| Threshold | 0.644 |
+| Top-k | none |
+>>>>>>> feat/demo
 | Device | `mps` |
 | Batch size | 32 |
 
@@ -28,9 +37,19 @@
 | Micro precision | 0.244318 |
 | Micro recall | 0.389434 |
 | Micro F1 | 0.300262 |
+<<<<<<< HEAD
 | Macro precision | 0.210597 |
 | Macro recall | 0.342080 |
 | Macro F1 | 0.242000 |
+=======
+| Article macro precision | 0.210597 |
+| Article macro recall | 0.342080 |
+| Article macro F1 | 0.242000 |
+| Label macro precision | 0.243915 |
+| Label macro recall | 0.304644 |
+| Label macro F1 | 0.221389 |
+| Hamming loss | 0.161833 |
+>>>>>>> feat/demo
 
 ## Charts
 

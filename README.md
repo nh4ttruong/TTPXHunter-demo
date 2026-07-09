@@ -84,11 +84,25 @@ python -m ttpxhunter infer \
 
 Useful inference options include `--threshold`, `--model-id`, `--revision`, `--device`, `--batch-size`, `--label-dict`, and `--ttpid2name`.
 
+<<<<<<< HEAD
+=======
+Long-running CISA and training commands print progress logs to stderr by
+default. Use `--quiet` to suppress progress logs while keeping final summaries
+and requested output files.
+
+>>>>>>> feat/demo
 ## CISA Benchmark Workflow
 
 The CISA workflow targets Zenodo record `14659512` / DOI
 `10.5281/zenodo.14659512`.
 
+<<<<<<< HEAD
+=======
+Sơ đồ workflow tổng quát của TTPXHunter, dựa trên paper và source reproduce
+trong repo này, nằm ở
+[`docs/TTPXHUNTER_WORKFLOW.md`](docs/TTPXHUNTER_WORKFLOW.md).
+
+>>>>>>> feat/demo
 For the full explanation of how CISA advisories become benchmark inputs and
 ground-truth labels, see
 [`docs/CISA_BENCHMARK_WORKFLOW.md`](docs/CISA_BENCHMARK_WORKFLOW.md).
@@ -157,6 +171,105 @@ micro_f1=0.300262
 
 The benchmark report can include SVG charts for metrics, TP/FP/FN counts, top missing techniques, top extra predictions, and article-level F1 distribution. Those charts are generated without extra plotting dependencies.
 
+<<<<<<< HEAD
+=======
+## CISA Improvement Experiments
+
+The default CISA benchmark is intentionally kept backward-compatible. Improvement
+experiments are opt-in so the original baseline, paper-style preprocessing, and
+advanced retraining runs can be compared side by side.
+
+Paper-style IOC replacement:
+
+```bash
+python -m ttpxhunter cisa benchmark \
+  datasets/cisa/CISA-crawl-rt-ttp-ct.json \
+  --preprocess paper-ioc \
+  --output results/cisa/cisa_benchmark_full_ioc.json \
+  --report-md results/cisa/cisa_benchmark_full_ioc_report.md \
+  --rows-csv results/cisa/cisa_benchmark_full_ioc_rows.csv \
+  --charts-dir results/cisa/charts_ioc
+```
+
+IOC replacement plus CISA attack-narrative section filtering:
+
+```bash
+python -m ttpxhunter cisa benchmark \
+  datasets/cisa/CISA-crawl-rt-ttp-ct.json \
+  --preprocess paper-ioc \
+  --section-filter cisa-attack-narrative \
+  --include-evidence \
+  --output results/cisa/cisa_benchmark_full_ioc_filtered.json \
+  --report-md results/cisa/cisa_benchmark_full_ioc_filtered_report.md \
+  --rows-csv results/cisa/cisa_benchmark_full_ioc_filtered_rows.csv \
+  --charts-dir results/cisa/charts_ioc_filtered
+```
+
+The `--include-evidence` option stores sentence-level support for each predicted
+TTP, including max confidence, support sentence count, and an example sentence.
+
+Run threshold/top-k calibration without re-running the model for every
+configuration:
+
+```bash
+python -m ttpxhunter cisa sweep \
+  datasets/cisa/CISA-crawl-rt-ttp-ct.json \
+  --preprocess paper-ioc \
+  --section-filter cisa-attack-narrative \
+  --thresholds 0.644,0.70,0.75,0.80,0.85,0.90 \
+  --top-k-values none,10,15,20,25,30 \
+  --output results/cisa/cisa_sweep_ioc_filtered.csv \
+  --report-md results/cisa/cisa_sweep_ioc_filtered.md
+```
+
+Generate a compact comparison report for the demo:
+
+```bash
+python -m ttpxhunter cisa gap-report \
+  datasets/cisa/CISA-crawl-rt-ttp-ct.json \
+  --output-md results/cisa/cisa_gap_comparison.md
+```
+
+This writes comparison SVG charts next to the Markdown report by default:
+micro precision/recall/F1, FP/FN counts, hamming loss, and expected vs predicted
+label volume. Use `--charts-dir` to choose a different chart directory.
+
+The improved CISA reports include the original micro metrics, article macro
+metrics, label macro metrics, hamming loss, top missing labels, and top extra
+predictions. This matches the demo framing: CISA is an external robustness
+benchmark, not the original paper benchmark.
+
+Advanced retraining experiment:
+
+```bash
+python -m ttpxhunter train sentence-classifier \
+  --dataset 'datasets/mitre_attack/MITRE_ATT&CK_Dataset.csv' \
+  --output-dir model_artifacts/retrained/ttpxhunter-mitre-continued
+```
+
+For a cheap training-path smoke test:
+
+```bash
+python -m ttpxhunter train sentence-classifier \
+  --limit-per-class 2 \
+  --epochs 1 \
+  --output-dir /tmp/ttpxhunter-smoke-train
+```
+
+After training, compare the original and retrained models:
+
+```bash
+python -m ttpxhunter cisa compare-models \
+  datasets/cisa/CISA-crawl-rt-ttp-ct.json \
+  --retrained-model model_artifacts/retrained/ttpxhunter-mitre-continued \
+  --output-md results/cisa/cisa_model_comparison.md
+```
+
+The advanced retrain run is optional. It is meant to answer whether continued
+fine-tuning improves CISA performance compared with preprocessing-only changes;
+it should not be presented as training on CISA.
+
+>>>>>>> feat/demo
 ## Testing
 
 Fast tests avoid loading the Hugging Face model:
@@ -168,7 +281,11 @@ python -m pytest
 Latest local run:
 
 ```text
+<<<<<<< HEAD
 18 passed, 1 skipped in 0.49s
+=======
+27 passed, 1 skipped in 0.25s
+>>>>>>> feat/demo
 ```
 
 The full SharpPanda reproduction test downloads and runs the Hugging Face model:

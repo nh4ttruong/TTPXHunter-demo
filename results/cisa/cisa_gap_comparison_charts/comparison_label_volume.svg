@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="470" viewBox="0 0 1050 470" role="img" aria-label="Expected / Predicted Label Volume">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Expected / Predicted Label Volume</text>
+<line x1="80" y1="82.00" x2="1014" y2="82.00" class="grid" />
+<line x1="80" y1="144.00" x2="1014" y2="144.00" class="grid" />
+<line x1="80" y1="206.00" x2="1014" y2="206.00" class="grid" />
+<line x1="80" y1="268.00" x2="1014" y2="268.00" class="grid" />
+<line x1="80" y1="330.00" x2="1014" y2="330.00" class="grid" />
+<line x1="80" y1="82" x2="80" y2="330" class="axis" />
+<line x1="80" y1="330" x2="1010" y2="330" class="axis" />
+<rect x="80.00" y="176.52" width="141.83" height="153.48" rx="4" fill="#4c956c" />
+<text x="150.92" y="169.52" text-anchor="middle" class="value">1325</text>
+<rect x="226.83" y="85.36" width="141.83" height="244.64" rx="4" fill="#2f6f9f" />
+<text x="297.75" y="78.36" text-anchor="middle" class="value">2112</text>
+<text x="224.33" y="394" text-anchor="middle" class="label">baseline</text>
+<rect x="402.67" y="176.52" width="141.83" height="153.48" rx="4" fill="#4c956c" />
+<text x="473.58" y="169.52" text-anchor="middle" class="value">1325</text>
+<rect x="549.50" y="82.00" width="141.83" height="248.00" rx="4" fill="#2f6f9f" />
+<text x="620.42" y="75.00" text-anchor="middle" class="value">2141</text>
+<text x="547.00" y="394" text-anchor="middle" class="label">paper-ioc</text>
+<rect x="725.33" y="176.52" width="141.83" height="153.48" rx="4" fill="#4c956c" />
+<text x="796.25" y="169.52" text-anchor="middle" class="value">1325</text>
+<rect x="872.17" y="172.58" width="141.83" height="157.42" rx="4" fill="#2f6f9f" />
+<text x="943.08" y="165.58" text-anchor="middle" class="value">1359</text>
+<text x="869.67" y="394" text-anchor="middle" class="label">ioc+filter</text>
+<rect x="80" y="50" width="14" height="14" rx="3" fill="#4c956c" />
+<text x="100" y="62" class="label">Expected</text>
+<rect x="225" y="50" width="14" height="14" rx="3" fill="#2f6f9f" />
+<text x="245" y="62" class="label">Predicted</text>
+</svg>

@@ -8,6 +8,11 @@ src/ttpxhunter/cisa_reporting.py
 src/ttpxhunter/cli.py
 src/ttpxhunter/paths.py
 src/ttpxhunter/pipeline.py
+<<<<<<< HEAD
+=======
+src/ttpxhunter/preprocessing.py
+src/ttpxhunter/training.py
+>>>>>>> feat/demo
 src/ttpxhunter.egg-info/PKG-INFO
 src/ttpxhunter.egg-info/SOURCES.txt
 src/ttpxhunter.egg-info/dependency_links.txt
@@ -18,4 +23,11 @@ tests/test_cisa_dataset.py
 tests/test_cisa_reporting.py
 tests/test_cli.py
 tests/test_integration_sharppanda.py
+<<<<<<< HEAD
 tests/test_pipeline.py
+=======
+tests/test_pipeline.py
+tests/test_prediction_aggregation.py
+tests/test_preprocessing.py
+tests/test_training.py
+>>>>>>> feat/demo

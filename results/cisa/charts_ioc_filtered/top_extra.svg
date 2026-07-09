@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="612" viewBox="0 0 1000 612" role="img" aria-label="Most Frequent Extra Predictions">
+<style>
+  .title { font: 700 24px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f2933; }
+  .label { font: 500 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334e68; }
+  .value { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #102a43; }
+  .grid { stroke: #d9e2ec; stroke-width: 1; }
+  .axis { stroke: #9fb3c8; stroke-width: 1.2; }
+</style>
+<rect width="100%" height="100%" fill="#ffffff" />
+<text x="24" y="38" class="title">Most Frequent Extra Predictions</text>
+<text x="24" y="97" class="label">T1587 - Develop Capabilities</text>
+<rect x="250" y="79" width="640.00" height="24" rx="4" fill="#2f6f9f" />
+<text x="900.00" y="97" class="value">69</text>
+<title>T1587 count 69</title>
+<text x="24" y="139" class="label">T1119 - Automated Collection</text>
+<rect x="250" y="121" width="371.01" height="24" rx="4" fill="#2f6f9f" />
+<text x="631.01" y="139" class="value">40</text>
+<title>T1119 count 40</title>
+<text x="24" y="181" class="label">T1213 - Data from Information Repos...</text>
+<rect x="250" y="163" width="259.71" height="24" rx="4" fill="#2f6f9f" />
+<text x="519.71" y="181" class="value">28</text>
+<title>T1213 count 28</title>
+<text x="24" y="223" class="label">T1020 - Automated Exfiltration</text>
+<rect x="250" y="205" width="250.43" height="24" rx="4" fill="#2f6f9f" />
+<text x="510.43" y="223" class="value">27</text>
+<title>T1020 count 27</title>
+<text x="24" y="265" class="label">T1531 - Account Access Removal</text>
+<rect x="250" y="247" width="250.43" height="24" rx="4" fill="#2f6f9f" />
+<text x="510.43" y="265" class="value">27</text>
+<title>T1531 count 27</title>
+<text x="24" y="307" class="label">T1588 - Obtain Capabilities</text>
+<rect x="250" y="289" width="241.16" height="24" rx="4" fill="#2f6f9f" />
+<text x="501.16" y="307" class="value">26</text>
+<title>T1588 count 26</title>
+<text x="24" y="349" class="label">T1027 - Obfuscated Files or Informa...</text>
+<rect x="250" y="331" width="231.88" height="24" rx="4" fill="#2f6f9f" />
+<text x="491.88" y="349" class="value">25</text>
+<title>T1027 count 25</title>
+<text x="24" y="391" class="label">T1565 - Data Manipulation</text>
+<rect x="250" y="373" width="204.06" height="24" rx="4" fill="#2f6f9f" />
+<text x="464.06" y="391" class="value">22</text>
+<title>T1565 count 22</title>
+<text x="24" y="433" class="label">T1586 - Compromise Accounts</text>
+<rect x="250" y="415" width="148.41" height="24" rx="4" fill="#2f6f9f" />
+<text x="408.41" y="433" class="value">16</text>
+<title>T1586 count 16</title>
+<text x="24" y="475" class="label">T1049 - System Network Connections ...</text>
+<rect x="250" y="457" width="139.13" height="24" rx="4" fill="#2f6f9f" />
+<text x="399.13" y="475" class="value">15</text>
+<title>T1049 count 15</title>
+<text x="24" y="517" class="label">T1568 - Dynamic Resolution</text>
+<rect x="250" y="499" width="129.86" height="24" rx="4" fill="#2f6f9f" />
+<text x="389.86" y="517" class="value">14</text>
+<title>T1568 count 14</title>
+<text x="24" y="559" class="label">T1083 - File and Directory Discovery</text>
+<rect x="250" y="541" width="129.86" height="24" rx="4" fill="#2f6f9f" />
+<text x="389.86" y="559" class="value">14</text>
+<title>T1083 count 14</title>
+</svg>
