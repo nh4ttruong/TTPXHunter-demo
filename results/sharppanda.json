@@ -83,12 +83,6 @@
     }
   ],
   "report": "examples/reports/SharpPanda_APT_Campaign_Expands_its_Arsenal_Targeting_G20_Nations.txt",
-<<<<<<< HEAD
-=======
-  "preprocess": "none",
-  "section_filter": "none",
-  "top_k": null,
->>>>>>> feat/demo
   "comparison": {
     "actual_count": 19,
     "expected_count": 19,
