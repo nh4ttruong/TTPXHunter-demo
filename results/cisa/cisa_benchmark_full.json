@@ -8,27 +8,17 @@
     "offset": 0,
     "limit": null,
     "text_field": "clean",
-<<<<<<< HEAD
-    "expected_mode": "model-label-space"
-=======
     "expected_mode": "model-label-space",
     "preprocess": "none",
     "section_filter": "none"
->>>>>>> feat/demo
   },
   "model": {
     "model_id": "nanda-rani/TTPXHunter",
     "revision": null,
-<<<<<<< HEAD
-    "threshold": 0.644,
-    "device": "mps",
-    "batch_size": 32
-=======
     "device": "mps",
     "batch_size": 32,
     "threshold": 0.644,
     "top_k": null
->>>>>>> feat/demo
   },
   "aggregate": {
     "article_count": 77,
@@ -48,22 +38,6 @@
       "recall": 0.34208,
       "f1": 0.242
     },
-<<<<<<< HEAD
-=======
-    "article_macro": {
-      "precision": 0.210597,
-      "recall": 0.34208,
-      "f1": 0.242
-    },
-    "label_macro": {
-      "precision": 0.243915,
-      "recall": 0.304644,
-      "f1": 0.221389,
-      "label_count": 193
-    },
-    "hamming_loss": 0.161833,
-    "label_space_size": 193,
->>>>>>> feat/demo
     "expected_count": 1325,
     "predicted_count": 2112
   },
