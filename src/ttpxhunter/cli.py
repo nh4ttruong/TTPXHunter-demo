@@ -2,10 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
-<<<<<<< HEAD
-=======
 import sys
->>>>>>> feat/demo
 from pathlib import Path
 from typing import Sequence
 
@@ -15,14 +12,6 @@ from .cisa_dataset import (
     load_cisa_articles,
     summarize_dataset,
 )
-<<<<<<< HEAD
-from .cisa_pipeline import run_cisa_benchmark
-from .cisa_reporting import (
-    enhance_benchmark_payload,
-    write_benchmark_charts,
-    write_benchmark_markdown,
-    write_benchmark_rows_csv,
-=======
 from .cisa_pipeline import run_cisa_benchmark, run_cisa_sweep
 from .cisa_reporting import (
     enhance_benchmark_payload,
@@ -33,7 +22,6 @@ from .cisa_reporting import (
     write_benchmark_rows_csv,
     write_sweep_markdown,
     write_sweep_rows_csv,
->>>>>>> feat/demo
 )
 
 from .pipeline import (
@@ -47,15 +35,12 @@ from .pipeline import (
     process_text_file_for_attack_patterns,
     results_to_payload,
 )
-<<<<<<< HEAD
-=======
 from .reporting import write_inference_markdown
 from .training import (
     DEFAULT_MITRE_SENTENCE_DATASET,
     DEFAULT_RETRAINED_MODEL_DIR,
     train_sentence_classifier,
 )
->>>>>>> feat/demo
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -70,16 +55,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     infer.add_argument("report", help="Path to a finished cyber threat report text file.")
     _add_inference_options(infer)
-<<<<<<< HEAD
-    infer.add_argument("--compare", default=None, help="Expected JSON payload to compare against.")
-    infer.add_argument("--output", default=None, help="Optional path to save the JSON payload.")
-=======
     _add_text_processing_options(infer)
     infer.add_argument("--top-k", type=int, default=None)
     infer.add_argument("--compare", default=None, help="Expected JSON payload to compare against.")
     infer.add_argument("--output", default=None, help="Optional path to save the JSON payload.")
     infer.add_argument("--report-md", default=None, help="Optional path to save a Markdown report.")
->>>>>>> feat/demo
     infer.add_argument("--json", action="store_true", help="Print machine-readable JSON.")
     infer.set_defaults(handler=_run_infer)
 
@@ -108,10 +88,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     benchmark.add_argument("dataset", nargs="?", default=str(CISA_DEFAULT_JSON))
     _add_inference_options(benchmark)
-<<<<<<< HEAD
-=======
     _add_text_processing_options(benchmark)
->>>>>>> feat/demo
     benchmark.add_argument("--limit", type=int, default=None)
     benchmark.add_argument("--offset", type=int, default=0)
     benchmark.add_argument(
@@ -120,21 +97,13 @@ def build_parser() -> argparse.ArgumentParser:
         default="model-label-space",
     )
     benchmark.add_argument("--text-field", choices=["clean", "raw"], default="clean")
-<<<<<<< HEAD
-=======
     benchmark.add_argument("--top-k", type=int, default=None)
     benchmark.add_argument("--include-evidence", action="store_true")
->>>>>>> feat/demo
     benchmark.add_argument("--output", default=None)
     benchmark.add_argument("--report-md", default=None)
     benchmark.add_argument("--rows-csv", default=None)
     benchmark.add_argument("--charts-dir", default=None)
     benchmark.add_argument("--top-n", type=int, default=15)
-<<<<<<< HEAD
-    benchmark.add_argument("--json", action="store_true")
-    benchmark.set_defaults(handler=_run_cisa_benchmark)
-
-=======
     _add_progress_options(benchmark)
     benchmark.add_argument("--json", action="store_true")
     benchmark.set_defaults(handler=_run_cisa_benchmark)
@@ -245,7 +214,6 @@ def build_parser() -> argparse.ArgumentParser:
     sentence_classifier.add_argument("--json", action="store_true")
     sentence_classifier.set_defaults(handler=_run_train_sentence_classifier)
 
->>>>>>> feat/demo
     return parser
 
 
@@ -253,17 +221,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     return build_parser().parse_args(argv)
 
 
-<<<<<<< HEAD
-def _add_inference_options(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
-=======
 def _add_inference_options(
     parser: argparse.ArgumentParser,
     include_threshold: bool = True,
 ) -> None:
     if include_threshold:
         parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
->>>>>>> feat/demo
     parser.add_argument("--model-id", default=DEFAULT_MODEL_ID)
     parser.add_argument("--revision", default=None)
     parser.add_argument("--device", default=None, help="Torch device, e.g. cpu, cuda, or mps.")
@@ -278,8 +241,6 @@ def _add_inference_options(
     )
 
 
-<<<<<<< HEAD
-=======
 def _add_text_processing_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--preprocess", choices=["none", "paper-ioc"], default="none")
     parser.add_argument(
@@ -297,7 +258,6 @@ def _add_progress_options(parser: argparse.ArgumentParser) -> None:
     )
 
 
->>>>>>> feat/demo
 def _run_infer(args: argparse.Namespace) -> None:
     results = process_text_file_for_attack_patterns(
         report_path=args.report,
@@ -309,12 +269,9 @@ def _run_infer(args: argparse.Namespace) -> None:
         device=args.device,
         order=args.order,
         batch_size=args.batch_size,
-<<<<<<< HEAD
-=======
         preprocess=args.preprocess,
         section_filter=args.section_filter,
         top_k=args.top_k,
->>>>>>> feat/demo
     )
     payload = results_to_payload(
         results,
@@ -324,12 +281,9 @@ def _run_infer(args: argparse.Namespace) -> None:
         revision=args.revision,
         order=args.order,
     )
-<<<<<<< HEAD
-=======
     payload["preprocess"] = args.preprocess
     payload["section_filter"] = args.section_filter
     payload["top_k"] = args.top_k
->>>>>>> feat/demo
 
     if args.compare:
         expected = load_expected_results(args.compare)
@@ -337,11 +291,8 @@ def _run_infer(args: argparse.Namespace) -> None:
 
     if args.output:
         _write_json(payload, args.output)
-<<<<<<< HEAD
-=======
     if args.report_md:
         write_inference_markdown(payload, args.report_md)
->>>>>>> feat/demo
 
     if args.json:
         print(json.dumps(payload, indent=2))
@@ -377,10 +328,7 @@ def _run_cisa_describe(args: argparse.Namespace) -> None:
 
 
 def _run_cisa_benchmark(args: argparse.Namespace) -> None:
-<<<<<<< HEAD
-=======
     progress_callback = _progress_callback(args.quiet)
->>>>>>> feat/demo
     payload = run_cisa_benchmark(
         dataset_path=args.dataset,
         threshold=args.threshold,
@@ -395,14 +343,11 @@ def _run_cisa_benchmark(args: argparse.Namespace) -> None:
         offset=args.offset,
         expected_mode=args.expected_mode,
         text_field=args.text_field,
-<<<<<<< HEAD
-=======
         preprocess=args.preprocess,
         section_filter=args.section_filter,
         top_k=args.top_k,
         include_evidence=args.include_evidence,
         progress_callback=progress_callback,
->>>>>>> feat/demo
     )
     payload = enhance_benchmark_payload(payload, top_n=args.top_n)
     payload["artifacts"] = {}
@@ -426,8 +371,6 @@ def _run_cisa_benchmark(args: argparse.Namespace) -> None:
     _emit_cisa_payload(payload, as_json=args.json)
 
 
-<<<<<<< HEAD
-=======
 def _run_cisa_sweep(args: argparse.Namespace) -> None:
     progress_callback = _progress_callback(args.quiet)
     payload = run_cisa_sweep(
@@ -624,7 +567,6 @@ def _run_train_sentence_classifier(args: argparse.Namespace) -> None:
         )
 
 
->>>>>>> feat/demo
 def _write_json(payload: dict, path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -637,8 +579,6 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
         print(json.dumps(payload, indent=2))
         return
 
-<<<<<<< HEAD
-=======
     if "sweep_rows" in payload:
         rows = sorted(payload["sweep_rows"], key=lambda row: row["micro_f1"], reverse=True)
         print("CISA threshold/top-k sweep")
@@ -673,7 +613,6 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
                 print(f"    {label}: {path}")
         return
 
->>>>>>> feat/demo
     if "aggregate" in payload:
         dataset = payload["dataset"]
         model = payload["model"]
@@ -704,8 +643,6 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
             f"  Macro: precision={macro['precision']:.6f} "
             f"recall={macro['recall']:.6f} f1={macro['f1']:.6f}"
         )
-<<<<<<< HEAD
-=======
         label_macro = aggregate.get("label_macro")
         if label_macro:
             print(
@@ -714,7 +651,6 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
             )
         if "hamming_loss" in aggregate:
             print(f"  Hamming loss: {aggregate['hamming_loss']:.6f}")
->>>>>>> feat/demo
         if quality:
             print(
                 f"  Articles: exact={quality['exact_match_articles']} "
@@ -743,8 +679,6 @@ def _emit_cisa_payload(payload: dict, as_json: bool = False) -> None:
         print(f"{key}: {value}")
 
 
-<<<<<<< HEAD
-=======
 def _parse_float_list(value: str) -> list[float]:
     return [float(item.strip()) for item in value.split(",") if item.strip()]
 
@@ -797,7 +731,6 @@ def _progress_callback(quiet: bool):
     return emit
 
 
->>>>>>> feat/demo
 def main(argv: Sequence[str] | None = None) -> None:
     args = parse_args(argv)
     args.handler(args)

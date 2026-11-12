@@ -1,9 +1,6 @@
 from __future__ import annotations
 
-<<<<<<< HEAD
-=======
 from collections.abc import Callable
->>>>>>> feat/demo
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any, Literal, Sequence
@@ -24,18 +21,6 @@ from .pipeline import (
     DEFAULT_MODEL_ID,
     DEFAULT_THRESHOLD,
     DEFAULT_TTPID2NAME,
-<<<<<<< HEAD
-    TTPResult,
-    extract_ttp_from_sentences_with_model,
-    load_label_space,
-    load_pickle,
-    load_model_and_tokenizer,
-    text_to_sentences,
-)
-
-ExpectedMode = Literal["model-label-space", "all-base"]
-TextField = Literal["clean", "raw"]
-=======
     TTPEvidence,
     TTPResult,
     aggregate_prediction_evidence,
@@ -50,7 +35,6 @@ from .preprocessing import PreprocessMode, SectionFilterMode
 ExpectedMode = Literal["model-label-space", "all-base"]
 TextField = Literal["clean", "raw"]
 ProgressCallback = Callable[[str], None]
->>>>>>> feat/demo
 
 
 def run_cisa_benchmark(
@@ -67,8 +51,6 @@ def run_cisa_benchmark(
     offset: int = 0,
     expected_mode: ExpectedMode = "model-label-space",
     text_field: TextField = "clean",
-<<<<<<< HEAD
-=======
     preprocess: PreprocessMode = "none",
     section_filter: SectionFilterMode = "none",
     top_k: int | None = None,
@@ -202,34 +184,22 @@ def build_cisa_prediction_cache(
     preprocess: PreprocessMode = "none",
     section_filter: SectionFilterMode = "none",
     progress_callback: ProgressCallback | None = None,
->>>>>>> feat/demo
 ) -> dict[str, Any]:
     articles = load_cisa_articles(dataset_path)
     selected = articles[offset : offset + limit if limit is not None else None]
     label_space = load_label_space(label_dict_path)
     expected_label_space = label_space if expected_mode == "model-label-space" else None
 
-<<<<<<< HEAD
-=======
     if progress_callback:
         progress_callback(
             f"loading model={model_id} articles={len(selected)}/{len(articles)} "
             f"preprocess={preprocess} section_filter={section_filter}"
         )
->>>>>>> feat/demo
     model, tokenizer, resolved_device = load_model_and_tokenizer(
         model_id=model_id,
         revision=revision,
         device=device,
     )
-<<<<<<< HEAD
-
-    rows: list[dict[str, Any]] = []
-    for article in selected:
-        text = article.raw_text if text_field == "raw" else article.clean_text
-        sentences = text_to_sentences(text)
-        predictions = extract_ttp_from_sentences_with_model(
-=======
     if progress_callback:
         progress_callback(f"model loaded on device={resolved_device}")
 
@@ -248,20 +218,12 @@ def build_cisa_prediction_cache(
                 f"sentences={len(sentences)} start"
             )
         sentence_predictions = predict_ttp_for_sentences_with_model(
->>>>>>> feat/demo
             sentences=sentences,
             model=model,
             tokenizer=tokenizer,
             device=resolved_device,
-<<<<<<< HEAD
-            threshold=threshold,
             label_dict_path=label_dict_path,
             ttpid2name_path=ttpid2name_path,
-            order=order,  # type: ignore[arg-type]
-=======
-            label_dict_path=label_dict_path,
-            ttpid2name_path=ttpid2name_path,
->>>>>>> feat/demo
             batch_size=batch_size,
         )
         expected_ids = normalize_attack_ids(
@@ -270,18 +232,6 @@ def build_cisa_prediction_cache(
             collapse_subtechniques=True,
             drop_tactics=True,
         )
-<<<<<<< HEAD
-        row = build_evaluation_row(
-            article=article,
-            predictions=predictions,
-            expected_ids=expected_ids,
-            sentence_count=len(sentences),
-        )
-        rows.append(row)
-
-    aggregate = aggregate_rows(rows)
-    technique_names = build_technique_name_map(rows, ttpid2name_path)
-=======
         if progress_callback:
             progress_callback(
                 f"article {position}/{total_selected} index={article.index} "
@@ -296,7 +246,6 @@ def build_cisa_prediction_cache(
             }
         )
 
->>>>>>> feat/demo
     return {
         "dataset": {
             "record_id": CISA_ZENODO_RECORD_ID,
@@ -308,21 +257,12 @@ def build_cisa_prediction_cache(
             "limit": limit,
             "text_field": text_field,
             "expected_mode": expected_mode,
-<<<<<<< HEAD
-=======
             "preprocess": preprocess,
             "section_filter": section_filter,
->>>>>>> feat/demo
         },
         "model": {
             "model_id": model_id,
             "revision": revision,
-<<<<<<< HEAD
-            "threshold": threshold,
-            "device": str(resolved_device),
-            "batch_size": batch_size,
-        },
-=======
             "device": str(resolved_device),
             "batch_size": batch_size,
         },
@@ -371,7 +311,6 @@ def evaluate_cisa_prediction_cache(
             "threshold": threshold,
             "top_k": top_k,
         },
->>>>>>> feat/demo
         "aggregate": aggregate,
         "technique_names": technique_names,
         "rows": rows,
@@ -383,20 +322,13 @@ def build_evaluation_row(
     predictions: Sequence[TTPResult],
     expected_ids: Sequence[str],
     sentence_count: int,
-<<<<<<< HEAD
-=======
     evidence: Sequence[TTPEvidence] | None = None,
->>>>>>> feat/demo
 ) -> dict[str, Any]:
     predicted_ids = sorted({prediction.ttp_id for prediction in predictions})
     metrics = metrics_for_sets(predicted_ids, expected_ids)
     expected_set = set(expected_ids)
     predicted_set = set(predicted_ids)
-<<<<<<< HEAD
-    return {
-=======
     row = {
->>>>>>> feat/demo
         "index": article.index,
         "url": article.url,
         "sentence_count": sentence_count,
@@ -410,11 +342,6 @@ def build_evaluation_row(
         "expected": list(expected_ids),
         "predicted": [asdict(prediction) for prediction in predictions],
     }
-<<<<<<< HEAD
-
-
-def aggregate_rows(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
-=======
     if evidence is not None:
         row["evidence"] = [asdict(item) for item in evidence]
     return row
@@ -424,7 +351,6 @@ def aggregate_rows(
     rows: Sequence[dict[str, Any]],
     label_space: Sequence[str] | None = None,
 ) -> dict[str, Any]:
->>>>>>> feat/demo
     total_tp = sum(int(row["metrics"]["tp"]) for row in rows)
     total_fp = sum(int(row["metrics"]["fp"]) for row in rows)
     total_fn = sum(int(row["metrics"]["fn"]) for row in rows)
@@ -444,15 +370,6 @@ def aggregate_rows(
         f1=micro_f1,
     )
 
-<<<<<<< HEAD
-    count = len(rows)
-    macro_precision = _mean(float(row["metrics"]["precision"]) for row in rows)
-    macro_recall = _mean(float(row["metrics"]["recall"]) for row in rows)
-    macro_f1 = _mean(float(row["metrics"]["f1"]) for row in rows)
-
-    return {
-        "article_count": count,
-=======
     article_macro_precision = _mean(float(row["metrics"]["precision"]) for row in rows)
     article_macro_recall = _mean(float(row["metrics"]["recall"]) for row in rows)
     article_macro_f1 = _mean(float(row["metrics"]["f1"]) for row in rows)
@@ -469,18 +386,10 @@ def aggregate_rows(
 
     return {
         "article_count": article_count,
->>>>>>> feat/demo
         "tp": total_tp,
         "fp": total_fp,
         "fn": total_fn,
         "micro": set_metrics_to_dict(micro),
-<<<<<<< HEAD
-        "macro": {
-            "precision": round(macro_precision, 6),
-            "recall": round(macro_recall, 6),
-            "f1": round(macro_f1, 6),
-        },
-=======
         "macro": article_macro,
         "article_macro": article_macro,
         "label_macro": label_macro,
@@ -489,7 +398,6 @@ def aggregate_rows(
             6,
         ),
         "label_space_size": label_space_size,
->>>>>>> feat/demo
         "expected_count": sum(int(row["expected_count"]) for row in rows),
         "predicted_count": sum(int(row["predicted_count"]) for row in rows),
     }
@@ -509,8 +417,6 @@ def build_technique_name_map(
     return {ttp_id: id_to_name[ttp_id] for ttp_id in sorted(ids) if ttp_id in id_to_name}
 
 
-<<<<<<< HEAD
-=======
 def _label_macro(rows: Sequence[dict[str, Any]], label_space: Sequence[str]) -> dict[str, Any]:
     per_label: list[SetMetrics] = []
     for label in label_space:
@@ -545,7 +451,6 @@ def _labels_from_rows(rows: Sequence[dict[str, Any]]) -> list[str]:
     return sorted(labels)
 
 
->>>>>>> feat/demo
 def _mean(values: Sequence[float] | Any) -> float:
     materialized = list(values)
     if not materialized:
@@ -553,12 +458,6 @@ def _mean(values: Sequence[float] | Any) -> float:
     return sum(materialized) / len(materialized)
 
 
-<<<<<<< HEAD
-def _safe_ratio(numerator: int, denominator: int) -> float:
-    if denominator == 0:
-        return 0.0
-    return numerator / denominator
-=======
 def _safe_ratio(numerator: int | float, denominator: int | float) -> float:
     if denominator == 0:
         return 0.0
@@ -569,4 +468,3 @@ def _display_top_k(top_k: int | None) -> str:
     if top_k is None:
         return "none"
     return str(top_k)
->>>>>>> feat/demo

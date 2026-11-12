@@ -9,10 +9,7 @@ from typing import TYPE_CHECKING, Any, Literal, Sequence
 import nltk
 
 from .paths import MODEL_ARTIFACTS_DIR
-<<<<<<< HEAD
-=======
 from .preprocessing import PreprocessMode, SectionFilterMode, prepare_text
->>>>>>> feat/demo
 
 if TYPE_CHECKING:
     import torch
@@ -32,8 +29,6 @@ class TTPResult:
     name: str
 
 
-<<<<<<< HEAD
-=======
 @dataclass(frozen=True)
 class SentenceLabelPrediction:
     sentence: str
@@ -59,7 +54,6 @@ class TTPEvidence:
     example_sentence: str
 
 
->>>>>>> feat/demo
 def ensure_sentence_tokenizer() -> None:
     """Ensure NLTK sentence tokenizer data exists for old and new NLTK builds."""
     try:
@@ -87,12 +81,6 @@ def remove_consecutive_newlines(text: str) -> str:
     return "".join(cleaned)
 
 
-<<<<<<< HEAD
-def text_to_sentences(text: str) -> list[str]:
-    ensure_sentence_tokenizer()
-
-    cleaned = remove_consecutive_newlines(text)
-=======
 def text_to_sentences(
     text: str,
     preprocess: PreprocessMode = "none",
@@ -102,7 +90,6 @@ def text_to_sentences(
 
     cleaned = prepare_text(text, preprocess=preprocess, section_filter=section_filter)
     cleaned = remove_consecutive_newlines(cleaned)
->>>>>>> feat/demo
     cleaned = cleaned.replace("\t", " ").replace("\\'", "'")
 
     sentences: list[str] = []
@@ -111,10 +98,6 @@ def text_to_sentences(
     return sentences
 
 
-<<<<<<< HEAD
-def report_to_sentences(report_path: str | Path) -> list[str]:
-    return text_to_sentences(Path(report_path).read_text(encoding="utf-8"))
-=======
 def report_to_sentences(
     report_path: str | Path,
     preprocess: PreprocessMode = "none",
@@ -125,7 +108,6 @@ def report_to_sentences(
         preprocess=preprocess,
         section_filter=section_filter,
     )
->>>>>>> feat/demo
 
 
 def resolve_device(device: str | None = None) -> torch.device:
@@ -161,11 +143,6 @@ def predict_labels(
     threshold: float = DEFAULT_THRESHOLD,
     batch_size: int = 16,
 ) -> list[str]:
-<<<<<<< HEAD
-    import torch
-
-    predictions: list[str] = []
-=======
     sentence_predictions = predict_sentence_labels(
         sentences=sentences,
         model=model,
@@ -190,7 +167,6 @@ def predict_sentence_labels(
     import torch
 
     predictions: list[SentenceLabelPrediction] = []
->>>>>>> feat/demo
 
     for start in range(0, len(sentences), batch_size):
         batch = list(sentences[start : start + batch_size])
@@ -211,11 +187,6 @@ def predict_sentence_labels(
         probabilities = torch.softmax(outputs.logits, dim=1)
         max_prob, predicted_class_indices = torch.max(probabilities, dim=1)
 
-<<<<<<< HEAD
-        for prob, class_idx in zip(max_prob, predicted_class_indices):
-            if prob.item() > threshold:
-                predictions.append(model.config.id2label[class_idx.item()])
-=======
         for sentence, prob, class_idx in zip(batch, max_prob, predicted_class_indices):
             predictions.append(
                 SentenceLabelPrediction(
@@ -224,7 +195,6 @@ def predict_sentence_labels(
                     confidence=float(prob.item()),
                 )
             )
->>>>>>> feat/demo
 
     return predictions
 
@@ -251,8 +221,6 @@ def predicted_labels_to_ttp_ids(
     return unique_ttp_ids(ttp_ids, order=order)
 
 
-<<<<<<< HEAD
-=======
 def sentence_labels_to_ttp_predictions(
     sentence_predictions: Sequence[SentenceLabelPrediction],
     label_dict_path: str | Path = DEFAULT_LABEL_DICT,
@@ -343,7 +311,6 @@ def aggregate_prediction_evidence(
     return evidence
 
 
->>>>>>> feat/demo
 def unique_ttp_ids(ttp_ids: Sequence[str], order: OrderMode = "first-seen") -> list[str]:
     if order == "legacy-set":
         return list(set(ttp_ids))
@@ -385,10 +352,7 @@ def extract_ttp_from_sentences(
     device: str | None = None,
     order: OrderMode = "first-seen",
     batch_size: int = 16,
-<<<<<<< HEAD
-=======
     top_k: int | None = None,
->>>>>>> feat/demo
 ) -> list[TTPResult]:
     model, tokenizer, resolved_device = load_model_and_tokenizer(
         model_id=model_id,
@@ -405,10 +369,7 @@ def extract_ttp_from_sentences(
         ttpid2name_path=ttpid2name_path,
         order=order,
         batch_size=batch_size,
-<<<<<<< HEAD
-=======
         top_k=top_k,
->>>>>>> feat/demo
     )
 
 
@@ -422,29 +383,13 @@ def extract_ttp_from_sentences_with_model(
     ttpid2name_path: str | Path = DEFAULT_TTPID2NAME,
     order: OrderMode = "first-seen",
     batch_size: int = 16,
-<<<<<<< HEAD
-) -> list[TTPResult]:
-    predicted_labels = predict_labels(
-=======
     top_k: int | None = None,
 ) -> list[TTPResult]:
     sentence_label_predictions = predict_sentence_labels(
->>>>>>> feat/demo
         sentences=sentences,
         model=model,
         tokenizer=tokenizer,
         device=device,
-<<<<<<< HEAD
-        threshold=threshold,
-        batch_size=batch_size,
-    )
-    ttp_ids = predicted_labels_to_ttp_ids(
-        predicted_labels=predicted_labels,
-        label_dict_path=label_dict_path,
-        order=order,
-    )
-    return translate_ttp_ids_to_names(ttp_ids, ttpid2name_path=ttpid2name_path)
-=======
         batch_size=batch_size,
     )
     sentence_ttp_predictions = sentence_labels_to_ttp_predictions(
@@ -481,7 +426,6 @@ def predict_ttp_for_sentences_with_model(
         label_dict_path=label_dict_path,
         ttpid2name_path=ttpid2name_path,
     )
->>>>>>> feat/demo
 
 
 def process_text_file_for_attack_patterns(
@@ -494,10 +438,6 @@ def process_text_file_for_attack_patterns(
     device: str | None = None,
     order: OrderMode = "first-seen",
     batch_size: int = 16,
-<<<<<<< HEAD
-) -> list[TTPResult]:
-    sentences = report_to_sentences(report_path)
-=======
     preprocess: PreprocessMode = "none",
     section_filter: SectionFilterMode = "none",
     top_k: int | None = None,
@@ -507,7 +447,6 @@ def process_text_file_for_attack_patterns(
         preprocess=preprocess,
         section_filter=section_filter,
     )
->>>>>>> feat/demo
     return extract_ttp_from_sentences(
         sentences=sentences,
         threshold=threshold,
@@ -518,10 +457,7 @@ def process_text_file_for_attack_patterns(
         device=device,
         order=order,
         batch_size=batch_size,
-<<<<<<< HEAD
-=======
         top_k=top_k,
->>>>>>> feat/demo
     )
 
 

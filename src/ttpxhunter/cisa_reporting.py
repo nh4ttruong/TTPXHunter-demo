@@ -120,8 +120,6 @@ def write_benchmark_rows_csv(payload: dict[str, Any], path: str | Path) -> Path:
     return output_path
 
 
-<<<<<<< HEAD
-=======
 def write_sweep_rows_csv(payload: dict[str, Any], path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -150,7 +148,6 @@ def write_sweep_rows_csv(payload: dict[str, Any], path: str | Path) -> Path:
     return output_path
 
 
->>>>>>> feat/demo
 def write_benchmark_markdown(payload: dict[str, Any], path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -159,8 +156,6 @@ def write_benchmark_markdown(payload: dict[str, Any], path: str | Path) -> Path:
     return output_path
 
 
-<<<<<<< HEAD
-=======
 def write_sweep_markdown(payload: dict[str, Any], path: str | Path) -> Path:
     output_path = Path(path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -214,7 +209,6 @@ def write_comparison_charts(
     return charts
 
 
->>>>>>> feat/demo
 def write_benchmark_charts(payload: dict[str, Any], charts_dir: str | Path) -> dict[str, Path]:
     output_dir = Path(charts_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -247,12 +241,8 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
     model = payload["model"]
     aggregate = payload["aggregate"]
     micro = aggregate["micro"]
-<<<<<<< HEAD
-    macro = aggregate["macro"]
-=======
     article_macro = aggregate.get("article_macro", aggregate["macro"])
     label_macro = aggregate.get("label_macro", {})
->>>>>>> feat/demo
     insights = payload["insights"]
     quality = insights["article_quality"]
 
@@ -269,18 +259,12 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
         f"| Articles evaluated | {dataset['evaluated_articles']} / {dataset['total_articles']} |",
         f"| Text field | `{dataset['text_field']}` |",
         f"| Expected mode | `{dataset['expected_mode']}` |",
-<<<<<<< HEAD
-        f"| Model | `{model['model_id']}` |",
-        f"| Revision | `{_display(model['revision'])}` |",
-        f"| Threshold | {model['threshold']} |",
-=======
         f"| Preprocess | `{dataset.get('preprocess', 'none')}` |",
         f"| Section filter | `{dataset.get('section_filter', 'none')}` |",
         f"| Model | `{model['model_id']}` |",
         f"| Revision | `{_display(model['revision'])}` |",
         f"| Threshold | {model['threshold']} |",
         f"| Top-k | {_display_none(model.get('top_k'))} |",
->>>>>>> feat/demo
         f"| Device | `{model['device']}` |",
         f"| Batch size | {model['batch_size']} |",
         "",
@@ -296,11 +280,6 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
         f"| Micro precision | {micro['precision']:.6f} |",
         f"| Micro recall | {micro['recall']:.6f} |",
         f"| Micro F1 | {micro['f1']:.6f} |",
-<<<<<<< HEAD
-        f"| Macro precision | {macro['precision']:.6f} |",
-        f"| Macro recall | {macro['recall']:.6f} |",
-        f"| Macro F1 | {macro['f1']:.6f} |",
-=======
         f"| Article macro precision | {article_macro['precision']:.6f} |",
         f"| Article macro recall | {article_macro['recall']:.6f} |",
         f"| Article macro F1 | {article_macro['f1']:.6f} |",
@@ -308,7 +287,6 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
         f"| Label macro recall | {label_macro.get('recall', 0.0):.6f} |",
         f"| Label macro F1 | {label_macro.get('f1', 0.0):.6f} |",
         f"| Hamming loss | {aggregate.get('hamming_loss', 0.0):.6f} |",
->>>>>>> feat/demo
         "",
         "## Charts",
         "",
@@ -367,8 +345,6 @@ def build_benchmark_markdown(payload: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-<<<<<<< HEAD
-=======
 def build_sweep_markdown(payload: dict[str, Any]) -> str:
     dataset = payload["dataset"]
     model = payload["model"]
@@ -456,7 +432,6 @@ def build_comparison_markdown(
     return "\n".join(lines)
 
 
->>>>>>> feat/demo
 def _top_terms(
     rows: Sequence[dict[str, Any]],
     key: str,
@@ -531,8 +506,6 @@ def _artifacts_table(artifacts: dict[str, str]) -> str:
     return "\n".join(lines)
 
 
-<<<<<<< HEAD
-=======
 def _sweep_table(items: Sequence[dict[str, Any]]) -> str:
     lines = [
         "| Rank | Threshold | Top-k | Micro P | Micro R | Micro F1 | Label Macro F1 | Hamming Loss | Predicted | FP | FN |",
@@ -552,7 +525,6 @@ def _sweep_table(items: Sequence[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
->>>>>>> feat/demo
 def _charts_markdown(artifacts: dict[str, str]) -> str:
     chart_keys = [
         ("chart_metrics", "Metrics overview"),
@@ -571,8 +543,6 @@ def _charts_markdown(artifacts: dict[str, str]) -> str:
     return "\n".join(lines).rstrip()
 
 
-<<<<<<< HEAD
-=======
 def _comparison_charts_markdown(artifacts: dict[str, str]) -> str:
     chart_keys = [
         ("chart_micro_metrics", "Micro precision / recall / F1"),
@@ -590,7 +560,6 @@ def _comparison_charts_markdown(artifacts: dict[str, str]) -> str:
     return "\n".join(lines).rstrip()
 
 
->>>>>>> feat/demo
 def _payload_with_markdown_relative_paths(
     payload: dict[str, Any],
     report_dir: Path,
@@ -605,24 +574,14 @@ def _payload_with_markdown_relative_paths(
 
 def _metrics_svg(payload: dict[str, Any]) -> str:
     micro = payload["aggregate"]["micro"]
-<<<<<<< HEAD
-    macro = payload["aggregate"]["macro"]
-=======
     article_macro = payload["aggregate"].get("article_macro", payload["aggregate"]["macro"])
     label_macro = payload["aggregate"].get("label_macro", {})
->>>>>>> feat/demo
     items = [
         ("Micro P", float(micro["precision"]), "#2f6f9f"),
         ("Micro R", float(micro["recall"]), "#4c956c"),
         ("Micro F1", float(micro["f1"]), "#d17a22"),
-<<<<<<< HEAD
-        ("Macro P", float(macro["precision"]), "#6f5aa7"),
-        ("Macro R", float(macro["recall"]), "#2a9d8f"),
-        ("Macro F1", float(macro["f1"]), "#c44536"),
-=======
         ("Article F1", float(article_macro["f1"]), "#6f5aa7"),
         ("Label F1", float(label_macro.get("f1", 0.0)), "#c44536"),
->>>>>>> feat/demo
     ]
     return _vertical_bar_svg("Precision / Recall / F1", items, max_value=1.0, value_suffix="")
 
@@ -665,8 +624,6 @@ def _f1_distribution_svg(payload: dict[str, Any]) -> str:
     return _vertical_bar_svg("Article F1 Distribution", items, max_value=max(bins) or 1, value_suffix="")
 
 
-<<<<<<< HEAD
-=======
 def _comparison_micro_metrics_svg(items: Sequence[dict[str, Any]]) -> str:
     rows: list[tuple[str, float, float, float]] = []
     for item in items:
@@ -737,7 +694,6 @@ def _comparison_label_volume_svg(items: Sequence[dict[str, Any]]) -> str:
     )
 
 
->>>>>>> feat/demo
 def _vertical_bar_svg(
     title: str,
     items: Sequence[tuple[str, float, str]],
@@ -779,8 +735,6 @@ def _vertical_bar_svg(
     return "\n".join(parts)
 
 
-<<<<<<< HEAD
-=======
 def _grouped_bar_svg(
     title: str,
     rows: Sequence[tuple[Any, ...]],
@@ -835,7 +789,6 @@ def _grouped_bar_svg(
     return "\n".join(parts)
 
 
->>>>>>> feat/demo
 def _horizontal_bar_svg(title: str, rows: Sequence[tuple[str, str, int]]) -> str:
     width = 1000
     row_height = 42
@@ -918,15 +871,12 @@ def _display(value: Any) -> str:
     return str(value)
 
 
-<<<<<<< HEAD
-=======
 def _display_none(value: Any) -> str:
     if value is None:
         return "none"
     return str(value)
 
 
->>>>>>> feat/demo
 def _mean(values: Sequence[int]) -> float:
     if not values:
         return 0.0
@@ -951,8 +901,6 @@ def _truncate(value: str, limit: int) -> str:
     if len(value) <= limit:
         return value
     return value[: limit - 1] + "..."
-<<<<<<< HEAD
-=======
 
 
 def _short_variant_label(value: str) -> str:
@@ -964,4 +912,3 @@ def _short_variant_label(value: str) -> str:
         "retrained baseline": "retrain base",
     }
     return replacements.get(value, _truncate(value, 18))
->>>>>>> feat/demo

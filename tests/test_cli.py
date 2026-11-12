@@ -2,9 +2,6 @@ from ttpxhunter.cli import parse_args
 
 
 def test_parse_infer_command() -> None:
-<<<<<<< HEAD
-    args = parse_args(["infer", "report.txt", "--batch-size", "4", "--json"])
-=======
     args = parse_args(
         [
             "infer",
@@ -16,15 +13,11 @@ def test_parse_infer_command() -> None:
             "--json",
         ]
     )
->>>>>>> feat/demo
 
     assert args.command == "infer"
     assert args.report == "report.txt"
     assert args.batch_size == 4
-<<<<<<< HEAD
-=======
     assert args.report_md == "report.md"
->>>>>>> feat/demo
     assert args.json is True
 
 
@@ -36,15 +29,12 @@ def test_parse_cisa_benchmark_command() -> None:
             "dataset.json",
             "--limit",
             "3",
-<<<<<<< HEAD
-=======
             "--preprocess",
             "paper-ioc",
             "--section-filter",
             "cisa-attack-narrative",
             "--include-evidence",
             "--quiet",
->>>>>>> feat/demo
             "--rows-csv",
             "rows.csv",
         ]
@@ -54,9 +44,6 @@ def test_parse_cisa_benchmark_command() -> None:
     assert args.cisa_command == "benchmark"
     assert args.dataset == "dataset.json"
     assert args.limit == 3
-<<<<<<< HEAD
-    assert args.rows_csv == "rows.csv"
-=======
     assert args.preprocess == "paper-ioc"
     assert args.section_filter == "cisa-attack-narrative"
     assert args.include_evidence is True
@@ -125,4 +112,3 @@ def test_parse_train_sentence_classifier_command() -> None:
     assert args.limit_per_class == 2
     assert args.epochs == 1
     assert args.quiet is True
->>>>>>> feat/demo

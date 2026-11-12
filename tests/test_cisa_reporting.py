@@ -1,17 +1,11 @@
 from ttpxhunter.cisa_reporting import (
     build_benchmark_markdown,
-<<<<<<< HEAD
-=======
     build_comparison_markdown,
->>>>>>> feat/demo
     enhance_benchmark_payload,
     write_benchmark_charts,
     write_benchmark_markdown,
     write_benchmark_rows_csv,
-<<<<<<< HEAD
-=======
     write_comparison_charts,
->>>>>>> feat/demo
 )
 
 
@@ -134,8 +128,6 @@ def test_write_benchmark_markdown_uses_report_relative_chart_paths(tmp_path) -> 
     write_benchmark_markdown(payload, report)
     markdown = report.read_text(encoding="utf-8")
     assert "![Metrics overview](charts/metrics_overview.svg)" in markdown
-<<<<<<< HEAD
-=======
 
 
 def test_comparison_markdown_can_embed_gap_charts(tmp_path) -> None:
@@ -162,4 +154,3 @@ def test_comparison_markdown_can_embed_gap_charts(tmp_path) -> None:
     )
     assert "## Charts" in markdown
     assert "![Micro precision / recall / F1](charts/comparison_micro_metrics.svg)" in markdown
->>>>>>> feat/demo
